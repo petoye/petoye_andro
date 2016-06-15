@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
  validates :auth_token, uniqueness: true
  validates :owner_type ,presence: true
+ #serialize :location, Array
  def generate_authentication_token!
     begin
       self.auth_token = Devise.friendly_token

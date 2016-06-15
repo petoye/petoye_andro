@@ -39,7 +39,8 @@ class Api::V1::UsersController < ApplicationController
     user.owner_type=params[:type]
     lat = params[:latitude]
     long = params[:longitude]
-    user.location = [lat,long]
+    user.location[0] = lat
+    user.location[1] = long
     if user.save
       render json: user, status: 200
     else
