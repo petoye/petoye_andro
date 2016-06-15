@@ -9567,3 +9567,404 @@ Can't verify CSRF token authenticity
   [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "location" = ?, "owner_type" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["location", "678.67.78-- []\n"], ["owner_type", "pet owner"], ["updated_at", "2016-06-15 09:46:28.377919"], ["id", 5]]
   [1m[35m (5.0ms)[0m  commit transaction
 Completed 200 OK in 21ms (Views: 11.9ms | ActiveRecord: 5.6ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to AddLocationToUsers (20160615093149)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TEMPORARY TABLE "ausers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "owner_type" varchar DEFAULT 'none', "auth_token" varchar DEFAULT '', "location" varchar DEFAULT '--- []
+') 
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.3ms)[0m  [1mCREATE UNIQUE INDEX "tindex_ausers_on_auth_token" ON "ausers" ("auth_token")[0m
+  [1m[35m (0.1ms)[0m  CREATE UNIQUE INDEX "tindex_ausers_on_reset_password_token" ON "ausers" ("reset_password_token")
+  [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "tindex_ausers_on_email" ON "ausers" ("email")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "users"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location") VALUES (1, 'ameya@gmail.com', '$2a$11$4I.kN8AL2vd1Pf7ck9QOVOjacMq.eyq0hv5LcjFH5A8Y5lE15nClC', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 08:41:17.783595', '2016-06-15 09:42:26.656613', 'pet owner', 'ynuKyPfM3KnynzHLnRYz', '678.67.7878.67.78--
+- ''62.78''
+- ''78.67''
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location") VALUES (2, 'ameya123@gmail.com', '$2a$11$7ix7h66h44t3YHwdQ/29f.TlKR0OVzfDU1YN4.t39uC7CakLvtZTm', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:40:50.609841', '2016-06-15 09:41:22.438445', 'none', 'BF9UDYusJtUVosg5BQz7', '678.67.78-- []
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location") VALUES (3, 'ameya1234@gmail.com', '$2a$11$NhGRfR5MAL.CRf/333YZAOcmZ/MwQsIFMYm9OxKonw7vpFyzbY7Xi', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:41:12.990765', '2016-06-15 09:42:17.169906', 'pet owner', 'tHZ-wkFnpUCrmy1zfhKi', '678.67.78-- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location") VALUES (4, 'ameya12345@gmail.com', '$2a$11$Dspc2APAaDtMaAC5ACm1x.yV8Ubq/RP1ID8q2Ng//MVVNsz6ysrK.', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:42:40.470589', '2016-06-15 09:42:53.934406', 'pet owner', 'zzwQ-kAyShF_Uek9xdzE', '678.67.78-- []
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location") VALUES (5, 'ameya1234thget@gmail.com', '$2a$11$CVF8Qfw4ImIqZ3tL3znrcObNLRI2LOIzQTc24ahAqNdXJvg9BMXq.', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:45:48.665184', '2016-06-15 09:46:28.377919', 'pet owner', 'LzeXe6T4hqu8xbXRkJ5U', '678.67.78-- []
+')[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "users"
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "owner_type" varchar DEFAULT 'none', "auth_token" varchar DEFAULT '') [0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_email' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_auth_token' AND type='index'
+
+  [1m[36m (0.4ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  CREATE UNIQUE INDEX "index_users_on_auth_token" ON "users" ("auth_token")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "ausers"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token") VALUES (1, 'ameya@gmail.com', '$2a$11$4I.kN8AL2vd1Pf7ck9QOVOjacMq.eyq0hv5LcjFH5A8Y5lE15nClC', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 08:41:17.783595', '2016-06-15 09:42:26.656613', 'pet owner', 'ynuKyPfM3KnynzHLnRYz')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token") VALUES (2, 'ameya123@gmail.com', '$2a$11$7ix7h66h44t3YHwdQ/29f.TlKR0OVzfDU1YN4.t39uC7CakLvtZTm', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:40:50.609841', '2016-06-15 09:41:22.438445', 'none', 'BF9UDYusJtUVosg5BQz7')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token") VALUES (3, 'ameya1234@gmail.com', '$2a$11$NhGRfR5MAL.CRf/333YZAOcmZ/MwQsIFMYm9OxKonw7vpFyzbY7Xi', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:41:12.990765', '2016-06-15 09:42:17.169906', 'pet owner', 'tHZ-wkFnpUCrmy1zfhKi')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token") VALUES (4, 'ameya12345@gmail.com', '$2a$11$Dspc2APAaDtMaAC5ACm1x.yV8Ubq/RP1ID8q2Ng//MVVNsz6ysrK.', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:42:40.470589', '2016-06-15 09:42:53.934406', 'pet owner', 'zzwQ-kAyShF_Uek9xdzE')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token") VALUES (5, 'ameya1234thget@gmail.com', '$2a$11$CVF8Qfw4ImIqZ3tL3znrcObNLRI2LOIzQTc24ahAqNdXJvg9BMXq.', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:45:48.665184', '2016-06-15 09:46:28.377919', 'pet owner', 'LzeXe6T4hqu8xbXRkJ5U')
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "ausers"[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?  [["version", "20160615093149"]]
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_products_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_products_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+
+
+Started POST "/signup" for 127.0.0.1 at 2016-06-15 20:04:00 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.2.4) lib/active_record/migration.rb:392:in `check_pending!'
+  activerecord (4.2.4) lib/active_record/migration.rb:373:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/ameyavichare/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/ameyavichare/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/ameyavichare/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.0ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (75.1ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (65.8ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (131.9ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddLocationToUsers (20160615143207)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "users" ADD "location" varchar DEFAULT '--- []
+'[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160615143207"]]
+  [1m[36m (4.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_products_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_products_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+
+
+Started POST "/signup" for 127.0.0.1 at 2016-06-15 20:04:40 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::UsersController#new as JSON
+  Parameters: {"email"=>"ameya1@gmail.com", "password"=>"[FILTERED]", "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'ameya1@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."auth_token" = '' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "QebPLJgQTsNs6yv4aEGZ"]]
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "auth_token") VALUES (?, ?, ?, ?, ?)  [["email", "ameya1@gmail.com"], ["encrypted_password", "$2a$11$ZQZEBpYYISoukLcgjcfFDuhL5M3cvtECMeYl.BByqkK0trKXkqKdG"], ["created_at", "2016-06-15 14:34:40.674675"], ["updated_at", "2016-06-15 14:34:40.674675"], ["auth_token", "QebPLJgQTsNs6yv4aEGZ"]]
+  [1m[36m (6.3ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 231ms (Views: 8.0ms | ActiveRecord: 7.9ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2016-06-15 20:04:51 +0530
+Processing by Api::V1::UsersController#new as JSON
+  Parameters: {"email"=>"ameya2@gmail.com", "password"=>"[FILTERED]", "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'ameya2@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."auth_token" = '' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "pRzN4iKv5yqTSfW1UxLy"]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "auth_token") VALUES (?, ?, ?, ?, ?)  [["email", "ameya2@gmail.com"], ["encrypted_password", "$2a$11$vEpTgBUIC5Ux49wza3j1HOGB8iNOjJbTLtC1lllnAtvrlgOU/HmWm"], ["created_at", "2016-06-15 14:34:51.611935"], ["updated_at", "2016-06-15 14:34:51.611935"], ["auth_token", "pRzN4iKv5yqTSfW1UxLy"]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 147ms (Views: 7.8ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2016-06-15 20:04:58 +0530
+Processing by Api::V1::UsersController#new as JSON
+  Parameters: {"email"=>"ameya3@gmail.com", "password"=>"[FILTERED]", "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'ameya3@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."auth_token" = '' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "cxQJGLS8wPwHfJZ6tVSL"]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "auth_token") VALUES (?, ?, ?, ?, ?)  [["email", "ameya3@gmail.com"], ["encrypted_password", "$2a$11$Qeir/EhDzWcl4Jz1EeKhWOk6Un.MfW7bevnzArIabNd.gpQe74cZu"], ["created_at", "2016-06-15 14:34:58.485124"], ["updated_at", "2016-06-15 14:34:58.485124"], ["auth_token", "cxQJGLS8wPwHfJZ6tVSL"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 147ms (Views: 7.4ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2016-06-15 20:05:08 +0530
+Processing by Api::V1::UsersController#new as JSON
+  Parameters: {"email"=>"ameya4@gmail.com", "password"=>"[FILTERED]", "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'ameya4@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."auth_token" = '' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "3aXPyQNoXdkViffesx9a"]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "auth_token") VALUES (?, ?, ?, ?, ?)  [["email", "ameya4@gmail.com"], ["encrypted_password", "$2a$11$Yz07DSRni7gF.RqmXRsWq.0XgTLIifYtnSbtYNlfBYHEnHYvvRU/m"], ["created_at", "2016-06-15 14:35:08.632886"], ["updated_at", "2016-06-15 14:35:08.632886"], ["auth_token", "3aXPyQNoXdkViffesx9a"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 137ms (Views: 7.4ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2016-06-15 20:05:13 +0530
+Processing by Api::V1::UsersController#new as JSON
+  Parameters: {"email"=>"ameya5@gmail.com", "password"=>"[FILTERED]", "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'ameya5@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."auth_token" = '' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "FrDVNRFbYqEyevAywGKe"]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "auth_token") VALUES (?, ?, ?, ?, ?)  [["email", "ameya5@gmail.com"], ["encrypted_password", "$2a$11$tXJ1j9NRn9zRE/79hBZHU.ydNrwx681o9x2sE0W9mQlGlaK0fUaaS"], ["created_at", "2016-06-15 14:35:13.737255"], ["updated_at", "2016-06-15 14:35:13.737255"], ["auth_token", "FrDVNRFbYqEyevAywGKe"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 139ms (Views: 7.5ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/users/6/basicinfo" for 127.0.0.1 at 2016-06-15 20:05:34 +0530
+Processing by Api::V1::UsersController#info as JSON
+  Parameters: {"type"=>"pet owner", "latitude"=>"62.78", "longitude"=>"78.67", "subdomain"=>"api", "id"=>"6"}
+Can't verify CSRF token authenticity
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."auth_token" = 'QebPLJgQTsNs6yv4aEGZ' AND "users"."id" != 6) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "location" = ?, "owner_type" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["location", "678.67.78-- []\n"], ["owner_type", "pet owner"], ["updated_at", "2016-06-15 14:35:34.239186"], ["id", 6]]
+  [1m[35m (4.7ms)[0m  commit transaction
+Completed 200 OK in 24ms (Views: 11.9ms | ActiveRecord: 5.5ms)
+
+
+Started POST "/users/7/basicinfo" for 127.0.0.1 at 2016-06-15 20:06:05 +0530
+Processing by Api::V1::UsersController#info as JSON
+  Parameters: {"type"=>"pet owner", "latitude"=>"62", "longitude"=>"78", "subdomain"=>"api", "id"=>"7"}
+Can't verify CSRF token authenticity
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."auth_token" = 'pRzN4iKv5yqTSfW1UxLy' AND "users"."id" != 7) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "location" = ?, "owner_type" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["location", "678-- []\n"], ["owner_type", "pet owner"], ["updated_at", "2016-06-15 14:36:05.717491"], ["id", 7]]
+  [1m[36m (4.8ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 19ms (Views: 10.5ms | ActiveRecord: 5.3ms)
+
+
+Started POST "/users/8/basicinfo" for 127.0.0.1 at 2016-06-15 20:07:08 +0530
+Processing by Api::V1::UsersController#info as JSON
+  Parameters: {"type"=>"pet owner", "latitude"=>"62", "longitude"=>"78", "subdomain"=>"api", "id"=>"8"}
+Can't verify CSRF token authenticity
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."auth_token" = 'cxQJGLS8wPwHfJZ6tVSL' AND "users"."id" != 8) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "location" = ?, "owner_type" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["location", "---\n- '62'\n- '78'\n"], ["owner_type", "pet owner"], ["updated_at", "2016-06-15 14:37:08.385683"], ["id", 8]]
+  [1m[35m (1.5ms)[0m  commit transaction
+Completed 200 OK in 28ms (Views: 8.0ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/users/7/basicinfo" for 127.0.0.1 at 2016-06-15 20:07:25 +0530
+Processing by Api::V1::UsersController#info as JSON
+  Parameters: {"type"=>"pet owner", "latitude"=>"62.67", "longitude"=>"78.64", "subdomain"=>"api", "id"=>"7"}
+Can't verify CSRF token authenticity
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."auth_token" = 'pRzN4iKv5yqTSfW1UxLy' AND "users"."id" != 7) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.6ms)
+
+ActiveRecord::SerializationTypeMismatch (Attribute was supposed to be a Array, but was a String. -- "678.64.6778-- []\n"):
+  app/controllers/api/v1/users_controller.rb:44:in `info'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.7ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (58.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (56.9ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (114.2ms)
+
+
+Started POST "/users/9/basicinfo" for 127.0.0.1 at 2016-06-15 20:07:40 +0530
+Processing by Api::V1::UsersController#info as JSON
+  Parameters: {"type"=>"pet owner", "latitude"=>"62.67", "longitude"=>"78.64", "subdomain"=>"api", "id"=>"9"}
+Can't verify CSRF token authenticity
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."auth_token" = '3aXPyQNoXdkViffesx9a' AND "users"."id" != 9) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "location" = ?, "owner_type" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["location", "---\n- '62.67'\n- '78.64'\n"], ["owner_type", "pet owner"], ["updated_at", "2016-06-15 14:37:40.404686"], ["id", 9]]
+  [1m[36m (4.8ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 22ms (Views: 10.0ms | ActiveRecord: 5.5ms)
