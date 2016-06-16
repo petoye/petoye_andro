@@ -7,7 +7,7 @@ class Api::V1::FeedsController < ApplicationController
     img = params[:image]
     feed = Feed.new({user_id: id, message: msg, like_count: 0, comment_count: 0, image: img})
     if feed.save
-      render json: feed, status: 201, location: [:api_create, feed]
+      render json: feed, status: 201#, location: [:api_create, feed]
     else
       render json: {errors: "Could not create post"}, status: 422
     end
@@ -25,13 +25,56 @@ class Api::V1::FeedsController < ApplicationController
   end
 
   def dislikeit
+    pid = params[:post_id]
+    feed = Feed.where(id: pid)
+    feed.like_count = feed.like_count - 1
+    if feed.like_count.save
+      render json: feed, status: 200, location: [:api_like, feed]
+    else
+      render json: {errors: "Could not be disliked"}, status: 422
+    end
+  end
 
+  def addcomment
+    # need post id, comment will be message added to post id
+    feed = Feed.find(params[:id])
+    #count = feed.comment_count
+    feed.comment[feed.comment_count] = params[:comment]
+    feed.comment_count = feed.comment_count + 1
+    if feed.save
+      render json: feed, status: 200
+    else
+      render json: {errors: "could not add comment"}, status: 422
+    end
   end
 
   def index
     feed = Feed.all
     render json: feed, status: 201
   end
+
+  def nearbyfeeds
+    user = User.find(params[:id])
+    latstr = user.location[0]
+    longstr = user.location[1]
+    lat = latstr.to_f
+    long = longstr.to_f
+    #location box
+    lowerlat = lat-0.02
+    upperlat = lat+0.02
+    lowerlong = long-0.02
+    upperlong = long+0.02
+    #condition
+    user = User.all.where( location!= nil) do |u|
+      if (lowerlat..upperlat).cover?(u.location[0]) && (lowerlong..upperlong).cover?(u.location[1])
+        @uid = u.id
+      end
+      #feed = Feed.where(user_id: uid)
+      #render text: ulat
+    end
+    #render json: feed, status: 200
+  end
+
 
   #def report
    # feed = Feed.find(params[:id])
@@ -48,6 +91,8 @@ class Api::V1::FeedsController < ApplicationController
     def feed_params
       params.require(:feed).permit(:message,:id)
     end
+
+
 
   #def popularity(count, weight: 3)
    # count * weight

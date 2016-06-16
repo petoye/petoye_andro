@@ -17,8 +17,9 @@ Rails.application.routes.draw do
        resources :feeds, :only => [:index]
        post '/feeds/:id/create', to: 'feeds#create', as: "create_feed"
        #get '/feeds/trending', to: 'feeds#trending', as: "trending_feed"
+       get '/feeds/:id/nearbyfeeds', to: 'feeds#nearbyfeeds', as: "nearby_feed"
 
-
+       post '/feeds/:id/comment', to: 'feeds#addcomment', as: "addcomment_feed"
        #match '/feeds/:post_id/like' to: 'feeds#likeit', via: 'put'
        #put '/feeds/:post_id/dislike', to: 'feeds#dislikeit', as: "dislike_feed"
 
