@@ -14,40 +14,34 @@ class Api::V1::FeedsController < ApplicationController
   end
 
   def likeit
-    pid = params[:post_id]
-    feed = Feed.where(id: pid)
+    feed = Feed.find(params[:pid])
+    user = User.find(params[:uid])
+    uname = user.username
+    feed.likedby[feed.like_count] = uname
     feed.like_count = feed.like_count + 1
-    if feed.like_count.save
-      render json: feed, status: 200, location: [:api_like, feed]
+    if feed.save
+      render json: feed, status: 200
     else
       render json: {errors: "Could not be liked"}, status: 422
     end
   end
 
+  def showlikes
+    feed = Feed.find(params[:pid])
+    render json: feed.likedby, status: 201
+  end
+
   def dislikeit
-    pid = params[:post_id]
-    feed = Feed.where(id: pid)
+    feed = Feed.find(params[:post_id])
     feed.like_count = feed.like_count - 1
-    if feed.like_count.save
-      render json: feed, status: 200, location: [:api_like, feed]
+    if feed.save
+      render json: feed, status: 200, location: [:api_dislike, feed]
     else
       render json: {errors: "Could not be disliked"}, status: 422
     end
   end
 
-  def addcomment
-    # need post id, comment will be message added to post id
-    #we need the id of who has commented
-    feed = Feed.find(params[:id])
-    #count = feed.comment_count
-    feed.comment[feed.comment_count] = params[:comment]
-    feed.comment_count = feed.comment_count + 1
-    if feed.save
-      render json: feed, status: 200
-    else
-      render json: {errors: "could not add comment"}, status: 422
-    end
-  end
+  def 
 
   def index
     feed = Feed.all

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160620025949) do
+ActiveRecord::Schema.define(version: 20160620040303) do
 
   create_table "comments", force: :cascade do |t|
     t.string  "comment_message"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20160620025949) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "likedby"
   end
 
   add_index "feeds", ["user_id"], name: "index_feeds_on_user_id"

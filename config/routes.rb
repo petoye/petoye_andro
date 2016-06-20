@@ -22,6 +22,9 @@ Rails.application.routes.draw do
        post '/:uid/comment', to: 'comments#addcomment', as: "comment_users"
        get '/:pid/showcomment', to: 'comments#showcomment'
 
+       post '/feeds/:uid/like', to: 'feeds#likeit'
+       get '/feeds/:pid/showlike', to: 'feeds#showlikes'
+
        #match '/feeds/:post_id/like' to: 'feeds#likeit', via: 'put'
        #put '/feeds/:post_id/dislike', to: 'feeds#dislikeit', as: "dislike_feed"
 
