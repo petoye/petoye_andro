@@ -1,6 +1,7 @@
 class Feed < ActiveRecord::Base
   validates :message, :like_count, :comment_count, :user_id, presence: true
   belongs_to :user
+  has_many :comments, dependent: :destroy
   serialize :comment, Array
 
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"

@@ -37,6 +37,7 @@ class Api::V1::FeedsController < ApplicationController
 
   def addcomment
     # need post id, comment will be message added to post id
+    #we need the id of who has commented
     feed = Feed.find(params[:id])
     #count = feed.comment_count
     feed.comment[feed.comment_count] = params[:comment]
