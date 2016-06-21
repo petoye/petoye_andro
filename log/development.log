@@ -19527,3 +19527,296 @@ Processing by Api::V1::FeedsController#index as JSON
   [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
 Completed 201 Created in 824ms (Views: 801.5ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/feeds" for 127.0.0.1 at 2016-06-21 14:39:35 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::FeedsController#index as JSON
+  Parameters: {"subdomain"=>"api"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+Completed 201 Created in 430ms (Views: 419.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/feeds" for 127.0.0.1 at 2016-06-21 15:11:49 +0530
+
+NoMethodError (undefined method `attr_accesible' for User (call 'User.connection' to establish a connection):Class
+Did you mean?  attr_accessor):
+  app/models/user.rb:13:in `<class:User>'
+  app/models/user.rb:1:in `<top (required)>'
+  config/routes.rb:3:in `block in <top (required)>'
+  config/routes.rb:2:in `<top (required)>'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.8ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (65.0ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (156.5ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (228.6ms)
+
+
+Started GET "/feeds" for 127.0.0.1 at 2016-06-21 15:12:12 +0530
+
+NoMethodError (undefined method `attr_accessible' for User (call 'User.connection' to establish a connection):Class
+Did you mean?  attr_accessor):
+  app/models/user.rb:13:in `<class:User>'
+  app/models/user.rb:1:in `<top (required)>'
+  config/routes.rb:3:in `block in <top (required)>'
+  config/routes.rb:2:in `<top (required)>'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.7ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (54.0ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (45.8ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (96.2ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to AddLikedbyToFeeds (20160620040303)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  CREATE TEMPORARY TABLE "afeeds" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "message" varchar, "like_count" integer, "comment_count" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "image_file_name" varchar, "image_content_type" varchar, "image_file_size" integer, "image_updated_at" datetime, "likedby" varchar) 
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "tindex_afeeds_on_user_id" ON "afeeds" ("user_id")[0m
+  [1m[35m (8.6ms)[0m  SELECT * FROM "feeds"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby") VALUES (10, 'bruh', 2, 0, 3, '2016-06-14 15:50:43.775196', '2016-06-20 11:57:42.563335', '1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg', 'image/jpeg', 52516, '2016-06-14 15:50:43.580888', '---
+- anonymous
+- anonymous
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby") VALUES (11, 'new', 2, 0, 8, '2016-06-15 05:08:19.099364', '2016-06-20 11:50:53.780144', '458989879.jpg', 'image/jpeg', 78487, '2016-06-15 05:08:18.885531', '---
+- anonymous
+- anonymous
+')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby") VALUES (12, 'new', 3, 9, 8, '2016-06-16 09:33:53.563026', '2016-06-20 13:01:02.362161', 'Cute-puppy-7.jpg', 'image/jpeg', 194126, '2016-06-16 09:33:52.347204', '---
+- anonymous
+- anonymous
+- anonymous
+')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby") VALUES (13, 'new', 2, 2, 8, '2016-06-16 09:37:22.270833', '2016-06-20 13:25:12.527220', 'cute-dog-and-cat-sitting-together-1024x640.jpg', 'image/jpeg', 133987, '2016-06-16 09:37:22.061258', '---
+- anonymous
+- anonymous
+')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby") VALUES (14, 'nice', 2, 0, 12, '2016-06-20 12:38:22.347878', '2016-06-20 13:01:16.745719', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:21.511265', '---
+- anonymous
+- anonymous
+')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby") VALUES (15, 'nice 2', 1, 0, 12, '2016-06-20 12:38:35.023502', '2016-06-20 12:40:34.924384', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:34.866585', '---
+- anonymous
+')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby") VALUES (16, 'nice 3', 1, 0, 12, '2016-06-20 12:38:39.549407', '2016-06-20 12:43:56.368619', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:39.376660', '---
+- anonymous
+')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby") VALUES (17, 'nice 4', 3, 0, 12, '2016-06-20 12:38:49.577452', '2016-06-20 12:50:45.008971', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:49.422807', '---
+- anonymous
+- anonymous
+- anonymous
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby") VALUES (18, 'nice 5', 2, 0, 12, '2016-06-20 12:38:52.922823', '2016-06-20 12:47:48.648792', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:52.760956', '---
+- anonymous
+- anonymous
+')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby") VALUES (19, 'nice new', 0, 0, 12, '2016-06-20 13:14:01.923817', '2016-06-20 13:14:01.923817', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:01.544928', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby") VALUES (20, 'nice new', 2, 0, 12, '2016-06-20 13:14:07.063005', '2016-06-20 14:37:22.305315', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:06.951532', '---
+- anonymous
+- anonymous
+')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby") VALUES (21, 'nice new', 0, 0, 12, '2016-06-20 13:14:08.719673', '2016-06-20 13:14:08.719673', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:08.610393', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby") VALUES (22, 'nice new', 4, 0, 12, '2016-06-20 13:14:09.804578', '2016-06-20 14:29:22.022402', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:09.679815', '---
+- anonymous
+- anonymous
+- anonymous
+- 
+')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby") VALUES (23, 'nice new', 1, 0, 12, '2016-06-20 13:14:10.928157', '2016-06-20 14:19:24.082728', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:10.814558', '---
+- anonymous
+')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby") VALUES (24, 'nice new', 1, 0, 12, '2016-06-20 13:20:54.256966', '2016-06-20 13:23:26.382155', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:20:54.115290', '---
+- anonymous
+')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby") VALUES (25, 'nice new', 3, 0, 12, '2016-06-20 13:21:09.195543', '2016-06-20 14:29:41.921051', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:21:09.080972', '---
+- 
+- 
+- anonymous
+')
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "feeds"[0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "feeds" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "message" varchar, "like_count" integer, "comment_count" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "image_file_name" varchar, "image_content_type" varchar, "image_file_size" integer, "image_updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_afeeds_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_afeeds_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  CREATE  INDEX "index_feeds_on_user_id" ON "feeds" ("user_id")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "afeeds"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at") VALUES (10, 'bruh', 2, 0, 3, '2016-06-14 15:50:43.775196', '2016-06-20 11:57:42.563335', '1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg', 'image/jpeg', 52516, '2016-06-14 15:50:43.580888')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at") VALUES (11, 'new', 2, 0, 8, '2016-06-15 05:08:19.099364', '2016-06-20 11:50:53.780144', '458989879.jpg', 'image/jpeg', 78487, '2016-06-15 05:08:18.885531')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at") VALUES (12, 'new', 3, 9, 8, '2016-06-16 09:33:53.563026', '2016-06-20 13:01:02.362161', 'Cute-puppy-7.jpg', 'image/jpeg', 194126, '2016-06-16 09:33:52.347204')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at") VALUES (13, 'new', 2, 2, 8, '2016-06-16 09:37:22.270833', '2016-06-20 13:25:12.527220', 'cute-dog-and-cat-sitting-together-1024x640.jpg', 'image/jpeg', 133987, '2016-06-16 09:37:22.061258')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at") VALUES (14, 'nice', 2, 0, 12, '2016-06-20 12:38:22.347878', '2016-06-20 13:01:16.745719', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:21.511265')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at") VALUES (15, 'nice 2', 1, 0, 12, '2016-06-20 12:38:35.023502', '2016-06-20 12:40:34.924384', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:34.866585')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at") VALUES (16, 'nice 3', 1, 0, 12, '2016-06-20 12:38:39.549407', '2016-06-20 12:43:56.368619', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:39.376660')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at") VALUES (17, 'nice 4', 3, 0, 12, '2016-06-20 12:38:49.577452', '2016-06-20 12:50:45.008971', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:49.422807')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at") VALUES (18, 'nice 5', 2, 0, 12, '2016-06-20 12:38:52.922823', '2016-06-20 12:47:48.648792', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:52.760956')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at") VALUES (19, 'nice new', 0, 0, 12, '2016-06-20 13:14:01.923817', '2016-06-20 13:14:01.923817', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:01.544928')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at") VALUES (20, 'nice new', 2, 0, 12, '2016-06-20 13:14:07.063005', '2016-06-20 14:37:22.305315', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:06.951532')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at") VALUES (21, 'nice new', 0, 0, 12, '2016-06-20 13:14:08.719673', '2016-06-20 13:14:08.719673', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:08.610393')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at") VALUES (22, 'nice new', 4, 0, 12, '2016-06-20 13:14:09.804578', '2016-06-20 14:29:22.022402', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:09.679815')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at") VALUES (23, 'nice new', 1, 0, 12, '2016-06-20 13:14:10.928157', '2016-06-20 14:19:24.082728', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:10.814558')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at") VALUES (24, 'nice new', 1, 0, 12, '2016-06-20 13:20:54.256966', '2016-06-20 13:23:26.382155', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:20:54.115290')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at") VALUES (25, 'nice new', 3, 0, 12, '2016-06-20 13:21:09.195543', '2016-06-20 14:29:41.921051', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:21:09.080972')[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "afeeds"
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20160620040303"]]
+  [1m[35m (1.8ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_products_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_products_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to AddUsernameToComments (20160620025949)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  CREATE TEMPORARY TABLE "acomments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "comment_message" varchar, "user_id" integer, "post_id" integer, "username" varchar) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "comments"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "acomments" ("id","comment_message","user_id","post_id","username") VALUES (1, 'new comment', 16, 10, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "acomments" ("id","comment_message","user_id","post_id","username") VALUES (5, 'first ', 16, 12, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "acomments" ("id","comment_message","user_id","post_id","username") VALUES (6, 'second', 16, 12, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "acomments" ("id","comment_message","user_id","post_id","username") VALUES (7, 'third', 16, 12, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "acomments" ("id","comment_message","user_id","post_id","username") VALUES (8, 'fourth', 17, 12, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "acomments" ("id","comment_message","user_id","post_id","username") VALUES (9, 'fifth', 18, 12, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "acomments" ("id","comment_message","user_id","post_id","username") VALUES (10, 'Ronaldo is the best', 19, 12, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "acomments" ("id","comment_message","user_id","post_id","username") VALUES (11, 'Ronaldo is the best footballer', 19, 12, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "acomments" ("id","comment_message","user_id","post_id","username") VALUES (12, 'Ronaldo is the best footballer', 19, 12, 'anonymous')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "acomments" ("id","comment_message","user_id","post_id","username") VALUES (13, 'Ronaldo is the best footballer', 19, 12, 'anonymous')[0m
+  [1m[35m (0.4ms)[0m  DROP TABLE "comments"
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "comment_message" varchar, "user_id" integer, "post_id" integer) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "acomments"
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "comments" ("id","comment_message","user_id","post_id") VALUES (1, 'new comment', 16, 10)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "comments" ("id","comment_message","user_id","post_id") VALUES (5, 'first ', 16, 12)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "comments" ("id","comment_message","user_id","post_id") VALUES (6, 'second', 16, 12)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "comments" ("id","comment_message","user_id","post_id") VALUES (7, 'third', 16, 12)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "comments" ("id","comment_message","user_id","post_id") VALUES (8, 'fourth', 17, 12)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "comments" ("id","comment_message","user_id","post_id") VALUES (9, 'fifth', 18, 12)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "comments" ("id","comment_message","user_id","post_id") VALUES (10, 'Ronaldo is the best', 19, 12)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "comments" ("id","comment_message","user_id","post_id") VALUES (11, 'Ronaldo is the best footballer', 19, 12)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "comments" ("id","comment_message","user_id","post_id") VALUES (12, 'Ronaldo is the best footballer', 19, 12)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "comments" ("id","comment_message","user_id","post_id") VALUES (13, 'Ronaldo is the best footballer', 19, 12)
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "acomments"[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?  [["version", "20160620025949"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_products_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_products_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
