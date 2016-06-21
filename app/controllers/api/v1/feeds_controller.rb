@@ -1,6 +1,6 @@
 class Api::V1::FeedsController < ApplicationController
   respond_to :json
-
+#include V1::feeds_serializer
   def create
     id = params[:id]
     msg = params[:message]
@@ -64,13 +64,16 @@ class Api::V1::FeedsController < ApplicationController
     end
   end
 
-  def 
+  
 
   def index
-    feed = Feed.all
-    render json: feed, status: 201
+    feeds = Feed.all  
+    render json: feeds, status: 201
   end
-
+#def serialize_feed (feeds = @feeds)
+ ##    user_email: feed.user.email
+   ## end
+#end 
   def nearbyfeeds
     user = User.find(params[:id])
     latstr = user.location[0]
