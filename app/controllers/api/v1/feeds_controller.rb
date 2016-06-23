@@ -68,7 +68,7 @@ class Api::V1::FeedsController < ApplicationController
 
   def index
     feeds = Feed.all  
-    render json: feeds, status: 201
+    render json: feeds.as_json(only:[:message] ,include: { user: {only: :email}}), status: 201
   end
 #def serialize_feed (feeds = @feeds)
  ##    user_email: feed.user.email
