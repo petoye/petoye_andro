@@ -16,36 +16,16 @@ class Api::V1::FeedsController < ApplicationController
   def likeit
     feed = Feed.find(params[:pid])
     user = User.find(params[:uid])
-    #uname = user.username
     uid = params[:uid]
     pid = params[:pid]
-    #already_liked = false
-    #if feed.like_id.include?(uid) 
-     # render text: "Already liked", status: 402
-    #else
-    
-    #feed.like_id.each do |f|
-     # if f == @uid
-      #  already_liked = true
-      #else
-       # already_liked = false
-      #end
-    #end
-    #render text: already_liked
-    #render json: feed.like_id
-
-    #if already_liked == false
-      feed.likedby[feed.like_count] = uid
-     # feed.like_id[feed.like_count] = @uid
-      feed.like_count = feed.like_count + 1
-    #else
-     # render text: "Already liked", status: 402
-    #end
-
-    if feed.save
-      render json: feed, status: 200
+    if feed.likedby.include?(uid) 
+      render json: {errors: "already liked"}, status: 422
     else
-      render json: {errors: "Could not be liked"}, status: 422
+      feed.likedby[feed.like_count] = uid
+      feed.like_count = feed.like_count + 1
+      if feed.save
+        render json: feed, status:201
+      end
     end
   end
 
