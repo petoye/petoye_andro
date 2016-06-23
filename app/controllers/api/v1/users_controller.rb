@@ -53,9 +53,34 @@ class Api::V1::UsersController < ApplicationController
 
   end  
 
-  def myprofile
-    #profile of users
-    
+  def poststory
+    #pet story
+
+    user = User.find(params[:id])
+    user.pet_story = params[:story]
+
+    if user.save
+      render json: user, status: 200
+    else
+      render json: {errors: "story not set"}, status: 422
+    end
+  end
+
+  def likestory
+
+    user = User.find(params[:id])
+    user.story_like_count = user.story_like_count + 1
+    if user.save
+      render json: user, status: 200
+    else
+      render json: {errors: "couldn't like story"}, status: 422
+    end
+  end
+
+  def userposts
+    uid = params[:id]
+    feed = Feed.where(user_id: uid).all
+    render json: feed, status: 200
   end
 
   #def location

@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160623043729) do
+ActiveRecord::Schema.define(version: 20160623061237) do
+
+  create_table "adoptions", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "pet_type"
+    t.string   "breed"
+    t.integer  "age"
+    t.string   "description"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.string  "comment_message"
@@ -66,6 +80,8 @@ ActiveRecord::Schema.define(version: 20160623043729) do
     t.string   "username"
     t.string   "pet_type"
     t.string   "pet_breed"
+    t.string   "pet_story"
+    t.integer  "story_like_count",       default: 0
   end
 
   add_index "users", ["auth_token"], name: "index_users_on_auth_token", unique: true

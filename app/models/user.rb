@@ -5,11 +5,13 @@ class User < ActiveRecord::Base
  has_many :products , dependent: :destroy
  has_many :feeds, dependent: :destroy
  has_many :comments, dependent: :destroy
+ has_many :adoptions, dependent: :destroy
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
  validates :auth_token, uniqueness: true
  validates :owner_type ,presence: true
  serialize :location, Array
+ validates_length_of :pet_story, maximum: 300
  def generate_authentication_token!
     begin
       self.auth_token = Devise.friendly_token

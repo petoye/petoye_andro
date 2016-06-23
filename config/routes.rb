@@ -11,7 +11,10 @@ Rails.application.routes.draw do
     	resources :sessions, :only => [:create,:destroy]
       post 'signup', to: 'users#new', as: "new_user"
       post '/users/:id/basicinfo', to: 'users#info', as: "info_user"
-       resources :products, :only => [:show,:index]
+       #resources :products, :only => [:show,:index]
+      post '/users/:id/poststory', to: 'users#poststory'
+      post '/users/:id/likestory', to: 'users#likestory'
+      get '/users/:id/posts', to: 'users#userposts'
 
 
        resources :feeds, :only => [:index]
@@ -24,6 +27,10 @@ Rails.application.routes.draw do
 
        post '/feeds/:uid/like', to: 'feeds#likeit'
        get '/feeds/:pid/showlike', to: 'feeds#showlikes'
+
+       resources :adoptions
+       post '/adopt/:id/createadoption', to: 'adoptions#newadoption'
+       get '/adopt/show', to: 'adoptions#show'
 
        #match '/feeds/:post_id/like' to: 'feeds#likeit', via: 'put'
        #put '/feeds/:post_id/dislike', to: 'feeds#dislikeit', as: "dislike_feed"
