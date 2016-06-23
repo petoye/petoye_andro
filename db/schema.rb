@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160623061237) do
+ActiveRecord::Schema.define(version: 20160623082754) do
 
   create_table "adoptions", force: :cascade do |t|
     t.integer  "user_id"
@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 20160623061237) do
     t.string  "comment_message"
     t.integer "user_id"
     t.integer "post_id"
-    t.string  "username"
   end
 
   create_table "feeds", force: :cascade do |t|

@@ -23294,3 +23294,333 @@ Can't verify CSRF token authenticity
   [1m[35m (1.1ms)[0m  commit transaction
   [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1[0m
 Completed 200 OK in 28ms (Views: 1.9ms | ActiveRecord: 2.7ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to AddAttachmentImageToAdoptions (20160623061237)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  CREATE TEMPORARY TABLE "aadoptions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "pet_type" varchar, "breed" varchar, "age" integer, "description" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "image_file_name" varchar, "image_content_type" varchar, "image_file_size" integer, "image_updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "adoptions"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aadoptions" ("id","user_id","pet_type","breed","age","description","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at") VALUES (1, 2, 'cat', 'Labrador', 6, 'Dog is nice', '2016-06-23 06:34:06.929355', '2016-06-23 06:34:06.929355', 'Cute-puppy-7.jpg', 'image/jpeg', 194126, '2016-06-23 06:34:06.677152')
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "adoptions"[0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "adoptions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "pet_type" varchar, "breed" varchar, "age" integer, "description" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "image_content_type" varchar, "image_file_size" integer, "image_updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "aadoptions"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "adoptions" ("id","user_id","pet_type","breed","age","description","created_at","updated_at","image_content_type","image_file_size","image_updated_at") VALUES (1, 2, 'cat', 'Labrador', 6, 'Dog is nice', '2016-06-23 06:34:06.929355', '2016-06-23 06:34:06.929355', 'image/jpeg', 194126, '2016-06-23 06:34:06.677152')
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "aadoptions"[0m
+  [1m[35m (0.1ms)[0m  CREATE TEMPORARY TABLE "aadoptions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "pet_type" varchar, "breed" varchar, "age" integer, "description" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "image_content_type" varchar, "image_file_size" integer, "image_updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "adoptions"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aadoptions" ("id","user_id","pet_type","breed","age","description","created_at","updated_at","image_content_type","image_file_size","image_updated_at") VALUES (1, 2, 'cat', 'Labrador', 6, 'Dog is nice', '2016-06-23 06:34:06.929355', '2016-06-23 06:34:06.929355', 'image/jpeg', 194126, '2016-06-23 06:34:06.677152')
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "adoptions"[0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "adoptions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "pet_type" varchar, "breed" varchar, "age" integer, "description" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "image_file_size" integer, "image_updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "aadoptions"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "adoptions" ("id","user_id","pet_type","breed","age","description","created_at","updated_at","image_file_size","image_updated_at") VALUES (1, 2, 'cat', 'Labrador', 6, 'Dog is nice', '2016-06-23 06:34:06.929355', '2016-06-23 06:34:06.929355', 194126, '2016-06-23 06:34:06.677152')
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "aadoptions"[0m
+  [1m[35m (0.1ms)[0m  CREATE TEMPORARY TABLE "aadoptions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "pet_type" varchar, "breed" varchar, "age" integer, "description" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "image_file_size" integer, "image_updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "adoptions"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aadoptions" ("id","user_id","pet_type","breed","age","description","created_at","updated_at","image_file_size","image_updated_at") VALUES (1, 2, 'cat', 'Labrador', 6, 'Dog is nice', '2016-06-23 06:34:06.929355', '2016-06-23 06:34:06.929355', 194126, '2016-06-23 06:34:06.677152')
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "adoptions"[0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "adoptions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "pet_type" varchar, "breed" varchar, "age" integer, "description" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "image_updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "aadoptions"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "adoptions" ("id","user_id","pet_type","breed","age","description","created_at","updated_at","image_updated_at") VALUES (1, 2, 'cat', 'Labrador', 6, 'Dog is nice', '2016-06-23 06:34:06.929355', '2016-06-23 06:34:06.929355', '2016-06-23 06:34:06.677152')
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "aadoptions"[0m
+  [1m[35m (0.1ms)[0m  CREATE TEMPORARY TABLE "aadoptions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "pet_type" varchar, "breed" varchar, "age" integer, "description" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "image_updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "adoptions"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aadoptions" ("id","user_id","pet_type","breed","age","description","created_at","updated_at","image_updated_at") VALUES (1, 2, 'cat', 'Labrador', 6, 'Dog is nice', '2016-06-23 06:34:06.929355', '2016-06-23 06:34:06.929355', '2016-06-23 06:34:06.677152')
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "adoptions"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "adoptions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "pet_type" varchar, "breed" varchar, "age" integer, "description" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "aadoptions"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "adoptions" ("id","user_id","pet_type","breed","age","description","created_at","updated_at") VALUES (1, 2, 'cat', 'Labrador', 6, 'Dog is nice', '2016-06-23 06:34:06.929355', '2016-06-23 06:34:06.929355')
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "aadoptions"[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?  [["version", "20160623061237"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_products_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_products_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddAttachmentImageToAdoptions (20160623061237)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "adoptions" ADD "image_file_name" varchar[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "adoptions" ADD "image_content_type" varchar
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "adoptions" ADD "image_file_size" integer[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "adoptions" ADD "image_updated_at" datetime
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160623061237"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_products_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_products_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to AddAttachmentImageToAdoptions (20160623061237)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TEMPORARY TABLE "aadoptions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "pet_type" varchar, "breed" varchar, "age" integer, "description" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "image_file_name" varchar, "image_content_type" varchar, "image_file_size" integer, "image_updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "adoptions"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aadoptions" ("id","user_id","pet_type","breed","age","description","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at") VALUES (1, 2, 'cat', 'Labrador', 6, 'Dog is nice', '2016-06-23 06:34:06.929355', '2016-06-23 06:34:06.929355', NULL, NULL, NULL, NULL)
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "adoptions"[0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "adoptions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "pet_type" varchar, "breed" varchar, "age" integer, "description" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "image_content_type" varchar, "image_file_size" integer, "image_updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "aadoptions"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "adoptions" ("id","user_id","pet_type","breed","age","description","created_at","updated_at","image_content_type","image_file_size","image_updated_at") VALUES (1, 2, 'cat', 'Labrador', 6, 'Dog is nice', '2016-06-23 06:34:06.929355', '2016-06-23 06:34:06.929355', NULL, NULL, NULL)
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "aadoptions"[0m
+  [1m[35m (0.1ms)[0m  CREATE TEMPORARY TABLE "aadoptions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "pet_type" varchar, "breed" varchar, "age" integer, "description" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "image_content_type" varchar, "image_file_size" integer, "image_updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "adoptions"[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aadoptions" ("id","user_id","pet_type","breed","age","description","created_at","updated_at","image_content_type","image_file_size","image_updated_at") VALUES (1, 2, 'cat', 'Labrador', 6, 'Dog is nice', '2016-06-23 06:34:06.929355', '2016-06-23 06:34:06.929355', NULL, NULL, NULL)
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "adoptions"[0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "adoptions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "pet_type" varchar, "breed" varchar, "age" integer, "description" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "image_file_size" integer, "image_updated_at" datetime) 
+  [1m[36m (0.0ms)[0m  [1mSELECT * FROM "aadoptions"[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "adoptions" ("id","user_id","pet_type","breed","age","description","created_at","updated_at","image_file_size","image_updated_at") VALUES (1, 2, 'cat', 'Labrador', 6, 'Dog is nice', '2016-06-23 06:34:06.929355', '2016-06-23 06:34:06.929355', NULL, NULL)
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "aadoptions"[0m
+  [1m[35m (0.1ms)[0m  CREATE TEMPORARY TABLE "aadoptions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "pet_type" varchar, "breed" varchar, "age" integer, "description" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "image_file_size" integer, "image_updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "adoptions"[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aadoptions" ("id","user_id","pet_type","breed","age","description","created_at","updated_at","image_file_size","image_updated_at") VALUES (1, 2, 'cat', 'Labrador', 6, 'Dog is nice', '2016-06-23 06:34:06.929355', '2016-06-23 06:34:06.929355', NULL, NULL)
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "adoptions"[0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "adoptions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "pet_type" varchar, "breed" varchar, "age" integer, "description" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "image_updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "aadoptions"[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "adoptions" ("id","user_id","pet_type","breed","age","description","created_at","updated_at","image_updated_at") VALUES (1, 2, 'cat', 'Labrador', 6, 'Dog is nice', '2016-06-23 06:34:06.929355', '2016-06-23 06:34:06.929355', NULL)
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "aadoptions"[0m
+  [1m[35m (0.1ms)[0m  CREATE TEMPORARY TABLE "aadoptions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "pet_type" varchar, "breed" varchar, "age" integer, "description" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "image_updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "adoptions"[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "aadoptions" ("id","user_id","pet_type","breed","age","description","created_at","updated_at","image_updated_at") VALUES (1, 2, 'cat', 'Labrador', 6, 'Dog is nice', '2016-06-23 06:34:06.929355', '2016-06-23 06:34:06.929355', NULL)
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "adoptions"[0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "adoptions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "pet_type" varchar, "breed" varchar, "age" integer, "description" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "aadoptions"[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "adoptions" ("id","user_id","pet_type","breed","age","description","created_at","updated_at") VALUES (1, 2, 'cat', 'Labrador', 6, 'Dog is nice', '2016-06-23 06:34:06.929355', '2016-06-23 06:34:06.929355')
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "aadoptions"[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?  [["version", "20160623061237"]]
+  [1m[36m (295.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_products_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_products_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddAttachmentImageToAdoptions (20160623061237)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "adoptions" ADD "image_file_name" varchar[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "adoptions" ADD "image_content_type" varchar
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "adoptions" ADD "image_file_size" integer[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "adoptions" ADD "image_updated_at" datetime
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160623061237"]]
+  [1m[35m (2.0ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_products_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_products_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to RemoveUsernameFromComments (20160623082754)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TEMPORARY TABLE "acomments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "comment_message" varchar, "user_id" integer, "post_id" integer, "username" varchar) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "comments"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "acomments" ("id","comment_message","user_id","post_id","username") VALUES (1, 'new comment', 16, 10, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "acomments" ("id","comment_message","user_id","post_id","username") VALUES (5, 'first ', 16, 12, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "acomments" ("id","comment_message","user_id","post_id","username") VALUES (6, 'second', 16, 12, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "acomments" ("id","comment_message","user_id","post_id","username") VALUES (7, 'third', 16, 12, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "acomments" ("id","comment_message","user_id","post_id","username") VALUES (8, 'fourth', 17, 12, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "acomments" ("id","comment_message","user_id","post_id","username") VALUES (9, 'fifth', 18, 12, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "acomments" ("id","comment_message","user_id","post_id","username") VALUES (10, 'Ronaldo is the best', 19, 12, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "acomments" ("id","comment_message","user_id","post_id","username") VALUES (11, 'Ronaldo is the best footballer', 19, 12, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "acomments" ("id","comment_message","user_id","post_id","username") VALUES (12, 'Ronaldo is the best footballer', 19, 12, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "acomments" ("id","comment_message","user_id","post_id","username") VALUES (13, 'Ronaldo is the best footballer', 19, 12, NULL)
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "comments"[0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "comment_message" varchar, "user_id" integer, "post_id" integer) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "acomments"[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "comments" ("id","comment_message","user_id","post_id") VALUES (1, 'new comment', 16, 10)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "comments" ("id","comment_message","user_id","post_id") VALUES (5, 'first ', 16, 12)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "comments" ("id","comment_message","user_id","post_id") VALUES (6, 'second', 16, 12)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "comments" ("id","comment_message","user_id","post_id") VALUES (7, 'third', 16, 12)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "comments" ("id","comment_message","user_id","post_id") VALUES (8, 'fourth', 17, 12)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "comments" ("id","comment_message","user_id","post_id") VALUES (9, 'fifth', 18, 12)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "comments" ("id","comment_message","user_id","post_id") VALUES (10, 'Ronaldo is the best', 19, 12)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "comments" ("id","comment_message","user_id","post_id") VALUES (11, 'Ronaldo is the best footballer', 19, 12)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "comments" ("id","comment_message","user_id","post_id") VALUES (12, 'Ronaldo is the best footballer', 19, 12)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "comments" ("id","comment_message","user_id","post_id") VALUES (13, 'Ronaldo is the best footballer', 19, 12)[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "acomments"
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160623082754"]]
+  [1m[35m (5.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_products_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_products_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
