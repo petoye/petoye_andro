@@ -19820,3 +19820,551 @@ Migrating to AddUsernameToComments (20160620025949)
             FROM sqlite_temp_master
             WHERE name='index_users_on_email' AND type='index'
 [0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddUsernameToComments (20160620025949)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "comments" ADD "username" varchar[0m
+  [1m[35mSQL (8.9ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160620025949"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+Migrating to AddLikedbyToFeeds (20160620040303)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "feeds" ADD "likedby" varchar DEFAULT '--- []
+'[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160620040303"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+Migrating to AddPetTypeAndPetBreedToUsers (20160623043729)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "users" ADD "pet_type" varchar[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "users" ADD "pet_breed" varchar
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160623043729"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_products_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_products_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to AddPetTypeAndPetBreedToUsers (20160623043729)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TEMPORARY TABLE "ausers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "owner_type" varchar DEFAULT 'none', "auth_token" varchar DEFAULT '', "location" varchar DEFAULT '--- []
+', "username" varchar, "pet_type" varchar, "pet_breed" varchar) 
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.4ms)[0m  [1mCREATE UNIQUE INDEX "tindex_ausers_on_auth_token" ON "ausers" ("auth_token")[0m
+  [1m[35m (0.2ms)[0m  CREATE UNIQUE INDEX "tindex_ausers_on_reset_password_token" ON "ausers" ("reset_password_token")
+  [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "tindex_ausers_on_email" ON "ausers" ("email")[0m
+  [1m[35m (0.2ms)[0m  SELECT * FROM "users"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed") VALUES (1, 'ameya@gmail.com', '$2a$11$4I.kN8AL2vd1Pf7ck9QOVOjacMq.eyq0hv5LcjFH5A8Y5lE15nClC', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 08:41:17.783595', '2016-06-15 09:42:26.656613', 'pet owner', 'ynuKyPfM3KnynzHLnRYz', '--- []
+', NULL, NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed") VALUES (2, 'ameya123@gmail.com', '$2a$11$7ix7h66h44t3YHwdQ/29f.TlKR0OVzfDU1YN4.t39uC7CakLvtZTm', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:40:50.609841', '2016-06-15 09:41:22.438445', 'none', 'BF9UDYusJtUVosg5BQz7', '--- []
+', NULL, NULL, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed") VALUES (3, 'ameya1234@gmail.com', '$2a$11$NhGRfR5MAL.CRf/333YZAOcmZ/MwQsIFMYm9OxKonw7vpFyzbY7Xi', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:41:12.990765', '2016-06-15 09:42:17.169906', 'pet owner', 'tHZ-wkFnpUCrmy1zfhKi', '--- []
+', NULL, NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed") VALUES (4, 'ameya12345@gmail.com', '$2a$11$Dspc2APAaDtMaAC5ACm1x.yV8Ubq/RP1ID8q2Ng//MVVNsz6ysrK.', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:42:40.470589', '2016-06-15 09:42:53.934406', 'pet owner', 'zzwQ-kAyShF_Uek9xdzE', '--- []
+', NULL, NULL, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed") VALUES (5, 'ameya1234thget@gmail.com', '$2a$11$CVF8Qfw4ImIqZ3tL3znrcObNLRI2LOIzQTc24ahAqNdXJvg9BMXq.', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:45:48.665184', '2016-06-15 09:46:28.377919', 'pet owner', 'LzeXe6T4hqu8xbXRkJ5U', '--- []
+', NULL, NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed") VALUES (6, 'ameya1@gmail.com', '$2a$11$ZQZEBpYYISoukLcgjcfFDuhL5M3cvtECMeYl.BByqkK0trKXkqKdG', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:34:40.674675', '2016-06-15 14:35:34.239186', 'pet owner', 'QebPLJgQTsNs6yv4aEGZ', '678.67.78-- []
+', NULL, NULL, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed") VALUES (7, 'ameya2@gmail.com', '$2a$11$vEpTgBUIC5Ux49wza3j1HOGB8iNOjJbTLtC1lllnAtvrlgOU/HmWm', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:34:51.611935', '2016-06-15 14:36:05.717491', 'pet owner', 'pRzN4iKv5yqTSfW1UxLy', '678-- []
+', NULL, NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed") VALUES (8, 'ameya3@gmail.com', '$2a$11$Qeir/EhDzWcl4Jz1EeKhWOk6Un.MfW7bevnzArIabNd.gpQe74cZu', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:34:58.485124', '2016-06-15 14:37:08.385683', 'pet owner', 'cxQJGLS8wPwHfJZ6tVSL', '---
+- ''62''
+- ''78''
+', NULL, NULL, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed") VALUES (9, 'ameya4@gmail.com', '$2a$11$Yz07DSRni7gF.RqmXRsWq.0XgTLIifYtnSbtYNlfBYHEnHYvvRU/m', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:35:08.632886', '2016-06-15 14:37:40.404686', 'pet owner', '3aXPyQNoXdkViffesx9a', '---
+- ''62.67''
+- ''78.64''
+', NULL, NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed") VALUES (10, 'ameya5@gmail.com', '$2a$11$tXJ1j9NRn9zRE/79hBZHU.ydNrwx681o9x2sE0W9mQlGlaK0fUaaS', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:35:13.737255', '2016-06-15 14:35:13.737255', 'none', 'FrDVNRFbYqEyevAywGKe', '--- []
+', NULL, NULL, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed") VALUES (11, 'tanzeel1@gmail.com', '$2a$11$9xkYE.4X110xIw8zNh.4..jcavz0BsPyLde/cvMHww0bEoCzwdci2', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:29:53.067010', '2016-06-16 06:32:56.650376', 'pet owner', '9f5Cg2FNJULL9o4HAYyM', '---
+- ''19.1343770''
+- ''72.8134890''
+', NULL, NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed") VALUES (12, 'tanzeel2@gmail.com', '$2a$11$//C5ZOMDVkWccJp0ACbWkukemhucl/nhag0603KMKWd5rCvIHDppO', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:30:14.666754', '2016-06-16 06:33:39.130134', 'pet owner', 'KjJ2oh7H2K1WBAiGsz9D', '---
+- ''19.1243770''
+- ''72.8234890''
+', NULL, NULL, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed") VALUES (13, 'tanzeel3@gmail.com', '$2a$11$gg0eZOjG8Z6S2RPFUsDqaeRyScOBn7O6XQajzHXIz8AV3eQadz.9m', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:30:31.475669', '2016-06-16 06:34:09.638942', 'pet owner', '4AsKLkX_gtqD_TRBqXKg', '---
+- ''20.1243770''
+- ''80.8234890''
+', NULL, NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed") VALUES (14, 'tanzeel4@gmail.com', '$2a$11$GQ8wP9bO6u0o2IHun/Dcp.LkvFR32.xwevOaLtScyFdnViBnECZsi', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:31:04.819204', '2016-06-16 06:35:12.018719', 'pet owner', 'JgzssxYeruCMefKizJmi', '---
+- ''19.1243770''
+- ''72.8234890''
+', NULL, NULL, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed") VALUES (15, 'tanzeel5@gmail.com', '$2a$11$pnr5DnZQdyw6BtE13nP60.fmz0AOqkfxtH4un4uvM9D8OC6J/FloG', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:31:10.179710', '2016-06-16 06:35:17.818254', 'pet owner', 'HPbZTgz7NXsUWpTWk9vm', '---
+- ''19.1243770''
+- ''72.8234890''
+', NULL, NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed") VALUES (16, 'tanzeel6@gmail.com', '$2a$11$ADdAfAIzI76YFQ4T2YD6Bu76DfT9WhGNL80/cy6py.vx6v7bhirfW', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-20 02:10:08.127925', '2016-06-20 02:10:08.127925', 'none', 'zy1xia5ePLxgpyN4hwDy', '--- []
+', NULL, NULL, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed") VALUES (17, 'tanzeel7@gmail.com', '$2a$11$TIDHXv7HJJ3k9Q6uBePS/OwBZxujS2eSOj83WV5n/ttkdePWvZXwi', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-20 02:10:15.354001', '2016-06-20 02:10:15.354001', 'none', 'tb_VYJ41iubZ9NbL_84Z', '--- []
+', NULL, NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed") VALUES (18, 'tanzeel8@gmail.com', '$2a$11$aQH3.7cJjr7s0lrVBVYzs.u9iD96meZ3Dc40LjSAyBemV.hTF1bXy', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-20 02:10:20.045481', '2016-06-20 02:10:20.045481', 'none', 'C3Tzsov2KLLyPdyp_BGs', '--- []
+', NULL, NULL, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed") VALUES (19, 'ronaldo@gmail.com', '$2a$11$Z9DKPM/r03rEHro5OxlQMuQMifVpFW4SpSJA5SAgutFkOtfnITfQu', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-20 03:05:09.625680', '2016-06-20 03:05:09.625680', 'none', 'gA9ryxYKyxwzd4nyDyTB', '--- []
+', 'anonymous', NULL, NULL)[0m
+  [1m[35m (0.4ms)[0m  DROP TABLE "users"
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "owner_type" varchar DEFAULT 'none', "auth_token" varchar DEFAULT '', "location" varchar DEFAULT '--- []
+', "username" varchar, "pet_type" varchar) [0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_email' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_auth_token' AND type='index'
+
+  [1m[36m (0.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  CREATE UNIQUE INDEX "index_users_on_auth_token" ON "users" ("auth_token")
+  [1m[36m (0.2ms)[0m  [1mSELECT * FROM "ausers"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (1, 'ameya@gmail.com', '$2a$11$4I.kN8AL2vd1Pf7ck9QOVOjacMq.eyq0hv5LcjFH5A8Y5lE15nClC', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 08:41:17.783595', '2016-06-15 09:42:26.656613', 'pet owner', 'ynuKyPfM3KnynzHLnRYz', '--- []
+', NULL, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (2, 'ameya123@gmail.com', '$2a$11$7ix7h66h44t3YHwdQ/29f.TlKR0OVzfDU1YN4.t39uC7CakLvtZTm', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:40:50.609841', '2016-06-15 09:41:22.438445', 'none', 'BF9UDYusJtUVosg5BQz7', '--- []
+', NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (3, 'ameya1234@gmail.com', '$2a$11$NhGRfR5MAL.CRf/333YZAOcmZ/MwQsIFMYm9OxKonw7vpFyzbY7Xi', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:41:12.990765', '2016-06-15 09:42:17.169906', 'pet owner', 'tHZ-wkFnpUCrmy1zfhKi', '--- []
+', NULL, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (4, 'ameya12345@gmail.com', '$2a$11$Dspc2APAaDtMaAC5ACm1x.yV8Ubq/RP1ID8q2Ng//MVVNsz6ysrK.', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:42:40.470589', '2016-06-15 09:42:53.934406', 'pet owner', 'zzwQ-kAyShF_Uek9xdzE', '--- []
+', NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (5, 'ameya1234thget@gmail.com', '$2a$11$CVF8Qfw4ImIqZ3tL3znrcObNLRI2LOIzQTc24ahAqNdXJvg9BMXq.', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:45:48.665184', '2016-06-15 09:46:28.377919', 'pet owner', 'LzeXe6T4hqu8xbXRkJ5U', '--- []
+', NULL, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (6, 'ameya1@gmail.com', '$2a$11$ZQZEBpYYISoukLcgjcfFDuhL5M3cvtECMeYl.BByqkK0trKXkqKdG', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:34:40.674675', '2016-06-15 14:35:34.239186', 'pet owner', 'QebPLJgQTsNs6yv4aEGZ', '678.67.78-- []
+', NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (7, 'ameya2@gmail.com', '$2a$11$vEpTgBUIC5Ux49wza3j1HOGB8iNOjJbTLtC1lllnAtvrlgOU/HmWm', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:34:51.611935', '2016-06-15 14:36:05.717491', 'pet owner', 'pRzN4iKv5yqTSfW1UxLy', '678-- []
+', NULL, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (8, 'ameya3@gmail.com', '$2a$11$Qeir/EhDzWcl4Jz1EeKhWOk6Un.MfW7bevnzArIabNd.gpQe74cZu', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:34:58.485124', '2016-06-15 14:37:08.385683', 'pet owner', 'cxQJGLS8wPwHfJZ6tVSL', '---
+- ''62''
+- ''78''
+', NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (9, 'ameya4@gmail.com', '$2a$11$Yz07DSRni7gF.RqmXRsWq.0XgTLIifYtnSbtYNlfBYHEnHYvvRU/m', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:35:08.632886', '2016-06-15 14:37:40.404686', 'pet owner', '3aXPyQNoXdkViffesx9a', '---
+- ''62.67''
+- ''78.64''
+', NULL, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (10, 'ameya5@gmail.com', '$2a$11$tXJ1j9NRn9zRE/79hBZHU.ydNrwx681o9x2sE0W9mQlGlaK0fUaaS', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:35:13.737255', '2016-06-15 14:35:13.737255', 'none', 'FrDVNRFbYqEyevAywGKe', '--- []
+', NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (11, 'tanzeel1@gmail.com', '$2a$11$9xkYE.4X110xIw8zNh.4..jcavz0BsPyLde/cvMHww0bEoCzwdci2', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:29:53.067010', '2016-06-16 06:32:56.650376', 'pet owner', '9f5Cg2FNJULL9o4HAYyM', '---
+- ''19.1343770''
+- ''72.8134890''
+', NULL, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (12, 'tanzeel2@gmail.com', '$2a$11$//C5ZOMDVkWccJp0ACbWkukemhucl/nhag0603KMKWd5rCvIHDppO', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:30:14.666754', '2016-06-16 06:33:39.130134', 'pet owner', 'KjJ2oh7H2K1WBAiGsz9D', '---
+- ''19.1243770''
+- ''72.8234890''
+', NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (13, 'tanzeel3@gmail.com', '$2a$11$gg0eZOjG8Z6S2RPFUsDqaeRyScOBn7O6XQajzHXIz8AV3eQadz.9m', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:30:31.475669', '2016-06-16 06:34:09.638942', 'pet owner', '4AsKLkX_gtqD_TRBqXKg', '---
+- ''20.1243770''
+- ''80.8234890''
+', NULL, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (14, 'tanzeel4@gmail.com', '$2a$11$GQ8wP9bO6u0o2IHun/Dcp.LkvFR32.xwevOaLtScyFdnViBnECZsi', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:31:04.819204', '2016-06-16 06:35:12.018719', 'pet owner', 'JgzssxYeruCMefKizJmi', '---
+- ''19.1243770''
+- ''72.8234890''
+', NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (15, 'tanzeel5@gmail.com', '$2a$11$pnr5DnZQdyw6BtE13nP60.fmz0AOqkfxtH4un4uvM9D8OC6J/FloG', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:31:10.179710', '2016-06-16 06:35:17.818254', 'pet owner', 'HPbZTgz7NXsUWpTWk9vm', '---
+- ''19.1243770''
+- ''72.8234890''
+', NULL, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (16, 'tanzeel6@gmail.com', '$2a$11$ADdAfAIzI76YFQ4T2YD6Bu76DfT9WhGNL80/cy6py.vx6v7bhirfW', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-20 02:10:08.127925', '2016-06-20 02:10:08.127925', 'none', 'zy1xia5ePLxgpyN4hwDy', '--- []
+', NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (17, 'tanzeel7@gmail.com', '$2a$11$TIDHXv7HJJ3k9Q6uBePS/OwBZxujS2eSOj83WV5n/ttkdePWvZXwi', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-20 02:10:15.354001', '2016-06-20 02:10:15.354001', 'none', 'tb_VYJ41iubZ9NbL_84Z', '--- []
+', NULL, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (18, 'tanzeel8@gmail.com', '$2a$11$aQH3.7cJjr7s0lrVBVYzs.u9iD96meZ3Dc40LjSAyBemV.hTF1bXy', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-20 02:10:20.045481', '2016-06-20 02:10:20.045481', 'none', 'C3Tzsov2KLLyPdyp_BGs', '--- []
+', NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (19, 'ronaldo@gmail.com', '$2a$11$Z9DKPM/r03rEHro5OxlQMuQMifVpFW4SpSJA5SAgutFkOtfnITfQu', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-20 03:05:09.625680', '2016-06-20 03:05:09.625680', 'none', 'gA9ryxYKyxwzd4nyDyTB', '--- []
+', 'anonymous', NULL)
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "ausers"[0m
+  [1m[35m (0.1ms)[0m  CREATE TEMPORARY TABLE "ausers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "owner_type" varchar DEFAULT 'none', "auth_token" varchar DEFAULT '', "location" varchar DEFAULT '--- []
+', "username" varchar, "pet_type" varchar) 
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  CREATE UNIQUE INDEX "tindex_ausers_on_auth_token" ON "ausers" ("auth_token")
+  [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "tindex_ausers_on_reset_password_token" ON "ausers" ("reset_password_token")[0m
+  [1m[35m (0.1ms)[0m  CREATE UNIQUE INDEX "tindex_ausers_on_email" ON "ausers" ("email")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "users"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (1, 'ameya@gmail.com', '$2a$11$4I.kN8AL2vd1Pf7ck9QOVOjacMq.eyq0hv5LcjFH5A8Y5lE15nClC', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 08:41:17.783595', '2016-06-15 09:42:26.656613', 'pet owner', 'ynuKyPfM3KnynzHLnRYz', '--- []
+', NULL, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (2, 'ameya123@gmail.com', '$2a$11$7ix7h66h44t3YHwdQ/29f.TlKR0OVzfDU1YN4.t39uC7CakLvtZTm', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:40:50.609841', '2016-06-15 09:41:22.438445', 'none', 'BF9UDYusJtUVosg5BQz7', '--- []
+', NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (3, 'ameya1234@gmail.com', '$2a$11$NhGRfR5MAL.CRf/333YZAOcmZ/MwQsIFMYm9OxKonw7vpFyzbY7Xi', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:41:12.990765', '2016-06-15 09:42:17.169906', 'pet owner', 'tHZ-wkFnpUCrmy1zfhKi', '--- []
+', NULL, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (4, 'ameya12345@gmail.com', '$2a$11$Dspc2APAaDtMaAC5ACm1x.yV8Ubq/RP1ID8q2Ng//MVVNsz6ysrK.', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:42:40.470589', '2016-06-15 09:42:53.934406', 'pet owner', 'zzwQ-kAyShF_Uek9xdzE', '--- []
+', NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (5, 'ameya1234thget@gmail.com', '$2a$11$CVF8Qfw4ImIqZ3tL3znrcObNLRI2LOIzQTc24ahAqNdXJvg9BMXq.', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:45:48.665184', '2016-06-15 09:46:28.377919', 'pet owner', 'LzeXe6T4hqu8xbXRkJ5U', '--- []
+', NULL, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (6, 'ameya1@gmail.com', '$2a$11$ZQZEBpYYISoukLcgjcfFDuhL5M3cvtECMeYl.BByqkK0trKXkqKdG', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:34:40.674675', '2016-06-15 14:35:34.239186', 'pet owner', 'QebPLJgQTsNs6yv4aEGZ', '678.67.78-- []
+', NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (7, 'ameya2@gmail.com', '$2a$11$vEpTgBUIC5Ux49wza3j1HOGB8iNOjJbTLtC1lllnAtvrlgOU/HmWm', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:34:51.611935', '2016-06-15 14:36:05.717491', 'pet owner', 'pRzN4iKv5yqTSfW1UxLy', '678-- []
+', NULL, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (8, 'ameya3@gmail.com', '$2a$11$Qeir/EhDzWcl4Jz1EeKhWOk6Un.MfW7bevnzArIabNd.gpQe74cZu', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:34:58.485124', '2016-06-15 14:37:08.385683', 'pet owner', 'cxQJGLS8wPwHfJZ6tVSL', '---
+- ''62''
+- ''78''
+', NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (9, 'ameya4@gmail.com', '$2a$11$Yz07DSRni7gF.RqmXRsWq.0XgTLIifYtnSbtYNlfBYHEnHYvvRU/m', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:35:08.632886', '2016-06-15 14:37:40.404686', 'pet owner', '3aXPyQNoXdkViffesx9a', '---
+- ''62.67''
+- ''78.64''
+', NULL, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (10, 'ameya5@gmail.com', '$2a$11$tXJ1j9NRn9zRE/79hBZHU.ydNrwx681o9x2sE0W9mQlGlaK0fUaaS', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:35:13.737255', '2016-06-15 14:35:13.737255', 'none', 'FrDVNRFbYqEyevAywGKe', '--- []
+', NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (11, 'tanzeel1@gmail.com', '$2a$11$9xkYE.4X110xIw8zNh.4..jcavz0BsPyLde/cvMHww0bEoCzwdci2', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:29:53.067010', '2016-06-16 06:32:56.650376', 'pet owner', '9f5Cg2FNJULL9o4HAYyM', '---
+- ''19.1343770''
+- ''72.8134890''
+', NULL, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (12, 'tanzeel2@gmail.com', '$2a$11$//C5ZOMDVkWccJp0ACbWkukemhucl/nhag0603KMKWd5rCvIHDppO', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:30:14.666754', '2016-06-16 06:33:39.130134', 'pet owner', 'KjJ2oh7H2K1WBAiGsz9D', '---
+- ''19.1243770''
+- ''72.8234890''
+', NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (13, 'tanzeel3@gmail.com', '$2a$11$gg0eZOjG8Z6S2RPFUsDqaeRyScOBn7O6XQajzHXIz8AV3eQadz.9m', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:30:31.475669', '2016-06-16 06:34:09.638942', 'pet owner', '4AsKLkX_gtqD_TRBqXKg', '---
+- ''20.1243770''
+- ''80.8234890''
+', NULL, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (14, 'tanzeel4@gmail.com', '$2a$11$GQ8wP9bO6u0o2IHun/Dcp.LkvFR32.xwevOaLtScyFdnViBnECZsi', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:31:04.819204', '2016-06-16 06:35:12.018719', 'pet owner', 'JgzssxYeruCMefKizJmi', '---
+- ''19.1243770''
+- ''72.8234890''
+', NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (15, 'tanzeel5@gmail.com', '$2a$11$pnr5DnZQdyw6BtE13nP60.fmz0AOqkfxtH4un4uvM9D8OC6J/FloG', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:31:10.179710', '2016-06-16 06:35:17.818254', 'pet owner', 'HPbZTgz7NXsUWpTWk9vm', '---
+- ''19.1243770''
+- ''72.8234890''
+', NULL, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (16, 'tanzeel6@gmail.com', '$2a$11$ADdAfAIzI76YFQ4T2YD6Bu76DfT9WhGNL80/cy6py.vx6v7bhirfW', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-20 02:10:08.127925', '2016-06-20 02:10:08.127925', 'none', 'zy1xia5ePLxgpyN4hwDy', '--- []
+', NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (17, 'tanzeel7@gmail.com', '$2a$11$TIDHXv7HJJ3k9Q6uBePS/OwBZxujS2eSOj83WV5n/ttkdePWvZXwi', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-20 02:10:15.354001', '2016-06-20 02:10:15.354001', 'none', 'tb_VYJ41iubZ9NbL_84Z', '--- []
+', NULL, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (18, 'tanzeel8@gmail.com', '$2a$11$aQH3.7cJjr7s0lrVBVYzs.u9iD96meZ3Dc40LjSAyBemV.hTF1bXy', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-20 02:10:20.045481', '2016-06-20 02:10:20.045481', 'none', 'C3Tzsov2KLLyPdyp_BGs', '--- []
+', NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type") VALUES (19, 'ronaldo@gmail.com', '$2a$11$Z9DKPM/r03rEHro5OxlQMuQMifVpFW4SpSJA5SAgutFkOtfnITfQu', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-20 03:05:09.625680', '2016-06-20 03:05:09.625680', 'none', 'gA9ryxYKyxwzd4nyDyTB', '--- []
+', 'anonymous', NULL)
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "owner_type" varchar DEFAULT 'none', "auth_token" varchar DEFAULT '', "location" varchar DEFAULT '--- []
+', "username" varchar) 
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_auth_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_auth_token" ON "users" ("auth_token")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "ausers"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username") VALUES (1, 'ameya@gmail.com', '$2a$11$4I.kN8AL2vd1Pf7ck9QOVOjacMq.eyq0hv5LcjFH5A8Y5lE15nClC', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 08:41:17.783595', '2016-06-15 09:42:26.656613', 'pet owner', 'ynuKyPfM3KnynzHLnRYz', '--- []
+', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username") VALUES (2, 'ameya123@gmail.com', '$2a$11$7ix7h66h44t3YHwdQ/29f.TlKR0OVzfDU1YN4.t39uC7CakLvtZTm', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:40:50.609841', '2016-06-15 09:41:22.438445', 'none', 'BF9UDYusJtUVosg5BQz7', '--- []
+', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username") VALUES (3, 'ameya1234@gmail.com', '$2a$11$NhGRfR5MAL.CRf/333YZAOcmZ/MwQsIFMYm9OxKonw7vpFyzbY7Xi', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:41:12.990765', '2016-06-15 09:42:17.169906', 'pet owner', 'tHZ-wkFnpUCrmy1zfhKi', '--- []
+', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username") VALUES (4, 'ameya12345@gmail.com', '$2a$11$Dspc2APAaDtMaAC5ACm1x.yV8Ubq/RP1ID8q2Ng//MVVNsz6ysrK.', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:42:40.470589', '2016-06-15 09:42:53.934406', 'pet owner', 'zzwQ-kAyShF_Uek9xdzE', '--- []
+', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username") VALUES (5, 'ameya1234thget@gmail.com', '$2a$11$CVF8Qfw4ImIqZ3tL3znrcObNLRI2LOIzQTc24ahAqNdXJvg9BMXq.', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:45:48.665184', '2016-06-15 09:46:28.377919', 'pet owner', 'LzeXe6T4hqu8xbXRkJ5U', '--- []
+', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username") VALUES (6, 'ameya1@gmail.com', '$2a$11$ZQZEBpYYISoukLcgjcfFDuhL5M3cvtECMeYl.BByqkK0trKXkqKdG', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:34:40.674675', '2016-06-15 14:35:34.239186', 'pet owner', 'QebPLJgQTsNs6yv4aEGZ', '678.67.78-- []
+', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username") VALUES (7, 'ameya2@gmail.com', '$2a$11$vEpTgBUIC5Ux49wza3j1HOGB8iNOjJbTLtC1lllnAtvrlgOU/HmWm', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:34:51.611935', '2016-06-15 14:36:05.717491', 'pet owner', 'pRzN4iKv5yqTSfW1UxLy', '678-- []
+', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username") VALUES (8, 'ameya3@gmail.com', '$2a$11$Qeir/EhDzWcl4Jz1EeKhWOk6Un.MfW7bevnzArIabNd.gpQe74cZu', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:34:58.485124', '2016-06-15 14:37:08.385683', 'pet owner', 'cxQJGLS8wPwHfJZ6tVSL', '---
+- ''62''
+- ''78''
+', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username") VALUES (9, 'ameya4@gmail.com', '$2a$11$Yz07DSRni7gF.RqmXRsWq.0XgTLIifYtnSbtYNlfBYHEnHYvvRU/m', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:35:08.632886', '2016-06-15 14:37:40.404686', 'pet owner', '3aXPyQNoXdkViffesx9a', '---
+- ''62.67''
+- ''78.64''
+', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username") VALUES (10, 'ameya5@gmail.com', '$2a$11$tXJ1j9NRn9zRE/79hBZHU.ydNrwx681o9x2sE0W9mQlGlaK0fUaaS', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:35:13.737255', '2016-06-15 14:35:13.737255', 'none', 'FrDVNRFbYqEyevAywGKe', '--- []
+', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username") VALUES (11, 'tanzeel1@gmail.com', '$2a$11$9xkYE.4X110xIw8zNh.4..jcavz0BsPyLde/cvMHww0bEoCzwdci2', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:29:53.067010', '2016-06-16 06:32:56.650376', 'pet owner', '9f5Cg2FNJULL9o4HAYyM', '---
+- ''19.1343770''
+- ''72.8134890''
+', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username") VALUES (12, 'tanzeel2@gmail.com', '$2a$11$//C5ZOMDVkWccJp0ACbWkukemhucl/nhag0603KMKWd5rCvIHDppO', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:30:14.666754', '2016-06-16 06:33:39.130134', 'pet owner', 'KjJ2oh7H2K1WBAiGsz9D', '---
+- ''19.1243770''
+- ''72.8234890''
+', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username") VALUES (13, 'tanzeel3@gmail.com', '$2a$11$gg0eZOjG8Z6S2RPFUsDqaeRyScOBn7O6XQajzHXIz8AV3eQadz.9m', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:30:31.475669', '2016-06-16 06:34:09.638942', 'pet owner', '4AsKLkX_gtqD_TRBqXKg', '---
+- ''20.1243770''
+- ''80.8234890''
+', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username") VALUES (14, 'tanzeel4@gmail.com', '$2a$11$GQ8wP9bO6u0o2IHun/Dcp.LkvFR32.xwevOaLtScyFdnViBnECZsi', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:31:04.819204', '2016-06-16 06:35:12.018719', 'pet owner', 'JgzssxYeruCMefKizJmi', '---
+- ''19.1243770''
+- ''72.8234890''
+', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username") VALUES (15, 'tanzeel5@gmail.com', '$2a$11$pnr5DnZQdyw6BtE13nP60.fmz0AOqkfxtH4un4uvM9D8OC6J/FloG', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:31:10.179710', '2016-06-16 06:35:17.818254', 'pet owner', 'HPbZTgz7NXsUWpTWk9vm', '---
+- ''19.1243770''
+- ''72.8234890''
+', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username") VALUES (16, 'tanzeel6@gmail.com', '$2a$11$ADdAfAIzI76YFQ4T2YD6Bu76DfT9WhGNL80/cy6py.vx6v7bhirfW', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-20 02:10:08.127925', '2016-06-20 02:10:08.127925', 'none', 'zy1xia5ePLxgpyN4hwDy', '--- []
+', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username") VALUES (17, 'tanzeel7@gmail.com', '$2a$11$TIDHXv7HJJ3k9Q6uBePS/OwBZxujS2eSOj83WV5n/ttkdePWvZXwi', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-20 02:10:15.354001', '2016-06-20 02:10:15.354001', 'none', 'tb_VYJ41iubZ9NbL_84Z', '--- []
+', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username") VALUES (18, 'tanzeel8@gmail.com', '$2a$11$aQH3.7cJjr7s0lrVBVYzs.u9iD96meZ3Dc40LjSAyBemV.hTF1bXy', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-20 02:10:20.045481', '2016-06-20 02:10:20.045481', 'none', 'C3Tzsov2KLLyPdyp_BGs', '--- []
+', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username") VALUES (19, 'ronaldo@gmail.com', '$2a$11$Z9DKPM/r03rEHro5OxlQMuQMifVpFW4SpSJA5SAgutFkOtfnITfQu', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-20 03:05:09.625680', '2016-06-20 03:05:09.625680', 'none', 'gA9ryxYKyxwzd4nyDyTB', '--- []
+', 'anonymous')[0m
+  [1m[35m (0.1ms)[0m  DROP TABLE "ausers"
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20160623043729"]]
+  [1m[35m (2.1ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_products_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_products_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddPetTypeAndPetBreedToUsers (20160623043729)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "users" ADD "pet_type" varchar[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "pet_breed" varchar
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160623043729"]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_products_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_products_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+
+
+Started POST "/users/1/basicinfo" for 127.0.0.1 at 2016-06-23 10:14:46 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::UsersController#info as JSON
+  Parameters: {"username"=>"Ameya Vichare", "otype"=>"pet owner", "ptype"=>"dog", "breed"=>"pug", "latitude"=>"62", "longitude"=>"74", "subdomain"=>"api", "id"=>"1"}
+Can't verify CSRF token authenticity
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.8ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."auth_token" = 'ynuKyPfM3KnynzHLnRYz' AND "users"."id" != 1) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "location" = ?, "username" = ?, "pet_type" = ?, "pet_breed" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["location", "---\n- '62'\n- '74'\n"], ["username", "Ameya Vichare"], ["pet_type", "dog"], ["pet_breed", "pug"], ["updated_at", "2016-06-23 04:44:46.424956"], ["id", 1]]
+  [1m[35m (1.3ms)[0m  commit transaction
+Completed 200 OK in 91ms (Views: 8.8ms | ActiveRecord: 3.2ms)

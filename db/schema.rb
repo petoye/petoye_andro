@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160620025727) do
+ActiveRecord::Schema.define(version: 20160623043729) do
 
   create_table "comments", force: :cascade do |t|
     t.string  "comment_message"
     t.integer "user_id"
     t.integer "post_id"
+    t.string  "username"
   end
 
   create_table "feeds", force: :cascade do |t|
@@ -30,6 +31,7 @@ ActiveRecord::Schema.define(version: 20160620025727) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "likedby",            default: "--- []\n"
   end
 
   add_index "feeds", ["user_id"], name: "index_feeds_on_user_id"
@@ -62,6 +64,8 @@ ActiveRecord::Schema.define(version: 20160620025727) do
     t.string   "auth_token",             default: ""
     t.string   "location",               default: "--- []\n"
     t.string   "username"
+    t.string   "pet_type"
+    t.string   "pet_breed"
   end
 
   add_index "users", ["auth_token"], name: "index_users_on_auth_token", unique: true

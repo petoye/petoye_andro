@@ -36,7 +36,11 @@ class Api::V1::UsersController < ApplicationController
     #info_pet_type=params[:pet_type]
     #info_pet_breed=params[:pet_breed]
     user=User.find(params[:id])
-    user.owner_type=params[:type]
+    user.owner_type=params[:otype]
+    #username, pet_type, pet_breed 
+    user.username = params[:username]
+    user.pet_type = params[:ptype]
+    user.pet_breed = params[:breed]
     lat = params[:latitude]
     long = params[:longitude]
     user.location[0] = lat
@@ -48,6 +52,11 @@ class Api::V1::UsersController < ApplicationController
     end
 
   end  
+
+  def myprofile
+    #profile of users
+    
+  end
 
   #def location
    # user = User.find(params[:id])
