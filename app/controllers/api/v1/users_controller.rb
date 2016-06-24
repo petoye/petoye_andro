@@ -2,7 +2,7 @@ class Api::V1::UsersController < ApplicationController
  respond_to :json
  before_action :authenticate_with_token!, only: [:update, :destroy]
  after_action :checkfollowing, only: [:showprofile]
-
+  #attr_accessor :already_following
   #def show
    # respond_with User.find(params[:id])
   #end
@@ -77,11 +77,12 @@ class Api::V1::UsersController < ApplicationController
       already_following = true
     end
     #render text: already_following
+    #render text: :already_following, status: 201
     render json: user.as_json(only:[:username, :owner_type, :pet_breed, :pet_story, :story_like_count]), status: 201
   end
 
   def checkfollowing
-    
+
   end
 
   def likestory
