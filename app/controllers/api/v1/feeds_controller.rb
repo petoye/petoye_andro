@@ -31,12 +31,12 @@ class Api::V1::FeedsController < ApplicationController
 
   def showlikes
     feed = Feed.find(params[:pid])
-    #render json: feed.as_json(only:[:likedby] ,include: { user: {only: :email}}), status: 201
-    feed.likedby.each do |f|
-      @a = f.to_i
+    render json: feed.as_json(only:[:likedby] ,include: { user: {only: :email}}), status: 201
+    #feed.likedby.each do |f|
+      #@a = f.to_i
       #user = User.find(params[:a])
-    end
-    render text: @a
+    #end
+    #render text: @a
     #json: user, status: 200
 
   end

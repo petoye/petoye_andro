@@ -1,6 +1,7 @@
 class Api::V1::UsersController < ApplicationController
  respond_to :json
  before_action :authenticate_with_token!, only: [:update, :destroy]
+ after_action :checkfollowing, only: [:showprofile]
 
   #def show
    # respond_with User.find(params[:id])
@@ -66,6 +67,23 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+  def showprofile
+    user = User.find(params[:hisid])
+    already_following = false
+    following = params[:hisid]
+    follower = params[:myid]
+    follow = Follow.where({ follower_id: follower, following_id: following})
+    if follow.exists?
+      already_following = true
+    end
+    #render text: already_following
+    render json: user.as_json(only:[:username, :owner_type, :pet_breed, :pet_story, :story_like_count]), status: 201
+  end
+
+  def checkfollowing
+    
+  end
+
   def likestory
 
     user = User.find(params[:id])
@@ -86,19 +104,27 @@ class Api::V1::UsersController < ApplicationController
   def follow
     follower = params[:myid]
     following = params[:hisid]
-    already_following = 0
-    Follow.where(follower_id: follower).all.each do |f|
-      if f.following_id == following
-        already_following ++
-      end
+    already_following = false
+
+    follow = Follow.where({ follower_id: follower, following_id: following})
+    if follow.exists?
+      already_following = true
     end
-    if already_following == 0
+    #Follow.where(follower_id: follower).all.each do |f|
+     # if f.following_id.include?(following)
+      #  already_following = already_following + 1
+      #end
+    #end
+    #render text: already_following
+    if already_following == false
       follow = Follow.new({ follower_id: follower, following_id: following })
       if follow.save
         render json: follow, status: 201
       else
         render json: { errors: "could not follow/already following"}, status: 422
       end
+    else
+      render json: {errors: "already following"}, status: 422
     end
   end
 

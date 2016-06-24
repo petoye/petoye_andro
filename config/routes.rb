@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       post '/users/:id/likestory', to: 'users#likestory'
       get '/users/:id/posts', to: 'users#userposts'
       post '/:myid/follow', to: 'users#follow'
+      post '/:hisid/showprofile', to: 'users#showprofile'
 
 
        resources :feeds, :only => [:index]
