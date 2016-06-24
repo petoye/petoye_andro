@@ -31,7 +31,14 @@ class Api::V1::FeedsController < ApplicationController
 
   def showlikes
     feed = Feed.find(params[:pid])
-    render json: feed.likedby, status: 201
+    #render json: feed.as_json(only:[:likedby] ,include: { user: {only: :email}}), status: 201
+    feed.likedby.each do |f|
+      @a = f.to_i
+      #user = User.find(params[:a])
+    end
+    render text: @a
+    #json: user, status: 200
+
   end
 
   def dislikeit
@@ -44,6 +51,22 @@ class Api::V1::FeedsController < ApplicationController
     end
   end
 
+  def report
+    feed = Feed.find(params[:pid])
+    repstr = params[:report]
+    rep = repstr.to_i
+    count = feed.report.count
+    feed.report[count] = rep
+    if feed.save
+      render json: feed.as_json(only:[:id,:report]), status: 201
+    else
+      render json: { errors: "could not report" }, status:422
+    end
+    if feed.report.count > 200
+      feed.destroy
+      head 204
+    end
+  end
   
 
   def index

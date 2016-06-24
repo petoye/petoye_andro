@@ -83,6 +83,25 @@ class Api::V1::UsersController < ApplicationController
     render json: feed, status: 200
   end
 
+  def follow
+    follower = params[:myid]
+    following = params[:hisid]
+    already_following = 0
+    Follow.where(follower_id: follower).all.each do |f|
+      if f.following_id == following
+        already_following ++
+      end
+    end
+    if already_following == 0
+      follow = Follow.new({ follower_id: follower, following_id: following })
+      if follow.save
+        render json: follow, status: 201
+      else
+        render json: { errors: "could not follow/already following"}, status: 422
+      end
+    end
+  end
+
   #def location
    # user = User.find(params[:id])
     #lat = params[:location][:lattitude]

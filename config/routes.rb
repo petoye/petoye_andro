@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       post '/users/:id/poststory', to: 'users#poststory'
       post '/users/:id/likestory', to: 'users#likestory'
       get '/users/:id/posts', to: 'users#userposts'
+      post '/:myid/follow', to: 'users#follow'
 
 
        resources :feeds, :only => [:index]
@@ -27,6 +28,7 @@ Rails.application.routes.draw do
 
        post '/feeds/:uid/like', to: 'feeds#likeit'
        get '/feeds/:pid/showlike', to: 'feeds#showlikes'
+       post '/feeds/:pid/report', to: 'feeds#report'
 
        resources :adoptions
        post '/adopt/:id/createadoption', to: 'adoptions#newadoption'
