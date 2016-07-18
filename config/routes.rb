@@ -35,6 +35,10 @@ Rails.application.routes.draw do
        post '/adopt/:id/createadoption', to: 'adoptions#newadoption'
        get '/adopt/show', to: 'adoptions#show'
 
+       resources :conversations, :only => [:create]
+       post '/conversations/open', to: 'conversations#open'
+       post '/conversations/all', to: 'conversations#all'
+
        #match '/feeds/:post_id/like' to: 'feeds#likeit', via: 'put'
        #put '/feeds/:post_id/dislike', to: 'feeds#dislikeit', as: "dislike_feed"
 

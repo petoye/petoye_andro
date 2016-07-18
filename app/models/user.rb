@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
  has_many :comments, dependent: :destroy
  has_many :adoptions, dependent: :destroy
  has_many :follows, dependent: :destroy
+ has_many :conversations, dependent: :destroy
+ has_many :messages, dependent: :destroy
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
  validates :auth_token, uniqueness: true
