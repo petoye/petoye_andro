@@ -22,6 +22,8 @@ gem 'aws-sdk', '~> 1.6'
 
 gem 'fog'
 
+gem 'geokit-rails'
+
 group :development, :test do
   gem 'byebug'
 end

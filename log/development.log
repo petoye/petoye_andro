@@ -31957,3 +31957,1184 @@ Can't verify CSRF token authenticity
   [1m[35m (0.1ms)[0m  begin transaction
   [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
 Completed 422 Unprocessable Entity in 17ms (Views: 12.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/conversations/all" for 127.0.0.1 at 2016-07-18 17:38:51 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::ConversationsController#all as JSON
+  Parameters: {"user_id"=>"5", "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+  [1m[35mConversation Load (0.3ms)[0m  SELECT "conversations".* FROM "conversations" WHERE "conversations"."sender_id" = ?  [["sender_id", 5]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (3, 4, 6, 7)[0m
+Completed 500 Internal Server Error in 57ms (ActiveRecord: 1.3ms)
+
+NoMethodError (undefined method `message' for #<User:0x007fb4e0132148>
+Did you mean?  messages
+               messages=):
+  app/controllers/api/v1/conversations_controller.rb:43:in `all'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.8ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (67.1ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (53.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (110.7ms)
+
+
+Started POST "/conversations/all" for 127.0.0.1 at 2016-07-18 17:39:14 +0530
+Processing by Api::V1::ConversationsController#all as JSON
+  Parameters: {"user_id"=>"5", "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+  [1m[35mConversation Load (0.1ms)[0m  SELECT "conversations".* FROM "conversations" WHERE "conversations"."sender_id" = ?  [["sender_id", 5]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (3, 4, 6, 7)[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1
+Completed 201 Created in 97ms (Views: 76.0ms | ActiveRecord: 1.4ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddLatAndLongToUsers (20160718133220)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "users" ADD "lat" float[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "users" ADD "lng" float
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160718133220"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_conversations_on_recipient_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_conversations_on_recipient_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_conversations_on_sender_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_conversations_on_sender_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_conversation_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_conversation_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_products_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_products_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+
+
+Started POST "/feeds/12/nearbyfeeds" for 127.0.0.1 at 2016-07-18 19:14:33 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActionController::RoutingError (No route matches [POST] "/feeds/12/nearbyfeeds"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/ameyavichare/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/ameyavichare/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/ameyavichare/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.6ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (18.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (19.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (107.0ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (89.0ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (138.5ms)
+
+
+Started GET "/feeds/12/nearbyfeeds" for 127.0.0.1 at 2016-07-18 19:14:40 +0530
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"12"}
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (NULL, NULL)[0m
+Completed 404 Not Found in 38ms (ActiveRecord: 1.0ms)
+
+ActiveRecord::RecordNotFound (Couldn't find all Users with 'id': (all, {:origin=>[19.124377, 72.823489], :within=>1}) (found 0 results, but was looking for 2)):
+  app/controllers/api/v1/feeds_controller.rb:102:in `nearbyfeeds'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.5ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (49.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (38.6ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (91.6ms)
+
+
+Started GET "/feeds/12/nearbyfeeds" for 127.0.0.1 at 2016-07-18 19:15:25 +0530
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"12"}
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (NULL, NULL)[0m
+Completed 404 Not Found in 15ms (ActiveRecord: 1.0ms)
+
+ActiveRecord::RecordNotFound (Couldn't find all Users with 'id': (all, {:origin=>[19.124377, 72.823489], :within=>10}) (found 0 results, but was looking for 2)):
+  app/controllers/api/v1/feeds_controller.rb:102:in `nearbyfeeds'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (45.6ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (40.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (88.6ms)
+
+
+Started GET "/feeds/12/nearbyfeeds" for 127.0.0.1 at 2016-07-18 19:16:56 +0530
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"12"}
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (NULL, NULL)
+Completed 404 Not Found in 4ms (ActiveRecord: 0.9ms)
+
+ActiveRecord::RecordNotFound (Couldn't find all Users with 'id': (all, {:origin=>[19.124377, 72.823489], :within=>10}) (found 0 results, but was looking for 2)):
+  app/controllers/api/v1/feeds_controller.rb:102:in `nearbyfeeds'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.7ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (46.9ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (39.6ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (87.8ms)
+
+
+Started GET "/feeds/12/nearbyfeeds" for 127.0.0.1 at 2016-07-18 19:22:53 +0530
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"12"}
+Geokit is using the domain: localhost.com
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", nil]]
+Completed 404 Not Found in 3ms (ActiveRecord: 0.8ms)
+
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'={:origin=>[19.124377, 72.823489], :within=>20}):
+  app/controllers/api/v1/feeds_controller.rb:102:in `nearbyfeeds'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (48.8ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (37.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (82.6ms)
+
+
+Started GET "/feeds/12/nearbyfeeds" for 127.0.0.1 at 2016-07-18 19:23:45 +0530
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"12"}
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (NULL, NULL)
+Completed 404 Not Found in 4ms (ActiveRecord: 0.8ms)
+
+ActiveRecord::RecordNotFound (Couldn't find all Users with 'id': (all, {:origin=>[19.124377, 72.823489], :within=>20}) (found 0 results, but was looking for 2)):
+  app/controllers/api/v1/feeds_controller.rb:102:in `nearbyfeeds'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.6ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (53.7ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (44.6ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (90.7ms)
+
+
+Started GET "/feeds/12/nearbyfeeds" for 127.0.0.1 at 2016-07-18 19:29:02 +0530
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"12"}
+Geokit is using the domain: localhost.com
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (NULL, NULL)[0m
+Completed 201 Created in 16ms (Views: 11.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/feeds/12/nearbyfeeds" for 127.0.0.1 at 2016-07-18 19:31:37 +0530
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"12"}
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (NULL, NULL)
+Completed 201 Created in 15ms (Views: 10.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/feeds/12/nearbyfeeds" for 127.0.0.1 at 2016-07-18 19:31:58 +0530
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"12"}
+Geokit is using the domain: localhost.com
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (NULL, NULL)[0m
+Completed 201 Created in 18ms (Views: 11.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/feeds/12/nearbyfeeds" for 127.0.0.1 at 2016-07-18 19:32:14 +0530
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"12"}
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (NULL, NULL)
+Completed 201 Created in 15ms (Views: 10.0ms | ActiveRecord: 0.9ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to RemoveLocationFromUsers (20160718140355)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160718140355"]]
+  [1m[35m (4.8ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_conversations_on_recipient_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_conversations_on_recipient_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_conversations_on_sender_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_conversations_on_sender_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_conversation_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_conversation_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_products_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_products_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_conversations_on_recipient_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_conversations_on_recipient_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_conversations_on_sender_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_conversations_on_sender_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_conversation_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_conversation_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_products_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_products_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to RemoveLocationFromUsers (20160718140355)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to RemoveLocationFromUsers (20160718140355)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?  [["version", "20160718140355"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_conversations_on_recipient_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_conversations_on_recipient_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_conversations_on_sender_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_conversations_on_sender_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_conversation_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_conversation_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_products_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_products_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to RemoveLocationFromUsers (20160718140355)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TEMPORARY TABLE "ausers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "owner_type" varchar DEFAULT 'none', "auth_token" varchar DEFAULT '', "location" varchar DEFAULT '--- []
+', "username" varchar, "pet_type" varchar, "pet_breed" varchar, "pet_story" varchar, "story_like_count" integer DEFAULT 0, "lat" float, "lng" float) [0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX "tindex_ausers_on_auth_token" ON "ausers" ("auth_token")
+  [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "tindex_ausers_on_reset_password_token" ON "ausers" ("reset_password_token")[0m
+  [1m[35m (0.1ms)[0m  CREATE UNIQUE INDEX "tindex_ausers_on_email" ON "ausers" ("email")
+  [1m[36m (0.2ms)[0m  [1mSELECT * FROM "users"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (1, 'ameya@gmail.com', '$2a$11$4I.kN8AL2vd1Pf7ck9QOVOjacMq.eyq0hv5LcjFH5A8Y5lE15nClC', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 08:41:17.783595', '2016-06-23 04:44:46.424956', 'pet owner', 'ynuKyPfM3KnynzHLnRYz', '---
+- ''62''
+- ''74''
+', 'Ameya Vichare', NULL, NULL, NULL, 0, 34.0, 56.0)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (2, 'ameya123@gmail.com', '$2a$11$7ix7h66h44t3YHwdQ/29f.TlKR0OVzfDU1YN4.t39uC7CakLvtZTm', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:40:50.609841', '2016-06-23 05:13:33.797782', 'pet owner', 'BF9UDYusJtUVosg5BQz7', '---
+- ''62''
+- ''74''
+', 'Ameya Vichare', 'dog', 'pug', 'My dog is the best', 2, 20.0, 76.0)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (3, 'ameya1234@gmail.com', '$2a$11$NhGRfR5MAL.CRf/333YZAOcmZ/MwQsIFMYm9OxKonw7vpFyzbY7Xi', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:41:12.990765', '2016-06-15 09:42:17.169906', 'pet owner', 'tHZ-wkFnpUCrmy1zfhKi', '--- []
+', NULL, NULL, NULL, NULL, 0, 10.0, 9.0)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (4, 'ameya12345@gmail.com', '$2a$11$Dspc2APAaDtMaAC5ACm1x.yV8Ubq/RP1ID8q2Ng//MVVNsz6ysrK.', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:42:40.470589', '2016-06-15 09:42:53.934406', 'pet owner', 'zzwQ-kAyShF_Uek9xdzE', '--- []
+', NULL, NULL, NULL, NULL, 0, 8.0, 7.0)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (5, 'ameya1234thget@gmail.com', '$2a$11$CVF8Qfw4ImIqZ3tL3znrcObNLRI2LOIzQTc24ahAqNdXJvg9BMXq.', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:45:48.665184', '2016-06-15 09:46:28.377919', 'pet owner', 'LzeXe6T4hqu8xbXRkJ5U', '--- []
+', 'Ronaldo', NULL, NULL, NULL, 0, 6.0, 5.0)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (6, 'ameya1@gmail.com', '$2a$11$ZQZEBpYYISoukLcgjcfFDuhL5M3cvtECMeYl.BByqkK0trKXkqKdG', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:34:40.674675', '2016-06-15 14:35:34.239186', 'pet owner', 'QebPLJgQTsNs6yv4aEGZ', '678.67.78-- []
+', NULL, NULL, NULL, NULL, 0, 4.0, 3.0)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (7, 'ameya2@gmail.com', '$2a$11$vEpTgBUIC5Ux49wza3j1HOGB8iNOjJbTLtC1lllnAtvrlgOU/HmWm', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:34:51.611935', '2016-06-15 14:36:05.717491', 'pet owner', 'pRzN4iKv5yqTSfW1UxLy', '678-- []
+', 'Messi', NULL, NULL, NULL, 0, 2.0, 1.0)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (8, 'ameya3@gmail.com', '$2a$11$Qeir/EhDzWcl4Jz1EeKhWOk6Un.MfW7bevnzArIabNd.gpQe74cZu', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:34:58.485124', '2016-06-15 14:37:08.385683', 'pet owner', 'cxQJGLS8wPwHfJZ6tVSL', '---
+- ''62''
+- ''78''
+', NULL, NULL, NULL, NULL, 0, 1.0, 2.0)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (9, 'ameya4@gmail.com', '$2a$11$Yz07DSRni7gF.RqmXRsWq.0XgTLIifYtnSbtYNlfBYHEnHYvvRU/m', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:35:08.632886', '2016-06-15 14:37:40.404686', 'pet owner', '3aXPyQNoXdkViffesx9a', '---
+- ''62.67''
+- ''78.64''
+', NULL, NULL, NULL, NULL, 0, 3.0, 4.0)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (10, 'ameya5@gmail.com', '$2a$11$tXJ1j9NRn9zRE/79hBZHU.ydNrwx681o9x2sE0W9mQlGlaK0fUaaS', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:35:13.737255', '2016-06-15 14:35:13.737255', 'none', 'FrDVNRFbYqEyevAywGKe', '--- []
+', NULL, NULL, NULL, NULL, 0, 5.0, 6.0)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (11, 'tanzeel1@gmail.com', '$2a$11$9xkYE.4X110xIw8zNh.4..jcavz0BsPyLde/cvMHww0bEoCzwdci2', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:29:53.067010', '2016-06-16 06:32:56.650376', 'pet owner', '9f5Cg2FNJULL9o4HAYyM', '---
+- ''19.1343770''
+- ''72.8134890''
+', NULL, NULL, NULL, NULL, 0, 19.134377, 72.813489)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (12, 'tanzeel2@gmail.com', '$2a$11$//C5ZOMDVkWccJp0ACbWkukemhucl/nhag0603KMKWd5rCvIHDppO', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:30:14.666754', '2016-06-16 06:33:39.130134', 'pet owner', 'KjJ2oh7H2K1WBAiGsz9D', '---
+- ''19.1243770''
+- ''72.8234890''
+', NULL, NULL, NULL, NULL, 0, 19.124377, 72.823489)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (13, 'tanzeel3@gmail.com', '$2a$11$gg0eZOjG8Z6S2RPFUsDqaeRyScOBn7O6XQajzHXIz8AV3eQadz.9m', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:30:31.475669', '2016-06-16 06:34:09.638942', 'pet owner', '4AsKLkX_gtqD_TRBqXKg', '---
+- ''20.1243770''
+- ''80.8234890''
+', NULL, NULL, NULL, NULL, 0, 20.124377, 80.823489)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (14, 'tanzeel4@gmail.com', '$2a$11$GQ8wP9bO6u0o2IHun/Dcp.LkvFR32.xwevOaLtScyFdnViBnECZsi', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:31:04.819204', '2016-06-16 06:35:12.018719', 'pet owner', 'JgzssxYeruCMefKizJmi', '---
+- ''19.1243770''
+- ''72.8234890''
+', NULL, NULL, NULL, NULL, 0, 19.124377, 72.823489)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (15, 'tanzeel5@gmail.com', '$2a$11$pnr5DnZQdyw6BtE13nP60.fmz0AOqkfxtH4un4uvM9D8OC6J/FloG', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:31:10.179710', '2016-06-16 06:35:17.818254', 'pet owner', 'HPbZTgz7NXsUWpTWk9vm', '---
+- ''19.1243770''
+- ''72.8234890''
+', NULL, NULL, NULL, NULL, 0, 19.124377, 72.823489)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (16, 'tanzeel6@gmail.com', '$2a$11$ADdAfAIzI76YFQ4T2YD6Bu76DfT9WhGNL80/cy6py.vx6v7bhirfW', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-20 02:10:08.127925', '2016-06-20 02:10:08.127925', 'none', 'zy1xia5ePLxgpyN4hwDy', '--- []
+', NULL, NULL, NULL, NULL, 0, 7.0, 8.0)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (17, 'tanzeel7@gmail.com', '$2a$11$TIDHXv7HJJ3k9Q6uBePS/OwBZxujS2eSOj83WV5n/ttkdePWvZXwi', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-20 02:10:15.354001', '2016-06-20 02:10:15.354001', 'none', 'tb_VYJ41iubZ9NbL_84Z', '--- []
+', NULL, NULL, NULL, NULL, 0, 9.0, 10.0)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (18, 'tanzeel8@gmail.com', '$2a$11$aQH3.7cJjr7s0lrVBVYzs.u9iD96meZ3Dc40LjSAyBemV.hTF1bXy', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-20 02:10:20.045481', '2016-06-20 02:10:20.045481', 'none', 'C3Tzsov2KLLyPdyp_BGs', '--- []
+', NULL, NULL, NULL, NULL, 0, 11.0, 12.0)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","location","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (19, 'ronaldo@gmail.com', '$2a$11$Z9DKPM/r03rEHro5OxlQMuQMifVpFW4SpSJA5SAgutFkOtfnITfQu', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-20 03:05:09.625680', '2016-06-20 03:05:09.625680', 'none', 'gA9ryxYKyxwzd4nyDyTB', '--- []
+', 'anonymous', NULL, NULL, NULL, 0, 13.0, 14.0)
+  [1m[36m (0.4ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "owner_type" varchar DEFAULT 'none', "auth_token" varchar DEFAULT '', "username" varchar, "pet_type" varchar, "pet_breed" varchar, "pet_story" varchar, "story_like_count" integer DEFAULT 0, "lat" float, "lng" float) 
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_auth_token' AND type='index'
+[0m
+  [1m[35m (0.5ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_auth_token" ON "users" ("auth_token")[0m
+  [1m[35m (0.3ms)[0m  SELECT * FROM "ausers"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (1, 'ameya@gmail.com', '$2a$11$4I.kN8AL2vd1Pf7ck9QOVOjacMq.eyq0hv5LcjFH5A8Y5lE15nClC', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 08:41:17.783595', '2016-06-23 04:44:46.424956', 'pet owner', 'ynuKyPfM3KnynzHLnRYz', 'Ameya Vichare', NULL, NULL, NULL, 0, 34.0, 56.0)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (2, 'ameya123@gmail.com', '$2a$11$7ix7h66h44t3YHwdQ/29f.TlKR0OVzfDU1YN4.t39uC7CakLvtZTm', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:40:50.609841', '2016-06-23 05:13:33.797782', 'pet owner', 'BF9UDYusJtUVosg5BQz7', 'Ameya Vichare', 'dog', 'pug', 'My dog is the best', 2, 20.0, 76.0)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (3, 'ameya1234@gmail.com', '$2a$11$NhGRfR5MAL.CRf/333YZAOcmZ/MwQsIFMYm9OxKonw7vpFyzbY7Xi', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:41:12.990765', '2016-06-15 09:42:17.169906', 'pet owner', 'tHZ-wkFnpUCrmy1zfhKi', NULL, NULL, NULL, NULL, 0, 10.0, 9.0)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (4, 'ameya12345@gmail.com', '$2a$11$Dspc2APAaDtMaAC5ACm1x.yV8Ubq/RP1ID8q2Ng//MVVNsz6ysrK.', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:42:40.470589', '2016-06-15 09:42:53.934406', 'pet owner', 'zzwQ-kAyShF_Uek9xdzE', NULL, NULL, NULL, NULL, 0, 8.0, 7.0)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (5, 'ameya1234thget@gmail.com', '$2a$11$CVF8Qfw4ImIqZ3tL3znrcObNLRI2LOIzQTc24ahAqNdXJvg9BMXq.', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:45:48.665184', '2016-06-15 09:46:28.377919', 'pet owner', 'LzeXe6T4hqu8xbXRkJ5U', 'Ronaldo', NULL, NULL, NULL, 0, 6.0, 5.0)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (6, 'ameya1@gmail.com', '$2a$11$ZQZEBpYYISoukLcgjcfFDuhL5M3cvtECMeYl.BByqkK0trKXkqKdG', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:34:40.674675', '2016-06-15 14:35:34.239186', 'pet owner', 'QebPLJgQTsNs6yv4aEGZ', NULL, NULL, NULL, NULL, 0, 4.0, 3.0)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (7, 'ameya2@gmail.com', '$2a$11$vEpTgBUIC5Ux49wza3j1HOGB8iNOjJbTLtC1lllnAtvrlgOU/HmWm', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:34:51.611935', '2016-06-15 14:36:05.717491', 'pet owner', 'pRzN4iKv5yqTSfW1UxLy', 'Messi', NULL, NULL, NULL, 0, 2.0, 1.0)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (8, 'ameya3@gmail.com', '$2a$11$Qeir/EhDzWcl4Jz1EeKhWOk6Un.MfW7bevnzArIabNd.gpQe74cZu', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:34:58.485124', '2016-06-15 14:37:08.385683', 'pet owner', 'cxQJGLS8wPwHfJZ6tVSL', NULL, NULL, NULL, NULL, 0, 1.0, 2.0)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (9, 'ameya4@gmail.com', '$2a$11$Yz07DSRni7gF.RqmXRsWq.0XgTLIifYtnSbtYNlfBYHEnHYvvRU/m', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:35:08.632886', '2016-06-15 14:37:40.404686', 'pet owner', '3aXPyQNoXdkViffesx9a', NULL, NULL, NULL, NULL, 0, 3.0, 4.0)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (10, 'ameya5@gmail.com', '$2a$11$tXJ1j9NRn9zRE/79hBZHU.ydNrwx681o9x2sE0W9mQlGlaK0fUaaS', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:35:13.737255', '2016-06-15 14:35:13.737255', 'none', 'FrDVNRFbYqEyevAywGKe', NULL, NULL, NULL, NULL, 0, 5.0, 6.0)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (11, 'tanzeel1@gmail.com', '$2a$11$9xkYE.4X110xIw8zNh.4..jcavz0BsPyLde/cvMHww0bEoCzwdci2', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:29:53.067010', '2016-06-16 06:32:56.650376', 'pet owner', '9f5Cg2FNJULL9o4HAYyM', NULL, NULL, NULL, NULL, 0, 19.134377, 72.813489)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (12, 'tanzeel2@gmail.com', '$2a$11$//C5ZOMDVkWccJp0ACbWkukemhucl/nhag0603KMKWd5rCvIHDppO', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:30:14.666754', '2016-06-16 06:33:39.130134', 'pet owner', 'KjJ2oh7H2K1WBAiGsz9D', NULL, NULL, NULL, NULL, 0, 19.124377, 72.823489)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (13, 'tanzeel3@gmail.com', '$2a$11$gg0eZOjG8Z6S2RPFUsDqaeRyScOBn7O6XQajzHXIz8AV3eQadz.9m', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:30:31.475669', '2016-06-16 06:34:09.638942', 'pet owner', '4AsKLkX_gtqD_TRBqXKg', NULL, NULL, NULL, NULL, 0, 20.124377, 80.823489)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (14, 'tanzeel4@gmail.com', '$2a$11$GQ8wP9bO6u0o2IHun/Dcp.LkvFR32.xwevOaLtScyFdnViBnECZsi', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:31:04.819204', '2016-06-16 06:35:12.018719', 'pet owner', 'JgzssxYeruCMefKizJmi', NULL, NULL, NULL, NULL, 0, 19.124377, 72.823489)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (15, 'tanzeel5@gmail.com', '$2a$11$pnr5DnZQdyw6BtE13nP60.fmz0AOqkfxtH4un4uvM9D8OC6J/FloG', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:31:10.179710', '2016-06-16 06:35:17.818254', 'pet owner', 'HPbZTgz7NXsUWpTWk9vm', NULL, NULL, NULL, NULL, 0, 19.124377, 72.823489)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (16, 'tanzeel6@gmail.com', '$2a$11$ADdAfAIzI76YFQ4T2YD6Bu76DfT9WhGNL80/cy6py.vx6v7bhirfW', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-20 02:10:08.127925', '2016-06-20 02:10:08.127925', 'none', 'zy1xia5ePLxgpyN4hwDy', NULL, NULL, NULL, NULL, 0, 7.0, 8.0)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (17, 'tanzeel7@gmail.com', '$2a$11$TIDHXv7HJJ3k9Q6uBePS/OwBZxujS2eSOj83WV5n/ttkdePWvZXwi', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-20 02:10:15.354001', '2016-06-20 02:10:15.354001', 'none', 'tb_VYJ41iubZ9NbL_84Z', NULL, NULL, NULL, NULL, 0, 9.0, 10.0)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (18, 'tanzeel8@gmail.com', '$2a$11$aQH3.7cJjr7s0lrVBVYzs.u9iD96meZ3Dc40LjSAyBemV.hTF1bXy', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-20 02:10:20.045481', '2016-06-20 02:10:20.045481', 'none', 'C3Tzsov2KLLyPdyp_BGs', NULL, NULL, NULL, NULL, 0, 11.0, 12.0)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (19, 'ronaldo@gmail.com', '$2a$11$Z9DKPM/r03rEHro5OxlQMuQMifVpFW4SpSJA5SAgutFkOtfnITfQu', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-20 03:05:09.625680', '2016-06-20 03:05:09.625680', 'none', 'gA9ryxYKyxwzd4nyDyTB', 'anonymous', NULL, NULL, NULL, 0, 13.0, 14.0)[0m
+  [1m[35m (0.2ms)[0m  DROP TABLE "ausers"
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160718140355"]]
+  [1m[35m (10.0ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_conversations_on_recipient_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_conversations_on_recipient_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_conversations_on_sender_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_conversations_on_sender_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_conversation_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_conversation_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_products_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_products_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+
+
+Started GET "/feeds/12/nearbyfeeds" for 127.0.0.1 at 2016-07-18 19:40:35 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"12"}
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (NULL, NULL)
+Completed 201 Created in 18ms (Views: 7.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/feeds/11/nearbyfeeds" for 127.0.0.1 at 2016-07-18 19:40:47 +0530
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"11"}
+Geokit is using the domain: localhost.com
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (NULL, NULL)[0m
+Completed 201 Created in 10ms (Views: 7.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/feeds/12/nearbyfeeds" for 127.0.0.1 at 2016-07-18 19:41:35 +0530
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"12"}
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 0.8ms)
+
+NoMethodError (undefined method `location' for #<User:0x007ffd33f92b48>):
+  app/controllers/api/v1/feeds_controller.rb:82:in `nearbyfeeds'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.5ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (9.0ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (60.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (50.9ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (100.9ms)
+
+
+Started GET "/feeds/12/nearbyfeeds" for 127.0.0.1 at 2016-07-18 19:42:04 +0530
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"12"}
+Geokit is using the domain: localhost.com
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (NULL, NULL)
+Completed 201 Created in 22ms (Views: 6.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/feeds/14/nearbyfeeds" for 127.0.0.1 at 2016-07-18 19:42:10 +0530
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"14"}
+Geokit is using the domain: localhost.com
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 14]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (NULL, NULL)
+Completed 201 Created in 12ms (Views: 8.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/feeds/13/nearbyfeeds" for 127.0.0.1 at 2016-07-18 19:42:13 +0530
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"13"}
+Geokit is using the domain: localhost.com
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (NULL, NULL)
+Completed 201 Created in 15ms (Views: 10.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/feeds/13/nearbyfeeds" for 127.0.0.1 at 2016-07-18 19:42:22 +0530
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"13"}
+Geokit is using the domain: localhost.com
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (NULL, NULL)
+Completed 201 Created in 21ms (Views: 8.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/feeds/13/nearbyfeeds" for 127.0.0.1 at 2016-07-18 19:43:42 +0530
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"13"}
+Geokit is using the domain: localhost.com
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (NULL, NULL)
+Completed 201 Created in 21ms (Views: 7.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/feeds/12/nearbyfeeds" for 127.0.0.1 at 2016-07-18 19:43:48 +0530
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"12"}
+Geokit is using the domain: localhost.com
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (NULL, NULL)
+Completed 201 Created in 12ms (Views: 8.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/feeds/12/nearbyfeeds" for 127.0.0.1 at 2016-07-18 19:46:40 +0530
+
+SyntaxError (/Users/ameyavichare/Desktop/petoye_andro/app/controllers/api/v1/feeds_controller.rb:105: syntax error, unexpected '\n', expecting =>
+/Users/ameyavichare/Desktop/petoye_andro/app/controllers/api/v1/feeds_controller.rb:150: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/api/v1/feeds_controller.rb:105: syntax error, unexpected '\n', expecting =>
+  app/controllers/api/v1/feeds_controller.rb:150: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.0ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (47.7ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (39.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (82.9ms)
+
+
+Started GET "/feeds/12/nearbyfeeds" for 127.0.0.1 at 2016-07-18 19:46:51 +0530
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"12"}
+Geokit is using the domain: localhost.com
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  Rendered text template (0.1ms)
+Completed 200 OK in 21ms (Views: 9.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/feeds/12/nearbyfeeds" for 127.0.0.1 at 2016-07-18 19:47:10 +0530
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"12"}
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  Rendered text template (0.0ms)
+Completed 200 OK in 12ms (Views: 0.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/feeds/12/nearbyfeeds" for 127.0.0.1 at 2016-07-18 19:53:26 +0530
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"12"}
+Geokit is using the domain: localhost.com
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+Completed 201 Created in 22ms (Views: 7.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/feeds/12/nearbyfeeds" for 127.0.0.1 at 2016-07-18 19:53:41 +0530
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"12"}
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.7ms)
+
+NameError (undefined local variable or method `lng' for #<Api::V1::FeedsController:0x007ffd36e40c10>
+Did you mean?  long):
+  app/controllers/api/v1/feeds_controller.rb:102:in `nearbyfeeds'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.9ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.7ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (56.1ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (39.5ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (101.1ms)
+
+
+Started GET "/feeds/12/nearbyfeeds" for 127.0.0.1 at 2016-07-18 19:54:10 +0530
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"12"}
+Geokit is using the domain: localhost.com
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE (users.lat IS NOT NULL AND users.lng IS NOT NULL) AND (users.lat>18.97980714714641 AND users.lat<19.26894685285359 AND users.lng>72.67047423955908 AND users.lng<72.97650376044089) AND ((
+          (CASE WHEN users.lat IS NULL OR users.lng IS NULL THEN NULL ELSE
+          (ACOS(least(1,COS(0.33378334604267557)*COS(1.2710096558398727)*COS(RADIANS(users.lat))*COS(RADIANS(users.lng))+
+          COS(0.33378334604267557)*SIN(1.2710096558398727)*COS(RADIANS(users.lat))*SIN(RADIANS(users.lng))+
+          SIN(0.33378334604267557)*SIN(RADIANS(users.lat))))*3963.1899999999996)
+          END)
+          <= 10))[0m
+Completed 201 Created in 132ms (Views: 94.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/feeds/12/nearbyfeeds" for 127.0.0.1 at 2016-07-18 19:55:13 +0530
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"12"}
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE (users.lat IS NOT NULL AND users.lng IS NOT NULL) AND (users.lat>19.109920014714643 AND users.lat<19.138833985285356 AND users.lng>72.80818752009037 AND users.lng<72.8387904799096) AND ((
+          (CASE WHEN users.lat IS NULL OR users.lng IS NULL THEN NULL ELSE
+          (ACOS(least(1,COS(0.33378334604267557)*COS(1.2710096558398727)*COS(RADIANS(users.lat))*COS(RADIANS(users.lng))+
+          COS(0.33378334604267557)*SIN(1.2710096558398727)*COS(RADIANS(users.lat))*SIN(RADIANS(users.lng))+
+          SIN(0.33378334604267557)*SIN(RADIANS(users.lat))))*3963.1899999999996)
+          END)
+          <= 1))
+Completed 201 Created in 87ms (Views: 72.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/feeds/12/nearbyfeeds" for 127.0.0.1 at 2016-07-18 19:57:38 +0530
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"12"}
+Geokit is using the domain: localhost.com
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE (users.lat IS NOT NULL AND users.lng IS NOT NULL) AND (users.lat>19.109920014714643 AND users.lat<19.138833985285356 AND users.lng>72.80818752009037 AND users.lng<72.8387904799096) AND ((
+          (CASE WHEN users.lat IS NULL OR users.lng IS NULL THEN NULL ELSE
+          (ACOS(least(1,COS(0.33378334604267557)*COS(1.2710096558398727)*COS(RADIANS(users.lat))*COS(RADIANS(users.lng))+
+          COS(0.33378334604267557)*SIN(1.2710096558398727)*COS(RADIANS(users.lat))*SIN(RADIANS(users.lng))+
+          SIN(0.33378334604267557)*SIN(RADIANS(users.lat))))*3963.1899999999996)
+          END)
+          <= 1))
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 1.3ms)
+
+NoMethodError (undefined method `feed' for #<User:0x007ffd3175e6b8>
+Did you mean?  feeds):
+  app/controllers/api/v1/feeds_controller.rb:104:in `nearbyfeeds'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.0ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (51.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (38.8ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (92.7ms)
+
+
+Started GET "/feeds/12/nearbyfeeds" for 127.0.0.1 at 2016-07-18 19:57:56 +0530
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"12"}
+Geokit is using the domain: localhost.com
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE (users.lat IS NOT NULL AND users.lng IS NOT NULL) AND (users.lat>19.109920014714643 AND users.lat<19.138833985285356 AND users.lng>72.80818752009037 AND users.lng<72.8387904799096) AND ((
+          (CASE WHEN users.lat IS NULL OR users.lng IS NULL THEN NULL ELSE
+          (ACOS(least(1,COS(0.33378334604267557)*COS(1.2710096558398727)*COS(RADIANS(users.lat))*COS(RADIANS(users.lng))+
+          COS(0.33378334604267557)*SIN(1.2710096558398727)*COS(RADIANS(users.lat))*SIN(RADIANS(users.lng))+
+          SIN(0.33378334604267557)*SIN(RADIANS(users.lat))))*3963.1899999999996)
+          END)
+          <= 1))
+  [1m[36mFeed Load (0.2ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?[0m  [["user_id", 11]]
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?  [["user_id", 12]]
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?[0m  [["user_id", 14]]
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?  [["user_id", 15]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1[0m
+Completed 201 Created in 158ms (Views: 80.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/feeds/12/nearbyfeeds" for 127.0.0.1 at 2016-07-18 19:59:02 +0530
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"12"}
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE (users.lat IS NOT NULL AND users.lng IS NOT NULL) AND (users.lat>19.109920014714643 AND users.lat<19.138833985285356 AND users.lng>72.80818752009037 AND users.lng<72.8387904799096) AND ((
+          (CASE WHEN users.lat IS NULL OR users.lng IS NULL THEN NULL ELSE
+          (ACOS(least(1,COS(0.33378334604267557)*COS(1.2710096558398727)*COS(RADIANS(users.lat))*COS(RADIANS(users.lng))+
+          COS(0.33378334604267557)*SIN(1.2710096558398727)*COS(RADIANS(users.lat))*SIN(RADIANS(users.lng))+
+          SIN(0.33378334604267557)*SIN(RADIANS(users.lat))))*3963.1899999999996)
+          END)
+          <= 1))[0m
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?  [["user_id", 11]]
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?[0m  [["user_id", 12]]
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?  [["user_id", 14]]
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?[0m  [["user_id", 15]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1
+Completed 201 Created in 106ms (Views: 70.9ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/feeds/12/nearbyfeeds" for 127.0.0.1 at 2016-07-18 20:00:19 +0530
+
+SyntaxError (/Users/ameyavichare/Desktop/petoye_andro/app/controllers/api/v1/feeds_controller.rb:104: syntax error, unexpected ',', expecting =>
+...s: {only: :message,:like_count,:comment_count}}), status: 201
+...                               ^):
+  app/controllers/api/v1/feeds_controller.rb:104: syntax error, unexpected ',', expecting =>
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.6ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (49.8ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (37.9ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (85.3ms)
+
+
+Started GET "/feeds/12/nearbyfeeds" for 127.0.0.1 at 2016-07-18 20:01:07 +0530
+
+SyntaxError (/Users/ameyavichare/Desktop/petoye_andro/app/controllers/api/v1/feeds_controller.rb:104: syntax error, unexpected ',', expecting =>
+...s: {only: :message,:like_count,:comment_count}}), status: 201
+...                               ^):
+  app/controllers/api/v1/feeds_controller.rb:104: syntax error, unexpected ',', expecting =>
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.9ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (49.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (42.0ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (89.5ms)
+
+
+Started GET "/feeds/12/nearbyfeeds" for 127.0.0.1 at 2016-07-18 20:01:19 +0530
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"12"}
+Geokit is using the domain: localhost.com
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE (users.lat IS NOT NULL AND users.lng IS NOT NULL) AND (users.lat>19.109920014714643 AND users.lat<19.138833985285356 AND users.lng>72.80818752009037 AND users.lng<72.8387904799096) AND ((
+          (CASE WHEN users.lat IS NULL OR users.lng IS NULL THEN NULL ELSE
+          (ACOS(least(1,COS(0.33378334604267557)*COS(1.2710096558398727)*COS(RADIANS(users.lat))*COS(RADIANS(users.lng))+
+          COS(0.33378334604267557)*SIN(1.2710096558398727)*COS(RADIANS(users.lat))*SIN(RADIANS(users.lng))+
+          SIN(0.33378334604267557)*SIN(RADIANS(users.lat))))*3963.1899999999996)
+          END)
+          <= 1))
+  [1m[36mFeed Load (0.2ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?[0m  [["user_id", 11]]
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?  [["user_id", 12]]
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?[0m  [["user_id", 14]]
+  [1m[35mFeed Load (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?  [["user_id", 15]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1[0m
+Completed 201 Created in 110ms (Views: 75.7ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/feeds/12/nearbyfeeds" for 127.0.0.1 at 2016-07-18 20:01:58 +0530
+
+SyntaxError (/Users/ameyavichare/Desktop/petoye_andro/app/controllers/api/v1/feeds_controller.rb:104: syntax error, unexpected ')', expecting '}'
+...e,:like_count,:comment_count]}), status: 201
+...                               ^):
+  app/controllers/api/v1/feeds_controller.rb:104: syntax error, unexpected ')', expecting '}'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.8ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (55.7ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (39.0ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (88.1ms)
+
+
+Started GET "/feeds/12/nearbyfeeds" for 127.0.0.1 at 2016-07-18 20:02:22 +0530
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"12"}
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE (users.lat IS NOT NULL AND users.lng IS NOT NULL) AND (users.lat>19.109920014714643 AND users.lat<19.138833985285356 AND users.lng>72.80818752009037 AND users.lng<72.8387904799096) AND ((
+          (CASE WHEN users.lat IS NULL OR users.lng IS NULL THEN NULL ELSE
+          (ACOS(least(1,COS(0.33378334604267557)*COS(1.2710096558398727)*COS(RADIANS(users.lat))*COS(RADIANS(users.lng))+
+          COS(0.33378334604267557)*SIN(1.2710096558398727)*COS(RADIANS(users.lat))*SIN(RADIANS(users.lng))+
+          SIN(0.33378334604267557)*SIN(RADIANS(users.lat))))*3963.1899999999996)
+          END)
+          <= 1))[0m
+  [1m[35mFeed Load (0.2ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?  [["user_id", 11]]
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?[0m  [["user_id", 12]]
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?  [["user_id", 14]]
+  [1m[36mFeed Load (0.2ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?[0m  [["user_id", 15]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1
+Completed 201 Created in 110ms (Views: 69.4ms | ActiveRecord: 2.3ms)

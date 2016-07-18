@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160718065013) do
+ActiveRecord::Schema.define(version: 20160718140355) do
 
   create_table "adoptions", force: :cascade do |t|
     t.integer  "user_id"
@@ -90,26 +90,27 @@ ActiveRecord::Schema.define(version: 20160718065013) do
   add_index "products", ["user_id"], name: "index_products_on_user_id"
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "",         null: false
-    t.string   "encrypted_password",     default: "",         null: false
+    t.string   "email",                  default: "",     null: false
+    t.string   "encrypted_password",     default: "",     null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,          null: false
+    t.integer  "sign_in_count",          default: 0,      null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
     t.string   "owner_type",             default: "none"
     t.string   "auth_token",             default: ""
-    t.string   "location",               default: "--- []\n"
     t.string   "username"
     t.string   "pet_type"
     t.string   "pet_breed"
     t.string   "pet_story"
     t.integer  "story_like_count",       default: 0
+    t.float    "lat"
+    t.float    "lng"
   end
 
   add_index "users", ["auth_token"], name: "index_users_on_auth_token", unique: true

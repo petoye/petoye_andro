@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
  validates :owner_type ,presence: true
  serialize :location, Array
  validates_length_of :pet_story, maximum: 300
+ acts_as_mappable
  def generate_authentication_token!
     begin
       self.auth_token = Devise.friendly_token

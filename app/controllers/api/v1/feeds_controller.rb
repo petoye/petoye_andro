@@ -79,24 +79,29 @@ class Api::V1::FeedsController < ApplicationController
 #end 
   def nearbyfeeds
     user = User.find(params[:id])
-    latstr = user.location[0]
-    longstr = user.location[1]
-    lat = latstr.to_f
-    long = longstr.to_f
+    latstr = user.lat
+    longstr = user.lng
+    @lat = latstr.to_f
+    @long = longstr.to_f
     #location box
-    lowerlat = lat-0.02
-    upperlat = lat+0.02
-    lowerlong = long-0.02
-    upperlong = long+0.02
+    #lowerlat = lat-0.02
+    #upperlat = lat+0.02
+    #lowerlong = long-0.02
+    #upperlong = long+0.02
     #condition
-    user = User.all.where( location!= nil) do |u|
-      if (lowerlat..upperlat).cover?(u.location[0]) && (lowerlong..upperlong).cover?(u.location[1])
-        @uid = u.id
-      end
+    #user = User.all.where( location!= nil) do |u|
+     # if (lowerlat..upperlat).cover?(u.location[0]) && (lowerlong..upperlong).cover?(u.location[1])
+      #  @uid = u.id
+      #end
       #feed = Feed.where(user_id: uid)
       #render text: ulat
-    end
+    #end
     #render json: feed, status: 200
+
+
+    nearbyuser = User.within(1, origin: [@lat,@long]) 
+
+    render json: nearbyuser.as_json(only:[:username,:id] ,include: { feeds: {only:[:message,:like_count,:comment_count]}}), status: 201
   end
 
 
