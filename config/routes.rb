@@ -23,6 +23,7 @@ Rails.application.routes.draw do
        post '/feeds/:id/create', to: 'feeds#create', as: "create_feed"
        #get '/feeds/trending', to: 'feeds#trending', as: "trending_feed"
        get '/feeds/:id/nearbyfeeds', to: 'feeds#nearbyfeeds', as: "nearby_feed"
+       get '/feeds/:id/followedfeeds', to: 'feeds#followeduserfeeds'
 
        post '/:uid/comment', to: 'comments#addcomment', as: "comment_users"
        get '/:pid/showcomment', to: 'comments#showcomment'

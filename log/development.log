@@ -33138,3 +33138,56 @@ Geokit is using the domain: localhost.com
   [1m[36mFeed Load (0.2ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?[0m  [["user_id", 15]]
   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1
 Completed 201 Created in 110ms (Views: 69.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/feeds/12/followedfeeds" for 127.0.0.1 at 2016-07-19 11:57:04 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::FeedsController#followeduserfeeds as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"12"}
+Geokit is using the domain: localhost.com
+  [1m[35mFollow Load (0.2ms)[0m  SELECT "follows".* FROM "follows" WHERE "follows"."follower_id" = ?  [["follower_id", 12]]
+Completed 422 Unprocessable Entity in 60ms (Views: 9.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/feeds/19/followedfeeds" for 127.0.0.1 at 2016-07-19 11:57:37 +0530
+Processing by Api::V1::FeedsController#followeduserfeeds as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"19"}
+Geokit is using the domain: localhost.com
+  [1m[36mFollow Load (0.1ms)[0m  [1mSELECT "follows".* FROM "follows" WHERE "follows"."follower_id" = ?[0m  [["follower_id", 19]]
+DEPRECATION WARNING: Passing a nested array to Active Record finder methods is deprecated and will be removed. Flatten your array before using it for 'IN' conditions. (called from followeduserfeeds at /Users/ameyavichare/Desktop/petoye_andro/app/controllers/api/v1/feeds_controller.rb:98)
+  [1m[35mFeed Load (0.2ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" IN (1, 2, 3, 4, 5)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1[0m
+Completed 201 Created in 56ms (Views: 18.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/feeds/19/followedfeeds" for 127.0.0.1 at 2016-07-19 11:58:49 +0530
+Processing by Api::V1::FeedsController#followeduserfeeds as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"19"}
+Geokit is using the domain: localhost.com
+  [1m[35mFollow Load (0.1ms)[0m  SELECT "follows".* FROM "follows" WHERE "follows"."follower_id" = ?  [["follower_id", 19]]
+DEPRECATION WARNING: Passing a nested array to Active Record finder methods is deprecated and will be removed. Flatten your array before using it for 'IN' conditions. (called from followeduserfeeds at /Users/ameyavichare/Desktop/petoye_andro/app/controllers/api/v1/feeds_controller.rb:98)
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" IN (1, 12, 3, 4, 5)[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1
+Completed 201 Created in 241ms (Views: 232.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/feeds/19/followedfeeds" for 127.0.0.1 at 2016-07-19 12:00:30 +0530
+Processing by Api::V1::FeedsController#followeduserfeeds as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"19"}
+Geokit is using the domain: localhost.com
+  [1m[36mFollow Load (0.2ms)[0m  [1mSELECT "follows".* FROM "follows" WHERE "follows"."follower_id" = ?[0m  [["follower_id", 19]]
+DEPRECATION WARNING: Passing a nested array to Active Record finder methods is deprecated and will be removed. Flatten your array before using it for 'IN' conditions. (called from followeduserfeeds at /Users/ameyavichare/Desktop/petoye_andro/app/controllers/api/v1/feeds_controller.rb:98)
+  [1m[35mFeed Load (0.4ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" IN (1, 12, 3, 4, 5)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1[0m
+Completed 201 Created in 323ms (Views: 295.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/feeds/19/followedfeeds" for 127.0.0.1 at 2016-07-19 12:00:45 +0530
+Processing by Api::V1::FeedsController#followeduserfeeds as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"19"}
+Geokit is using the domain: localhost.com
+  [1m[35mFollow Load (0.1ms)[0m  SELECT "follows".* FROM "follows" WHERE "follows"."follower_id" = ?  [["follower_id", 19]]
+DEPRECATION WARNING: Passing a nested array to Active Record finder methods is deprecated and will be removed. Flatten your array before using it for 'IN' conditions. (called from followeduserfeeds at /Users/ameyavichare/Desktop/petoye_andro/app/controllers/api/v1/feeds_controller.rb:98)
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" IN (1, 12, 3, 4, 5)[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1
+Completed 201 Created in 260ms (Views: 252.5ms | ActiveRecord: 0.5ms)
