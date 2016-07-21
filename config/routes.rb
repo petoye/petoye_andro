@@ -24,12 +24,15 @@ Rails.application.routes.draw do
        #get '/feeds/trending', to: 'feeds#trending', as: "trending_feed"
        get '/feeds/:id/nearbyfeeds', to: 'feeds#nearbyfeeds', as: "nearby_feed"
        get '/feeds/:id/followedfeeds', to: 'feeds#followeduserfeeds'
+       get '/feeds/:id/time', to: 'feeds#timeelapsed'
 
        post '/:uid/comment', to: 'comments#addcomment', as: "comment_users"
        get '/:pid/showcomment', to: 'comments#showcomment'
 
-       post '/feeds/:uid/like', to: 'feeds#likeit'
+       post '/feeds/:pid/like', to: 'feeds#likeit'
        get '/feeds/:pid/showlike', to: 'feeds#showlikes'
+       post '/feeds/:pid/dislike', to: 'feeds#dislikeit'
+
        post '/feeds/:pid/report', to: 'feeds#report'
 
        resources :adoptions

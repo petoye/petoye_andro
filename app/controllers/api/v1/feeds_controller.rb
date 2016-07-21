@@ -15,7 +15,7 @@ class Api::V1::FeedsController < ApplicationController
 
   def likeit
     feed = Feed.find(params[:pid])
-    user = User.find(params[:uid])
+    #user = User.find(params[:uid])
     uid = params[:uid]
     pid = params[:pid]
     if feed.likedby.include?(uid) 
@@ -30,24 +30,26 @@ class Api::V1::FeedsController < ApplicationController
   end
 
   def showlikes
+    l_id = []
     feed = Feed.find(params[:pid])
-    render json: feed.as_json(only:[:likedby] ,include: { user: {only: :email}}), status: 201
-    #feed.likedby.each do |f|
-      #@a = f.to_i
-      #user = User.find(params[:a])
-    #end
-    #render text: @a
-    #json: user, status: 200
-
+    l_id << feed.likedby
+    user = User.find([l_id])
+    render json: user.as_json(only:[:username]), status: 201
   end
 
   def dislikeit
-    feed = Feed.find(params[:post_id])
-    feed.like_count = feed.like_count - 1
-    if feed.save
-      render json: feed, status: 200, location: [:api_dislike, feed]
+    feed = Feed.find(params[:pid])
+    uid = params[:uid]
+    if feed.likedby.include?(uid)
+      feed.likedby.delete(uid)
+      feed.like_count = feed.like_count - 1
+      if feed.save
+        render json: feed, status: 200
+      else
+        render json: {errors: "Could not be disliked"}, status: 422
+      end
     else
-      render json: {errors: "Could not be disliked"}, status: 422
+      render json: {errors: "Not liked so can't be disliked"}, status:422
     end
   end
 
@@ -99,6 +101,51 @@ class Api::V1::FeedsController < ApplicationController
     else
       render json: { errors: "No followed users" }, status: 422
     end
+  end
+
+  def timeelapsed
+    feed = Feed.find(params[:id])
+    t1 = feed.created_at
+    t2 = Time.now
+    t3 = (t2 - t1).to_i
+
+    if t3 < 60
+      if t3 == 1
+        time = "#{t3} second ago"
+      else
+        time = "#{t3} seconds ago"
+      end
+        elsif t3 >= 60 && t3 < 3600
+          t4 = (t3/60).to_i
+          if t4 == 1
+            time = "#{t4} minute ago"
+          else
+            time = "#{t4} minutes ago"
+          end
+            elsif t3 >= 3600 && t3 < 86400
+              t4 = (t3/3600).to_i
+              if t4 == 1
+                time = "#{t4} hour ago"
+              else
+                time = "#{t4} hours ago"
+              end
+                elsif t3 >= 86400 && t3 < 604800
+                  t4 = (t3/86400).to_i
+                  if t4 == 1
+                    time = "#{t4} day ago"
+                  else
+                    time = "#{t4} days ago"
+                  end
+                    elsif t3 >= 604800
+                      t4 = (t3/604800).to_i
+                      if t4 == 1
+                        time = "#{t4} week ago"
+                      else
+                        time = "#{t4} weeks ago"
+                      end
+    end
+
+    render json: time, status:200
   end
 
 
