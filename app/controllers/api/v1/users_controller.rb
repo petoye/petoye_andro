@@ -101,7 +101,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def discover
-    # You will discover users you havent followed within 50 miles of you
+    # Discover users you havent followed within 50 miles of you
     f_id = []
     x_id = []
     d_id = []
@@ -127,4 +127,21 @@ class Api::V1::UsersController < ApplicationController
     user = User.where(id: [d_id]).within(50, origin: [@lat,@long])
     render json: user.as_json(only:[:username, :owner_type, :pet_breed, :pet_type]), status: 201
   end
+
+
+  def search
+    name = params[:query]
+    parameter = params[:parameter]
+    if parameter == 'user'
+      @x = 'username'
+    elsif parameter == 'type'
+      @x = 'pet_type'
+    elsif parameter == 'breed'
+      @x = 'pet_breed'
+    end
+
+    user = User.where("#{@x} LIKE ?","%#{name}%")
+    render json: user.as_json(only:[:username, :owner_type, :pet_breed, :pet_type]), status: 302
+  end
+
 end

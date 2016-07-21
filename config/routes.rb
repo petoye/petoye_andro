@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       post '/:myid/follow', to: 'users#follow'
       post '/:hisid/showprofile', to: 'users#showprofile'
       get '/users/:id/discover', to: 'users#discover'
+      get '/users/:query/:parameter/search', to: 'users#search'
 
 
        resources :feeds, :only => [:index]
