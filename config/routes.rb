@@ -22,17 +22,17 @@ Rails.application.routes.draw do
        post '/feeds/:uid/create', to: 'feeds#create', as: "create_feed" #done
        #get '/feeds/trending', to: 'feeds#trending', as: "trending_feed"
        get '/feeds/:uid/nearbyfeeds', to: 'feeds#nearbyfeeds', as: "nearby_feed" #done
-       get '/feeds/:id/followedfeeds', to: 'feeds#followeduserfeeds'
-       get '/feeds/:id/time', to: 'feeds#timeelapsed'
+       get '/feeds/:uid/followedfeeds', to: 'feeds#followeduserfeeds' #done
+       get '/feeds/:id/time', to: 'feeds#timeelapsed' 
 
-       post '/:uid/comment', to: 'comments#addcomment', as: "comment_users"
-       get '/:pid/showcomment', to: 'comments#showcomment'
+       post 'feeds/:pid/comment', to: 'comments#addcomment', as: "comment_users" #done
+       get 'feeds/:pid/showcomment', to: 'comments#showcomment' #done
 
-       post '/feeds/:pid/like', to: 'feeds#likeit'
-       get '/feeds/:pid/showlike', to: 'feeds#showlikes'
-       post '/feeds/:pid/dislike', to: 'feeds#dislikeit'
+       post '/feeds/:pid/like', to: 'feeds#likeit' #done
+       get '/feeds/:pid/showlike', to: 'feeds#showlikes' #done
+       post '/feeds/:pid/dislike', to: 'feeds#dislikeit' #done
 
-       post '/feeds/:pid/report', to: 'feeds#report'
+       post '/feeds/:pid/report', to: 'feeds#report' #done
 
        resources :adoptions
        post '/adopt/:id/createadoption', to: 'adoptions#newadoption'

@@ -15,7 +15,6 @@ class Api::V1::FeedsController < ApplicationController
 
   def likeit
     feed = Feed.find(params[:pid])
-    #user = User.find(params[:uid])
     uid = params[:uid]
     pid = params[:pid]
     if feed.likedby.include?(uid) 
@@ -24,7 +23,7 @@ class Api::V1::FeedsController < ApplicationController
       feed.likedby[feed.like_count] = uid
       feed.like_count = feed.like_count + 1
       if feed.save
-        render json: feed.as_json(only:[:likedby,:like_count]), status:201
+        render json: feed.as_json(only:[:likedby,:like_count]), status: 200
       else
         render json: { errors: "Could not be liked"}, status:422
       end
@@ -35,8 +34,12 @@ class Api::V1::FeedsController < ApplicationController
     l_id = []
     feed = Feed.find(params[:pid])
     l_id << feed.likedby
-    user = User.find([l_id])
-    render json: user.as_json(only:[:username]), status: 201
+    if feed.likedby.count > 0
+      user = User.find([l_id])
+      render json: user.as_json(only:[:username]), status: 200
+    else
+      render json: { errors: "No likes yet" }, status: 422
+    end
   end
 
   def dislikeit
@@ -94,13 +97,13 @@ class Api::V1::FeedsController < ApplicationController
 
   def followeduserfeeds
     r_id = []
-    u_id = params[:id]
+    u_id = params[:uid]
     Follow.where(follower_id: u_id).each do |u|
     r_id << u.following_id.to_i
     end 
     if r_id.count > 0
       feed = Feed.where(user_id: [r_id])
-      render json: feed.as_json(only:[:user_id,:message,:like_count,:comment_count]), status: 201
+      render json: feed.as_json(only:[:user_id,:message,:like_count,:comment_count]), status: 200
     else
       render json: { errors: "No followed users" }, status: 422
     end

@@ -187,6 +187,382 @@
   ]
 }
 
+* Followed user feeds - This API call will show all the feeds from followed users
+
+  Request type: GET
+  URL: /feeds/:uid/followedfeeds
+
+  Required parameters:
+  * uid
+
+  If successful it returns:
+  * feeds of followed users, status: 200
+
+  If not successful:
+  * error: no followed user, status: 422
+
+  Example:
+  http://api.localhost.com:3000/feeds/19/followedfeeds
+
+  JSON returned as:
+  {
+  "feeds": [
+    {
+      "message": "bruh",
+      "like_count": 2,
+      "comment_count": 0,
+      "user_id": 3
+    },
+    {
+      "message": "nice",
+      "like_count": 2,
+      "comment_count": 0,
+      "user_id": 12
+    },
+    {
+      "message": "nice 2",
+      "like_count": 1,
+      "comment_count": 0,
+      "user_id": 12
+    },
+    {
+      "message": "nice 3",
+      "like_count": 1,
+      "comment_count": 0,
+      "user_id": 12
+    },
+    {
+      "message": "nice 4",
+      "like_count": 3,
+      "comment_count": 0,
+      "user_id": 12
+    },
+    {
+      "message": "nice 5",
+      "like_count": 2,
+      "comment_count": 0,
+      "user_id": 12
+    },
+    {
+      "message": "nice new",
+      "like_count": 2,
+      "comment_count": 0,
+      "user_id": 12
+    },
+    {
+      "message": "nice new",
+      "like_count": 2,
+      "comment_count": 0,
+      "user_id": 12
+    },
+    {
+      "message": "nice new",
+      "like_count": 6,
+      "comment_count": 0,
+      "user_id": 12
+    },
+    {
+      "message": "nice new",
+      "like_count": 4,
+      "comment_count": 0,
+      "user_id": 12
+    },
+    {
+      "message": "nice new",
+      "like_count": 1,
+      "comment_count": 0,
+      "user_id": 12
+    },
+    {
+      "message": "nice new",
+      "like_count": 4,
+      "comment_count": 0,
+      "user_id": 12
+    },
+    {
+      "message": "nice new",
+      "like_count": 3,
+      "comment_count": 0,
+      "user_id": 12
+    }
+  ]
+}
+
+* Like - This API call likes a post and stores the id of user who liked the post
+
+  Request type: POST
+  URL: /feeds/:pid/like
+
+  Required parameters:
+  * pid
+  * uid
+
+  If successful it returns:
+  * liked_by whom and like_count, status: 200
+
+  If not successful:
+  * error: could not be liked, status: 422
+  * error: already liked, status: 422
+
+  Example:
+  http://api.localhost.com:3000/feeds/21/like
+  uid: 13
+
+  JSON returned as:
+  {
+    "like_count": 7,
+    "likedby": [
+      "12",
+      "11",
+      "10",
+      "14",
+      "15",
+      "16",
+      "13"
+    ]
+  }
+
+* Dislike - This API call dislikes a post and removes the id of user who disliked the post
+
+  Request type: POST
+  URL: /feeds/:pid/dislike
+
+  Required parameters:
+  * pid
+  * uid
+
+  If successful it returns:
+  * updated liked_by whom and like_count, status: 200
+
+  If not successful:
+  * error: Could not be disliked, status: 422
+  * error: Not liked so can't be disliked, status: 422
+
+  Example:
+  http://api.localhost.com:3000/feeds/21/dislike
+  uid: 13
+
+  JSON returned as:
+  {
+    "like_count": 6,
+    "likedby": [
+      "12",
+      "11",
+      "10",
+      "14",
+      "15",
+      "16"
+    ]
+  }
+
+* Show likes - Shows usernames who liked the post
+
+  Request type: GET
+  URL: /feeds/:pid/showlike
+
+  Required parameters:
+  * pid
+
+  If successful it returns:
+  * usernames, status: 200
+
+  If not successful:
+  * error: no likes yet , status: 422
+
+  Example:
+  http://api.localhost.com:3000/feeds/21/showlike
+
+  JSON returned as:
+  {
+    "feeds": [
+      {
+        "username": "Bale"
+      },
+      {
+        "username": "Allen"
+      },
+      {
+        "username": "Grujic"
+      },
+      {
+        "username": "Matip"
+      },
+      {
+        "username": "Bellerin"
+      },
+      {
+        "username": "KDB"
+      }
+    ]
+  }
+
+* Adding comment - This API call adds a comment
+
+  Request type: POST
+  URL: feeds/:pid/comment
+
+  Required parameters:
+  * uid
+  * pid
+  * comment
+
+  If successful it returns:
+  * id of the new comment and the comment message, status: 201
+
+  If not successful:
+  * error: could not comment, status: 422
+
+  Example:
+  http://api.localhost.com:3000/feeds/21/comment
+  uid: <anything>
+  comment: <anything>
+
+  JSON returned as:
+
+  {
+    "id": 17,
+    "comment_message": "hhahah"
+  }
+
+* Show comment - This API call shows who commented on post along with comment
+
+  Request type: GET
+  URL: feeds/:pid/showcomment
+
+  Required parameters:
+  * pid
+
+  If successful it returns:
+  * comment and username, status: 200
+
+  If not successful:
+  * error: no comments yet, status: 422
+
+  Example:
+  http://api.localhost.com:3000/feeds/12/showcomment
+
+  JSON returned as:
+
+  {
+  "comments": [
+    {
+      "comment_message": "first ",
+      "user": {
+        "username": "KDB"
+      }
+    },
+    {
+      "comment_message": "second",
+      "user": {
+        "username": "KDB"
+      }
+    },
+    {
+      "comment_message": "third",
+      "user": {
+        "username": "KDB"
+      }
+    },
+    {
+      "comment_message": "fourth",
+      "user": {
+        "username": "Vardy"
+      }
+    },
+    {
+      "comment_message": "fifth",
+      "user": {
+        "username": "Mahrez"
+      }
+    },
+    {
+      "comment_message": "Ronaldo is the best",
+      "user": {
+        "username": "Morgan"
+      }
+    },
+    {
+      "comment_message": "Ronaldo is the best footballer",
+      "user": {
+        "username": "Morgan"
+      }
+    },
+    {
+      "comment_message": "Ronaldo is the best footballer",
+      "user": {
+        "username": "Morgan"
+      }
+    },
+    {
+      "comment_message": "Ronaldo is the best footballer",
+      "user": {
+        "username": "Morgan"
+      }
+    },
+    {
+      "comment_message": "niceeee",
+      "user": {
+        "username": "Grujic"
+      }
+    }
+  ]
+  }
+
+* Report - This API call takes in a report from user, when no. of reports exceed 200 post gets deleted
+
+  Request type: POST
+  URL: /feeds/:pid/report
+
+  Required parameters:
+  * pid
+  * report (1,2,3,4)
+
+  If successful it returns:
+  * post id and report, status: 200
+
+  If not successful:
+  * error: could not report, status: 422
+
+  Example:
+  http://api.localhost.com:3000/feeds/12/report
+  report: 3
+
+  JSON returned as:
+
+  {
+    "id": 12,
+    "report": [
+      4,
+      3
+    ]
+  }
+
+* 
+
+
+
+
+
+  Request type:
+  URL:
+
+  Required parameters:
+  * 
+
+  If successful it returns:
+  * , status: 200
+
+  If not successful:
+  * error: , status: 422
+
+  Example:
+  
+
+
+  JSON returned as:
+
+
+
 
 
 
