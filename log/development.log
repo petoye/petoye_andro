@@ -35418,3 +35418,80 @@ Geokit is using the domain: localhost.com
   [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?  [["user_id", 15]]
   [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1[0m
 Completed 201 Created in 95ms (Views: 76.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/feeds/11/nearbyfeeds" for 127.0.0.1 at 2016-07-21 22:30:29 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "uid"=>"11"}
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 11]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" != ?) AND (users.lat IS NOT NULL AND users.lng IS NOT NULL) AND (users.lat>19.119920014714644 AND users.lat<19.14883398528536 AND users.lng>72.7981865937463 AND users.lng<72.82879140625371) AND ((
+          (CASE WHEN users.lat IS NULL OR users.lng IS NULL THEN NULL ELSE
+          (ACOS(least(1,COS(0.33395787896787504)*COS(1.2708351229146735)*COS(RADIANS(users.lat))*COS(RADIANS(users.lng))+
+          COS(0.33395787896787504)*SIN(1.2708351229146735)*COS(RADIANS(users.lat))*SIN(RADIANS(users.lng))+
+          SIN(0.33395787896787504)*SIN(RADIANS(users.lat))))*3963.1899999999996)
+          END)
+          <= 1))[0m  [["id", 11]]
+  [1m[35mFeed Load (0.3ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?  [["user_id", 12]]
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?[0m  [["user_id", 14]]
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?  [["user_id", 15]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1[0m
+Completed 201 Created in 127ms (Views: 49.4ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/feeds/12/nearbyfeeds" for 127.0.0.1 at 2016-07-21 22:31:22 +0530
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "uid"=>"12"}
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" != ?) AND (users.lat IS NOT NULL AND users.lng IS NOT NULL) AND (users.lat>19.109920014714643 AND users.lat<19.138833985285356 AND users.lng>72.80818752009037 AND users.lng<72.8387904799096) AND ((
+          (CASE WHEN users.lat IS NULL OR users.lng IS NULL THEN NULL ELSE
+          (ACOS(least(1,COS(0.33378334604267557)*COS(1.2710096558398727)*COS(RADIANS(users.lat))*COS(RADIANS(users.lng))+
+          COS(0.33378334604267557)*SIN(1.2710096558398727)*COS(RADIANS(users.lat))*SIN(RADIANS(users.lng))+
+          SIN(0.33378334604267557)*SIN(RADIANS(users.lat))))*3963.1899999999996)
+          END)
+          <= 1))[0m  [["id", 12]]
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?  [["user_id", 11]]
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?[0m  [["user_id", 14]]
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?  [["user_id", 15]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1[0m
+Completed 201 Created in 68ms (Views: 62.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/feeds/15/nearbyfeeds" for 127.0.0.1 at 2016-07-21 22:31:33 +0530
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "uid"=>"15"}
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" != ?) AND (users.lat IS NOT NULL AND users.lng IS NOT NULL) AND (users.lat>19.109920014714643 AND users.lat<19.138833985285356 AND users.lng>72.80818752009037 AND users.lng<72.8387904799096) AND ((
+          (CASE WHEN users.lat IS NULL OR users.lng IS NULL THEN NULL ELSE
+          (ACOS(least(1,COS(0.33378334604267557)*COS(1.2710096558398727)*COS(RADIANS(users.lat))*COS(RADIANS(users.lng))+
+          COS(0.33378334604267557)*SIN(1.2710096558398727)*COS(RADIANS(users.lat))*SIN(RADIANS(users.lng))+
+          SIN(0.33378334604267557)*SIN(RADIANS(users.lat))))*3963.1899999999996)
+          END)
+          <= 1))[0m  [["id", 15]]
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?  [["user_id", 11]]
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?[0m  [["user_id", 12]]
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?  [["user_id", 14]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1[0m
+Completed 201 Created in 62ms (Views: 52.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/feeds/14/nearbyfeeds" for 127.0.0.1 at 2016-07-21 22:31:45 +0530
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "uid"=>"14"}
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 14]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" != ?) AND (users.lat IS NOT NULL AND users.lng IS NOT NULL) AND (users.lat>19.109920014714643 AND users.lat<19.138833985285356 AND users.lng>72.80818752009037 AND users.lng<72.8387904799096) AND ((
+          (CASE WHEN users.lat IS NULL OR users.lng IS NULL THEN NULL ELSE
+          (ACOS(least(1,COS(0.33378334604267557)*COS(1.2710096558398727)*COS(RADIANS(users.lat))*COS(RADIANS(users.lng))+
+          COS(0.33378334604267557)*SIN(1.2710096558398727)*COS(RADIANS(users.lat))*SIN(RADIANS(users.lng))+
+          SIN(0.33378334604267557)*SIN(RADIANS(users.lat))))*3963.1899999999996)
+          END)
+          <= 1))[0m  [["id", 14]]
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?  [["user_id", 11]]
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?[0m  [["user_id", 12]]
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?  [["user_id", 15]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1[0m
+Completed 201 Created in 69ms (Views: 60.3ms | ActiveRecord: 0.9ms)

@@ -81,12 +81,13 @@ class Api::V1::FeedsController < ApplicationController
 
 
   def nearbyfeeds
+    uid = params[:uid]
     user = User.find(params[:uid])
     latstr = user.lat
     longstr = user.lng
     @lat = latstr.to_f
     @long = longstr.to_f
-    nearbyuser = User.within(1, origin: [@lat,@long]) 
+    nearbyuser = User.where.not(id: uid).within(1, origin: [@lat,@long]) 
     render json: nearbyuser.as_json(only:[:username,:id] ,include: { feeds: {only:[:message,:like_count,:comment_count]}}), status: 201
   end
 
