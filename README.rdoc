@@ -97,9 +97,6 @@
   If successful it returns:
   * feeds of nearby users, status: 200
 
-  If not successful it returns:
-  * errors: could not create post, status: 422
-
   Example:
   http://api.localhost.com:3000/feeds/11/nearbyfeeds
 
