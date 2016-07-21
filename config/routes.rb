@@ -9,18 +9,17 @@ Rails.application.routes.draw do
     	resources :sessions, :only => [:create,:destroy]
       post '/users/signup', to: 'users#new', as: "new_user" #done
       post '/users/:id/basicinfo', to: 'users#info', as: "info_user" #done
-      post '/users/:id/poststory', to: 'users#poststory' 
-      post '/users/:id/likestory', to: 'users#likestory'
-      get '/users/:id/posts', to: 'users#userposts'
-      post '/:myid/follow', to: 'users#follow'
-      post '/:hisid/showprofile', to: 'users#showprofile'
-      get '/users/:id/discover', to: 'users#discover'
-      get '/users/:query/:parameter/search', to: 'users#search'
+      post '/users/:id/poststory', to: 'users#poststory' #done
+      get '/users/:id/likestory', to: 'users#likestory' #done
+      get '/users/:id/posts', to: 'users#userposts' #done
+      post '/:myid/follow', to: 'users#follow' #done
+      get 'users/:id/showprofile', to: 'users#showprofile' #done
+      get '/users/:id/discover', to: 'users#discover' #done
+      get '/users/:query/:parameter/search', to: 'users#search' #done
 
 
        resources :feeds, :only => [:index]
        post '/feeds/:uid/create', to: 'feeds#create', as: "create_feed" #done
-       #get '/feeds/trending', to: 'feeds#trending', as: "trending_feed"
        get '/feeds/:uid/nearbyfeeds', to: 'feeds#nearbyfeeds', as: "nearby_feed" #done
        get '/feeds/:uid/followedfeeds', to: 'feeds#followeduserfeeds' #done
        get '/feeds/:id/time', to: 'feeds#timeelapsed' 
@@ -35,14 +34,13 @@ Rails.application.routes.draw do
        post '/feeds/:pid/report', to: 'feeds#report' #done
 
        resources :adoptions
-       post '/adopt/:id/createadoption', to: 'adoptions#newadoption'
-       get '/adopt/show', to: 'adoptions#show'
+       post '/adopt/:id/createadoption', to: 'adoptions#newadoption' #done
+       get '/adopt/show', to: 'adoptions#show' #done
 
        resources :conversations, :only => [:create]
-       post '/conversations/open', to: 'conversations#open'
-       post '/conversations/all', to: 'conversations#all'
-
-      
+       get '/conversations/:sender_id/:recipient_id/open', to: 'conversations#open' #done
+       get '/conversations/:id/all', to: 'conversations#all'
+       
     end
   end
 end

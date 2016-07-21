@@ -537,11 +537,560 @@
     ]
   }
 
-* 
+* Discover users - This API call lets you discover users you havent followed within 50 miles of you
+  
+  Request type: GET
+  URL: /users/:id/discover
 
+  Required parameters:
+  * id
 
+  If successful it returns:
+  * users you havent followed within 50 miles of you, status: 200
 
+  If no users satisfy criteria:
+  * null
 
+  Example:
+  http://api.localhost.com:3000/users/11/discover
+  
+  JSON returned as:
+
+  {
+    "users": [
+      {
+        "owner_type": "pet owner",
+        "username": "Grujic",
+        "pet_type": "dog",
+        "pet_breed": "dane"
+      },
+      {
+        "owner_type": "pet owner",
+        "username": "Matip",
+        "pet_type": "bird",
+        "pet_breed": "lovebirds"
+      },
+      {
+        "owner_type": "pet owner",
+        "username": "Bellerin",
+        "pet_type": "cat",
+        "pet_breed": "persian"
+      }
+    ]
+  }
+
+* Search - This API call searches for user, pet type or breed in db
+
+  Request type: GET
+  URL: /users/:query/:parameter/search
+
+  Required parameters:
+  * query
+  * parameter (user,type,breed)
+
+  If successful it returns:
+  * search results username and basic info, status: 302
+
+  If not successful:
+  * null
+
+  Example:
+  http://api.localhost.com:3000/users/pu/breed/search
+
+  JSON returned as:
+
+  {
+    "users": [
+      {
+        "owner_type": "pet owner",
+        "username": "Drinkwater",
+        "pet_type": "dog",
+        "pet_breed": "pug"
+      },
+      {
+        "owner_type": "pet owner",
+        "username": "Payet",
+        "pet_type": "dog",
+        "pet_breed": "pug"
+      },
+      {
+        "owner_type": "none",
+        "username": "Morgan",
+        "pet_type": "dog",
+        "pet_breed": "pug"
+      }
+    ]
+  } 
+
+* Follow - This API call follows a particular user
+
+  Request type: POST
+  URL: /:myid/follow
+
+  Required parameters:
+  * myid
+  * hisid
+
+  If successful it returns:
+  * id of new follow record and following and follower ids, status: 200
+
+  If not successful:
+  * error: could not follow, status: 422
+  * error: already following
+
+  Example:
+  http://api.localhost.com:3000/19/follow
+  hisid: 16
+
+  JSON returned as:
+
+  {
+    "id": 7,
+    "follower_id": 19,
+    "following_id": 16
+  }
+
+* Show profile - This API call is used to show user's profile
+
+  Request type: GET
+  URL: users/:id/showprofile
+
+  Required parameters:
+  * id
+
+  If successful it returns:
+  * username, owner_type, pet_breed, pet_story, story_like_count, status: 200
+
+  If not successful:
+  * error: cant show profile , status: 422
+
+  Example:
+  http://api.localhost.com:3000/users/19/showprofile
+  
+  JSON returned as:
+
+  {
+    "id": 19,
+    "owner_type": "none",
+    "username": "Morgan",
+    "pet_breed": "pug",
+    "pet_story": null,
+    "story_like_count": 0
+  }
+
+* Post story - This API call posts a story
+
+  Request type: POST
+  URL: /users/:id/poststory
+
+  Required parameters:
+  * id
+  * story (max 300 words)
+
+  If successful it returns:
+  * story and like count, status: 200
+
+  If not successful:
+  * error: story not set, status: 422
+
+  Example:
+  http://api.localhost.com:3000/users/19/poststory
+  story: <anything>
+
+  JSON returned as:
+
+  {
+    "pet_story": "blahblah",
+    "story_like_count": 0
+  }
+
+* Like story - This API call likes a users story
+
+  Request type: GET
+  URL: /users/:id/likestory
+
+  Required parameters:
+  * id
+
+  If successful it returns:
+  * story like count, status: 200
+
+  If not successful:
+  * error: could not like story, status: 422
+
+  Example:
+  http://api.localhost.com:3000/users/19/likestory
+
+  JSON returned as:
+
+  {
+    "story_like_count": 1
+  }
+
+* User posts - This API call shows all user posts
+
+  Request type: GET
+  URL: /users/:id/posts
+
+  Required parameters:
+  * id
+
+  If successful it returns:
+  * all info of a post, status: 200
+
+  If not successful:
+  * error: no posts, status: 422
+
+  Example:
+  http://api.localhost.com:3000/users/12/posts
+
+  JSON returned as:
+
+{
+  "users": [
+    {
+      "message": "nice",
+      "like_count": 2,
+      "comment_count": 0,
+      "user": {
+        "username": "Grujic"
+      }
+    },
+    {
+      "message": "nice 2",
+      "like_count": 1,
+      "comment_count": 0,
+      "user": {
+        "username": "Grujic"
+      }
+    },
+    {
+      "message": "nice 3",
+      "like_count": 1,
+      "comment_count": 0,
+      "user": {
+        "username": "Grujic"
+      }
+    },
+    {
+      "message": "nice 4",
+      "like_count": 3,
+      "comment_count": 0,
+      "user": {
+        "username": "Grujic"
+      }
+    },
+    {
+      "message": "nice 5",
+      "like_count": 2,
+      "comment_count": 0,
+      "user": {
+        "username": "Grujic"
+      }
+    },
+    {
+      "message": "nice new",
+      "like_count": 2,
+      "comment_count": 0,
+      "user": {
+        "username": "Grujic"
+      }
+    },
+    {
+      "message": "nice new",
+      "like_count": 2,
+      "comment_count": 0,
+      "user": {
+        "username": "Grujic"
+      }
+    },
+    {
+      "message": "nice new",
+      "like_count": 6,
+      "comment_count": 3,
+      "user": {
+        "username": "Grujic"
+      }
+    },
+    {
+      "message": "nice new",
+      "like_count": 4,
+      "comment_count": 0,
+      "user": {
+        "username": "Grujic"
+      }
+    },
+    {
+      "message": "nice new",
+      "like_count": 1,
+      "comment_count": 0,
+      "user": {
+        "username": "Grujic"
+      }
+    },
+    {
+      "message": "nice new",
+      "like_count": 4,
+      "comment_count": 0,
+      "user": {
+        "username": "Grujic"
+      }
+    },
+    {
+      "message": "nice new",
+      "like_count": 3,
+      "comment_count": 0,
+      "user": {
+        "username": "Grujic"
+      }
+    }
+  ]
+}
+
+* New adoption - This API call allows to create new adoption
+
+  Request type: POST
+  URL: /adopt/:id/createadoption
+
+  Required parameters:
+  * id
+  * type
+  * breed
+  * age
+  * description
+  * image
+
+  If successful it returns:
+  * id of new adoption, status: 200
+
+  If not successful:
+  * error: could not create adoption, status: 422
+
+  Example:
+  http://api.localhost.com:3000/adopt/19/createadoption
+  type: <anything>
+  breed: <anything>
+  age: <anything>
+  description: <anything>
+  image: <anything>
+  
+  JSON returned as:
+
+  {
+    "id": 2
+  }
+
+* Show adoptions - This API call shows all adoptions
+
+  Request type: GET
+  URL: /adopt/show
+
+  Required parameters:
+  *
+
+  If successful it returns:
+  * shows all adoptions, status: 200
+
+  If not successful:
+  * error: null, status: 422
+
+  Example:
+  http://api.localhost.com:3000/adopt/show
+  
+  JSON returned as:
+
+  {
+    "adoptions": [
+      {
+        "pet_type": "dog",
+        "breed": "lab",
+        "age": 2,
+        "description": "meh",
+        "user": {
+          "username": "Drinkwater"
+        }
+      }
+    ]
+  }
+
+* Sending message - This API call allows you to send a message
+
+  Request type: POST
+  URL: /conversations
+
+  Required parameters:
+  * sender_id
+  * recipient_id
+  * body
+
+  If successful it returns:
+  * body, conversation_id, username, status: 200
+
+  If not successful:
+  * error: cant send message, status: 422
+
+  Example:
+  http://api.localhost.com:3000/conversations
+  sender_id: 11
+  recipient_id: 12
+  body: woah
+
+  JSON returned as:
+
+  {
+    "body": "woah",
+    "conversation_id": 14,
+    "user": {
+      "username": "Allen"
+    }
+  }
+
+* Checking for messages in conversation
+
+  Request type: GET
+  URL: /conversations/:sender_id/:recipient_id/open
+
+  Required parameters:
+  * sender_id
+  * recipient_id
+
+  If successful it returns:
+  * message, user_id and username, status: 200
+
+  If not successful:
+  * error: no messages, status: 422
+
+  Example:
+  http://api.localhost.com:3000/conversations/7/5/open
+
+  JSON returned as:
+
+{
+  "conversations": [
+    {
+      "body": "hello",
+      "user_id": 5,
+      "user": {
+        "username": "Ronaldo"
+      }
+    },
+    {
+      "body": "hello2",
+      "user_id": 5,
+      "user": {
+        "username": "Ronaldo"
+      }
+    },
+    {
+      "body": "hello back",
+      "user_id": 7,
+      "user": {
+        "username": "Messi"
+      }
+    },
+    {
+      "body": "hello back",
+      "user_id": 7,
+      "user": {
+        "username": "Messi"
+      }
+    },
+    {
+      "body": "hello back",
+      "user_id": 7,
+      "user": {
+        "username": "Messi"
+      }
+    },
+    {
+      "body": "ronaldo is best",
+      "user_id": 5,
+      "user": {
+        "username": "Ronaldo"
+      }
+    },
+    {
+      "body": "messi is best",
+      "user_id": 7,
+      "user": {
+        "username": "Messi"
+      }
+    },
+    {
+      "body": "heyhey",
+      "user_id": 7,
+      "user": {
+        "username": "Messi"
+      }
+    },
+    {
+      "body": "wooho",
+      "user_id": 5,
+      "user": {
+        "username": "Ronaldo"
+      }
+    },
+    {
+      "body": "hahah",
+      "user_id": 5,
+      "user": {
+        "username": "Ronaldo"
+      }
+    },
+    {
+      "body": "h6",
+      "user_id": 7,
+      "user": {
+        "username": "Messi"
+      }
+    },
+    {
+      "body": "huhu",
+      "user_id": 5,
+      "user": {
+        "username": "Ronaldo"
+      }
+    }
+  ]
+}
+
+* All conversations a user has had
+
+  Request type: GET
+  URL: /conversations/:id/all
+
+  Required parameters:
+  * id
+
+  If successful it returns:
+  * usernames of people user is chatting with, status: 200
+
+  If not successful:
+  * error: no conversations, status: 422
+
+  Example:
+  http://api.localhost.com:3000/conversations/5/all
+  
+  JSON returned as:
+
+  {
+    "conversations": [
+      {
+        "username": "Rooney"
+      },
+      {
+        "username": "Benzema"
+      },
+      {
+        "username": "Griezmann"
+      },
+      {
+        "username": "Messi"
+      }
+    ]
+  }
+
+*
 
   Request type:
   URL:

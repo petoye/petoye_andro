@@ -14,7 +14,7 @@ class Api::V1::ConversationsController < ApplicationController
     message = Message.new({ body: mssg, conversation_id: c_id , user_id: u_id})
 
     if message.save
-      render json: message.as_json(only:[:body,:user_id,:conversation_id] ,include: { user: {only: :username}}), status: 201
+      render json: message.as_json(only:[:body,:conversation_id] ,include: { user: {only: :username}}), status: 201
     else
       render json: {errors: "Can't send message"}, status: 422
     end
@@ -33,7 +33,7 @@ class Api::V1::ConversationsController < ApplicationController
 
   def all
     r_id = []
-    u_id = params[:user_id]
+    u_id = params[:id]
     Conversation.where(sender_id: u_id).each do |u|
     r_id << u.recipient_id.to_i
     end 

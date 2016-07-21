@@ -103,7 +103,7 @@ class Api::V1::FeedsController < ApplicationController
     end 
     if r_id.count > 0
       feed = Feed.where(user_id: [r_id])
-      render json: feed.as_json(only:[:user_id,:message,:like_count,:comment_count]), status: 200
+      render json: feed.as_json(only:[:message,:like_count,:comment_count], include: { user: {only: :username}}), status: 200
     else
       render json: { errors: "No followed users" }, status: 422
     end

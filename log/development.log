@@ -36174,3 +36174,761 @@ Geokit is using the domain: localhost.com
   [1m[35mSQL (0.9ms)[0m  UPDATE "feeds" SET "report" = ?, "updated_at" = ? WHERE "feeds"."id" = ?  [["report", "---\n- 4\n- 3\n"], ["updated_at", "2016-07-21 20:05:17.576483"], ["id", 12]]
   [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
 Completed 201 Created in 18ms (Views: 11.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/users/19/discover" for 127.0.0.1 at 2016-07-22 01:54:25 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::UsersController#discover as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"19"}
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 19]]
+  [1m[36mFollow Load (0.1ms)[0m  [1mSELECT "follows".* FROM "follows" WHERE "follows"."follower_id" = ?[0m  [["follower_id", 19]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+DEPRECATION WARNING: Passing a nested array to Active Record finder methods is deprecated and will be removed. Flatten your array before using it for 'IN' conditions. (called from discover at /Users/ameyavichare/Desktop/petoye_andro/app/controllers/api/v1/users_controller.rb:127)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (2, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 20, 21) AND (users.lat IS NOT NULL AND users.lng IS NOT NULL) AND (users.lat>12.277150735732043 AND users.lat<13.722849264267953 AND users.lng>13.25813892857053 AND users.lng<14.741861071429474) AND ((
+          (CASE WHEN users.lat IS NULL OR users.lng IS NULL THEN NULL ELSE
+          (ACOS(least(1,COS(0.22689280275926282)*COS(0.24434609527920614)*COS(RADIANS(users.lat))*COS(RADIANS(users.lng))+
+          COS(0.22689280275926282)*SIN(0.24434609527920614)*COS(RADIANS(users.lat))*SIN(RADIANS(users.lng))+
+          SIN(0.22689280275926282)*SIN(RADIANS(users.lat))))*3963.1899999999996)
+          END)
+          <= 50))[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1
+Completed 200 OK in 45ms (Views: 0.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/11/discover" for 127.0.0.1 at 2016-07-22 01:54:49 +0530
+Processing by Api::V1::UsersController#discover as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"11"}
+Geokit is using the domain: localhost.com
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35mFollow Load (0.1ms)[0m  SELECT "follows".* FROM "follows" WHERE "follows"."follower_id" = ?  [["follower_id", 11]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+DEPRECATION WARNING: Passing a nested array to Active Record finder methods is deprecated and will be removed. Flatten your array before using it for 'IN' conditions. (called from discover at /Users/ameyavichare/Desktop/petoye_andro/app/controllers/api/v1/users_controller.rb:127)
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 16, 17, 18, 19, 20, 21) AND (users.lat IS NOT NULL AND users.lng IS NOT NULL) AND (users.lat>18.411527735732044 AND users.lat<19.857226264267954 AND users.lng>72.04837357167528 AND users.lng<73.57860442832472) AND ((
+          (CASE WHEN users.lat IS NULL OR users.lng IS NULL THEN NULL ELSE
+          (ACOS(least(1,COS(0.33395787896787504)*COS(1.2708351229146735)*COS(RADIANS(users.lat))*COS(RADIANS(users.lng))+
+          COS(0.33395787896787504)*SIN(1.2708351229146735)*COS(RADIANS(users.lat))*SIN(RADIANS(users.lng))+
+          SIN(0.33395787896787504)*SIN(RADIANS(users.lat))))*3963.1899999999996)
+          END)
+          <= 50))
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1[0m
+Completed 200 OK in 43ms (Views: 37.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/11/discover" for 127.0.0.1 at 2016-07-22 01:56:33 +0530
+Processing by Api::V1::UsersController#discover as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"11"}
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 11]]
+  [1m[36mFollow Load (0.1ms)[0m  [1mSELECT "follows".* FROM "follows" WHERE "follows"."follower_id" = ?[0m  [["follower_id", 11]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+DEPRECATION WARNING: Passing a nested array to Active Record finder methods is deprecated and will be removed. Flatten your array before using it for 'IN' conditions. (called from discover at /Users/ameyavichare/Desktop/petoye_andro/app/controllers/api/v1/users_controller.rb:127)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (1, 2, 3, 4, 5, 6, 7, 8, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21) AND (users.lat IS NOT NULL AND users.lng IS NOT NULL) AND (users.lat>18.411527735732044 AND users.lat<19.857226264267954 AND users.lng>72.04837357167528 AND users.lng<73.57860442832472) AND ((
+          (CASE WHEN users.lat IS NULL OR users.lng IS NULL THEN NULL ELSE
+          (ACOS(least(1,COS(0.33395787896787504)*COS(1.2708351229146735)*COS(RADIANS(users.lat))*COS(RADIANS(users.lng))+
+          COS(0.33395787896787504)*SIN(1.2708351229146735)*COS(RADIANS(users.lat))*SIN(RADIANS(users.lng))+
+          SIN(0.33395787896787504)*SIN(RADIANS(users.lat))))*3963.1899999999996)
+          END)
+          <= 50))[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1
+Completed 200 OK in 60ms (Views: 54.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/11/discover" for 127.0.0.1 at 2016-07-22 01:57:04 +0530
+Processing by Api::V1::UsersController#discover as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"11"}
+Geokit is using the domain: localhost.com
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35mFollow Load (0.1ms)[0m  SELECT "follows".* FROM "follows" WHERE "follows"."follower_id" = ?  [["follower_id", 11]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+DEPRECATION WARNING: Passing a nested array to Active Record finder methods is deprecated and will be removed. Flatten your array before using it for 'IN' conditions. (called from discover at /Users/ameyavichare/Desktop/petoye_andro/app/controllers/api/v1/users_controller.rb:127)
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 16, 17, 18, 19, 20, 21) AND (users.lat IS NOT NULL AND users.lng IS NOT NULL) AND (users.lat>18.411527735732044 AND users.lat<19.857226264267954 AND users.lng>72.04837357167528 AND users.lng<73.57860442832472) AND ((
+          (CASE WHEN users.lat IS NULL OR users.lng IS NULL THEN NULL ELSE
+          (ACOS(least(1,COS(0.33395787896787504)*COS(1.2708351229146735)*COS(RADIANS(users.lat))*COS(RADIANS(users.lng))+
+          COS(0.33395787896787504)*SIN(1.2708351229146735)*COS(RADIANS(users.lat))*SIN(RADIANS(users.lng))+
+          SIN(0.33395787896787504)*SIN(RADIANS(users.lat))))*3963.1899999999996)
+          END)
+          <= 50))
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1[0m
+Completed 200 OK in 54ms (Views: 48.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/11/discover" for 127.0.0.1 at 2016-07-22 01:57:22 +0530
+Processing by Api::V1::UsersController#discover as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"11"}
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 11]]
+  [1m[36mFollow Load (0.1ms)[0m  [1mSELECT "follows".* FROM "follows" WHERE "follows"."follower_id" = ?[0m  [["follower_id", 11]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+DEPRECATION WARNING: Passing a nested array to Active Record finder methods is deprecated and will be removed. Flatten your array before using it for 'IN' conditions. (called from discover at /Users/ameyavichare/Desktop/petoye_andro/app/controllers/api/v1/users_controller.rb:127)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (1, 2, 3, 4, 5, 6, 7, 8, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21) AND (users.lat IS NOT NULL AND users.lng IS NOT NULL) AND (users.lat>18.411527735732044 AND users.lat<19.857226264267954 AND users.lng>72.04837357167528 AND users.lng<73.57860442832472) AND ((
+          (CASE WHEN users.lat IS NULL OR users.lng IS NULL THEN NULL ELSE
+          (ACOS(least(1,COS(0.33395787896787504)*COS(1.2708351229146735)*COS(RADIANS(users.lat))*COS(RADIANS(users.lng))+
+          COS(0.33395787896787504)*SIN(1.2708351229146735)*COS(RADIANS(users.lat))*SIN(RADIANS(users.lng))+
+          SIN(0.33395787896787504)*SIN(RADIANS(users.lat))))*3963.1899999999996)
+          END)
+          <= 50))[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1
+Completed 200 OK in 60ms (Views: 55.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/pu/breed/search" for 127.0.0.1 at 2016-07-22 02:01:25 +0530
+Processing by Api::V1::UsersController#search as JSON
+  Parameters: {"subdomain"=>"api", "query"=>"pu", "parameter"=>"breed"}
+Geokit is using the domain: localhost.com
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE (pet_breed LIKE '%pu%')[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1
+Completed 302 Found in 65ms (Views: 62.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/19/follow" for 127.0.0.1 at 2016-07-22 02:09:43 +0530
+Processing by Api::V1::UsersController#follow as JSON
+  Parameters: {"hisid"=>"17", "subdomain"=>"api", "myid"=>"19"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[36mFollow Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."following_id" = ? LIMIT 1[0m  [["follower_id", 19], ["following_id", 17]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "follows" ("follower_id", "following_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["follower_id", 19], ["following_id", 17], ["created_at", "2016-07-21 20:39:44.337955"], ["updated_at", "2016-07-21 20:39:44.337955"]]
+  [1m[35m (1.2ms)[0m  commit transaction
+Completed 201 Created in 305ms (Views: 11.4ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/19/follow" for 127.0.0.1 at 2016-07-22 02:11:22 +0530
+Processing by Api::V1::UsersController#follow as JSON
+  Parameters: {"hisid"=>"17", "subdomain"=>"api", "myid"=>"19"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[36mFollow Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."following_id" = ? LIMIT 1[0m  [["follower_id", 19], ["following_id", 17]]
+Completed 422 Unprocessable Entity in 18ms (Views: 10.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/19/follow" for 127.0.0.1 at 2016-07-22 02:11:28 +0530
+Processing by Api::V1::UsersController#follow as JSON
+  Parameters: {"hisid"=>"16", "subdomain"=>"api", "myid"=>"19"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mFollow Exists (0.1ms)[0m  SELECT  1 AS one FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."following_id" = ? LIMIT 1  [["follower_id", 19], ["following_id", 16]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "follows" ("follower_id", "following_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["follower_id", 19], ["following_id", 16], ["created_at", "2016-07-21 20:41:28.413534"], ["updated_at", "2016-07-21 20:41:28.413534"]]
+  [1m[36m (5.1ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 24ms (Views: 11.9ms | ActiveRecord: 6.2ms)
+
+
+Started POST "/19/follow" for 127.0.0.1 at 2016-07-22 02:12:34 +0530
+Processing by Api::V1::UsersController#follow as JSON
+  Parameters: {"hisid"=>"16", "subdomain"=>"api", "myid"=>"19"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mFollow Exists (0.2ms)[0m  SELECT  1 AS one FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."following_id" = ? LIMIT 1  [["follower_id", 19], ["following_id", 16]]
+Completed 422 Unprocessable Entity in 14ms (Views: 11.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users/19/showprofile" for 127.0.0.1 at 2016-07-22 02:19:24 +0530
+
+ActionController::RoutingError (No route matches [POST] "/users/19/showprofile"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/ameyavichare/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/ameyavichare/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/ameyavichare/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.6ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (7.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (19.1ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (102.5ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (54.9ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (111.5ms)
+
+
+Started GET "/users/19/showprofile" for 127.0.0.1 at 2016-07-22 02:19:31 +0530
+Processing by Api::V1::UsersController#showprofile as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"19"}
+Geokit is using the domain: localhost.com
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 19]]
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.9ms)
+
+NoMethodError (undefined method `exists?' for #<User:0x007fa8c903f0b0>):
+  app/controllers/api/v1/users_controller.rb:57:in `showprofile'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.5ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (56.6ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (57.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (106.2ms)
+
+
+Started GET "/users/19/showprofile" for 127.0.0.1 at 2016-07-22 02:19:52 +0530
+Processing by Api::V1::UsersController#showprofile as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"19"}
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 19]]
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.7ms)
+
+NoMethodError (undefined method `exists' for #<User:0x007fa8c7cbe1d0>):
+  app/controllers/api/v1/users_controller.rb:57:in `showprofile'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.5ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (51.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (42.9ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (93.7ms)
+
+
+Started GET "/users/19/showprofile" for 127.0.0.1 at 2016-07-22 02:20:01 +0530
+Processing by Api::V1::UsersController#showprofile as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"19"}
+Geokit is using the domain: localhost.com
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 19]]
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."auth_token" = 'gA9ryxYKyxwzd4nyDyTB' AND "users"."id" != 19) LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Completed 200 OK in 26ms (Views: 7.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/19/showprofile" for 127.0.0.1 at 2016-07-22 02:25:20 +0530
+Processing by Api::V1::UsersController#showprofile as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"19"}
+Geokit is using the domain: localhost.com
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 19]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."auth_token" = 'gA9ryxYKyxwzd4nyDyTB' AND "users"."id" != 19) LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Completed 200 OK in 32ms (Views: 14.8ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users/19/poststory" for 127.0.0.1 at 2016-07-22 02:31:46 +0530
+Processing by Api::V1::UsersController#poststory as JSON
+  Parameters: {"story"=>"blahblah", "subdomain"=>"api", "id"=>"19"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 19]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."auth_token" = 'gA9ryxYKyxwzd4nyDyTB' AND "users"."id" != 19) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "pet_story" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["pet_story", "blahblah"], ["updated_at", "2016-07-21 21:01:46.492252"], ["id", 19]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 27ms (Views: 7.0ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/users/19/likestory" for 127.0.0.1 at 2016-07-22 02:38:02 +0530
+Processing by Api::V1::UsersController#likestory as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"19"}
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 19]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."auth_token" = 'gA9ryxYKyxwzd4nyDyTB' AND "users"."id" != 19) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "story_like_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["story_like_count", 1], ["updated_at", "2016-07-21 21:08:02.329283"], ["id", 19]]
+  [1m[35m (1.4ms)[0m  commit transaction
+Completed 200 OK in 25ms (Views: 7.5ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/users/12/posts" for 127.0.0.1 at 2016-07-22 02:45:29 +0530
+Processing by Api::V1::UsersController#userposts as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"12"}
+Geokit is using the domain: localhost.com
+  [1m[36mFeed Load (0.2ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?[0m  [["user_id", 12]]
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.4ms)
+
+NoMethodError (undefined method `save' for #<Feed::ActiveRecord_Relation:0x007fa8c6e44b40>):
+  app/controllers/api/v1/users_controller.rb:81:in `userposts'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.6ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (48.8ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (40.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (93.4ms)
+
+
+Started GET "/users/12/posts" for 127.0.0.1 at 2016-07-22 02:45:59 +0530
+Processing by Api::V1::UsersController#userposts as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"12"}
+Geokit is using the domain: localhost.com
+  [1m[35mFeed Exists (0.2ms)[0m  SELECT  1 AS one FROM "feeds" WHERE "feeds"."user_id" = ? LIMIT 1  [["user_id", 12]]
+  [1m[36mFeed Load (0.2ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?[0m  [["user_id", 12]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1
+Completed 200 OK in 258ms (Views: 207.9ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users/12/posts" for 127.0.0.1 at 2016-07-22 02:46:27 +0530
+Processing by Api::V1::UsersController#userposts as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"12"}
+Geokit is using the domain: localhost.com
+  [1m[36mFeed Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "feeds" WHERE "feeds"."user_id" = ? LIMIT 1[0m  [["user_id", 12]]
+  [1m[35mFeed Load (0.2ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?  [["user_id", 12]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1[0m
+Completed 200 OK in 287ms (Views: 237.7ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/users/11/posts" for 127.0.0.1 at 2016-07-22 02:46:36 +0530
+Processing by Api::V1::UsersController#userposts as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"11"}
+Geokit is using the domain: localhost.com
+  [1m[35mFeed Exists (0.1ms)[0m  SELECT  1 AS one FROM "feeds" WHERE "feeds"."user_id" = ? LIMIT 1  [["user_id", 11]]
+Completed 422 Unprocessable Entity in 13ms (Views: 11.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/12/posts" for 127.0.0.1 at 2016-07-22 02:47:01 +0530
+Processing by Api::V1::UsersController#userposts as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"12"}
+Geokit is using the domain: localhost.com
+  [1m[36mFeed Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "feeds" WHERE "feeds"."user_id" = ? LIMIT 1[0m  [["user_id", 12]]
+  [1m[35mFeed Load (0.2ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?  [["user_id", 12]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1[0m
+Completed 200 OK in 245ms (Views: 226.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/feeds/19/followedfeeds" for 127.0.0.1 at 2016-07-22 02:49:20 +0530
+
+ActionController::RoutingError (No route matches [GET] "/feeds/19/followedfeeds"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/ameyavichare/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/ameyavichare/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/ameyavichare/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.5ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (72.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (44.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (95.4ms)
+
+
+Started GET "/feeds/19/followedfeeds" for 127.0.0.1 at 2016-07-22 02:49:59 +0530
+Processing by Api::V1::FeedsController#followeduserfeeds as JSON
+  Parameters: {"subdomain"=>"api", "uid"=>"19"}
+Geokit is using the domain: localhost.com
+  [1m[35mFollow Load (0.1ms)[0m  SELECT "follows".* FROM "follows" WHERE "follows"."follower_id" = ?  [["follower_id", 19]]
+DEPRECATION WARNING: Passing a nested array to Active Record finder methods is deprecated and will be removed. Flatten your array before using it for 'IN' conditions. (called from followeduserfeeds at /Users/ameyavichare/Desktop/petoye_andro/app/controllers/api/v1/feeds_controller.rb:105)
+  [1m[36mFeed Load (0.2ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" IN (1, 12, 3, 4, 17, 16)[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1[0m
+Completed 200 OK in 281ms (Views: 231.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/feeds/19/followedfeeds" for 127.0.0.1 at 2016-07-22 02:50:37 +0530
+Processing by Api::V1::FeedsController#followeduserfeeds as JSON
+  Parameters: {"subdomain"=>"api", "uid"=>"19"}
+Geokit is using the domain: localhost.com
+  [1m[35mFollow Load (0.1ms)[0m  SELECT "follows".* FROM "follows" WHERE "follows"."follower_id" = ?  [["follower_id", 19]]
+DEPRECATION WARNING: Passing a nested array to Active Record finder methods is deprecated and will be removed. Flatten your array before using it for 'IN' conditions. (called from followeduserfeeds at /Users/ameyavichare/Desktop/petoye_andro/app/controllers/api/v1/feeds_controller.rb:105)
+  [1m[36mFeed Load (0.2ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" IN (1, 12, 3, 4, 17, 16)[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1[0m
+Completed 200 OK in 303ms (Views: 254.2ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/adopt/19/createadoption" for 127.0.0.1 at 2016-07-22 02:56:23 +0530
+Processing by Api::V1::AdoptionsController#newadoption as JSON
+  Parameters: {"image"=>#<ActionDispatch::Http::UploadedFile:0x007fa8c6fe7218 @tempfile=#<Tempfile:/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/RackMultipart20160722-27990-1yrcaqo.jpg>, @original_filename="cute-dog-and-cat-sitting-together-1024x640.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image\"; filename=\"cute-dog-and-cat-sitting-together-1024x640.jpg\"\r\nContent-Type: image/jpeg\r\n">, "type"=>"dog", "breed"=>"lab", "age"=>"2", "description"=>"meh", "subdomain"=>"api", "id"=>"19"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+Command :: PATH=/usr/local/bin/:$PATH; file -b --mime '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160722-27990-q4ywc9.jpg'
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160722-27990-1qs0fio.jpg[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160722-27990-1qs0fio.jpg[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160722-27990-1qs0fio.jpg[0]' -auto-orient -resize "300x300>" '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/92ef56bd9a534c09e181f8f2a0b1a03820160722-27990-1e3mc92'
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160722-27990-1qs0fio.jpg[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160722-27990-1qs0fio.jpg[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160722-27990-1qs0fio.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/92ef56bd9a534c09e181f8f2a0b1a03820160722-27990-bbukaf'
+  [1m[35m (0.1ms)[0m  begin transaction
+Command :: PATH=/usr/local/bin/:$PATH; file -b --mime '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160722-27990-32mhg9.jpg'
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "adoptions" ("user_id", "pet_type", "breed", "age", "description", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 19], ["pet_type", "dog"], ["breed", "lab"], ["age", 2], ["description", "meh"], ["image_file_name", "cute-dog-and-cat-sitting-together-1024x640.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 133987], ["image_updated_at", "2016-07-21 21:26:23.131457"], ["created_at", "2016-07-21 21:26:23.428771"], ["updated_at", "2016-07-21 21:26:23.428771"]]
+[paperclip] saving adoptions/images/000/000/002/original/cute-dog-and-cat-sitting-together-1024x640.jpg
+[paperclip] saving adoptions/images/000/000/002/medium/cute-dog-and-cat-sitting-together-1024x640.jpg
+[paperclip] saving adoptions/images/000/000/002/thumb/cute-dog-and-cat-sitting-together-1024x640.jpg
+  [1m[35m (1.1ms)[0m  commit transaction
+Completed 201 Created in 403ms (Views: 12.5ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/adopt/show" for 127.0.0.1 at 2016-07-22 03:03:09 +0530
+Processing by Api::V1::AdoptionsController#show as JSON
+  Parameters: {"subdomain"=>"api"}
+Geokit is using the domain: localhost.com
+  [1m[36mAdoption Load (0.4ms)[0m  [1mSELECT "adoptions".* FROM "adoptions"[0m
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `exist?' for #<Adoption::ActiveRecord_Relation:0x007fa8c7f5e520>
+Did you mean?  exists?):
+  app/controllers/api/v1/adoptions_controller.rb:22:in `show'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.9ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (54.1ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (43.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (96.8ms)
+
+
+Started GET "/adopt/show" for 127.0.0.1 at 2016-07-22 03:03:49 +0530
+Processing by Api::V1::AdoptionsController#show as JSON
+  Parameters: {"subdomain"=>"api"}
+Geokit is using the domain: localhost.com
+  [1m[35mAdoption Load (0.4ms)[0m  SELECT "adoptions".* FROM "adoptions"
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `exist?' for #<Adoption::ActiveRecord_Relation:0x007fa8c79a9788>
+Did you mean?  exists?):
+  app/controllers/api/v1/adoptions_controller.rb:22:in `show'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (50.8ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (41.5ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (91.6ms)
+
+
+Started GET "/adopt/show" for 127.0.0.1 at 2016-07-22 03:04:00 +0530
+Processing by Api::V1::AdoptionsController#show as JSON
+  Parameters: {"subdomain"=>"api"}
+Geokit is using the domain: localhost.com
+  [1m[36mAdoption Load (0.5ms)[0m  [1mSELECT "adoptions".* FROM "adoptions"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 19]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1
+Completed 200 OK in 63ms (Views: 35.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/adopt/show" for 127.0.0.1 at 2016-07-22 03:05:24 +0530
+Processing by Api::V1::AdoptionsController#show as JSON
+  Parameters: {"subdomain"=>"api"}
+Geokit is using the domain: localhost.com
+  [1m[36mAdoption Load (0.4ms)[0m  [1mSELECT "adoptions".* FROM "adoptions"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1
+Completed 200 OK in 6ms (Views: 1.3ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/adopt/2/createadoption" for 127.0.0.1 at 2016-07-22 03:05:49 +0530
+Processing by Api::V1::AdoptionsController#newadoption as JSON
+  Parameters: {"image"=>#<ActionDispatch::Http::UploadedFile:0x007fa8c69dbbd0 @tempfile=#<Tempfile:/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/RackMultipart20160722-27990-sablrv.jpg>, @original_filename="cute-dog-and-cat-sitting-together-1024x640.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image\"; filename=\"cute-dog-and-cat-sitting-together-1024x640.jpg\"\r\nContent-Type: image/jpeg\r\n">, "type"=>"dog", "breed"=>"lab", "age"=>"2", "description"=>"meh", "subdomain"=>"api", "id"=>"2"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+Command :: PATH=/usr/local/bin/:$PATH; file -b --mime '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160722-27990-1j0tp7l.jpg'
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160722-27990-ejel4f.jpg[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160722-27990-ejel4f.jpg[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160722-27990-ejel4f.jpg[0]' -auto-orient -resize "300x300>" '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/dfe1a0940b4dc4ef6f4f5ba59f78549e20160722-27990-io3p22'
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160722-27990-ejel4f.jpg[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160722-27990-ejel4f.jpg[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160722-27990-ejel4f.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/dfe1a0940b4dc4ef6f4f5ba59f78549e20160722-27990-dcj8s2'
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Command :: PATH=/usr/local/bin/:$PATH; file -b --mime '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160722-27990-v5erd8.jpg'
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "adoptions" ("user_id", "pet_type", "breed", "age", "description", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["user_id", 2], ["pet_type", "dog"], ["breed", "lab"], ["age", 2], ["description", "meh"], ["image_file_name", "cute-dog-and-cat-sitting-together-1024x640.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 133987], ["image_updated_at", "2016-07-21 21:35:49.249504"], ["created_at", "2016-07-21 21:35:49.459264"], ["updated_at", "2016-07-21 21:35:49.459264"]]
+[paperclip] saving adoptions/images/000/000/003/original/cute-dog-and-cat-sitting-together-1024x640.jpg
+[paperclip] saving adoptions/images/000/000/003/medium/cute-dog-and-cat-sitting-together-1024x640.jpg
+[paperclip] saving adoptions/images/000/000/003/thumb/cute-dog-and-cat-sitting-together-1024x640.jpg
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 279ms (Views: 12.2ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/adopt/show" for 127.0.0.1 at 2016-07-22 03:06:09 +0530
+
+ActionController::RoutingError (No route matches [POST] "/adopt/show"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/ameyavichare/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/ameyavichare/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/ameyavichare/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.7ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (68.6ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (44.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (93.9ms)
+
+
+Started GET "/adopt/show" for 127.0.0.1 at 2016-07-22 03:06:16 +0530
+Processing by Api::V1::AdoptionsController#show as JSON
+  Parameters: {"subdomain"=>"api"}
+Geokit is using the domain: localhost.com
+  [1m[35mAdoption Load (0.2ms)[0m  SELECT "adoptions".* FROM "adoptions"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1
+Completed 200 OK in 45ms (Views: 27.2ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/conversations" for 127.0.0.1 at 2016-07-22 03:11:57 +0530
+Processing by Api::V1::ConversationsController#create as JSON
+  Parameters: {"sender_id"=>"11", "recipient_id"=>"12", "body"=>"woah", "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[36mConversation Load (0.5ms)[0m  [1mSELECT "conversations".* FROM "conversations" WHERE ((conversations.sender_id = '11' AND conversations.recipient_id ='12') OR (conversations.sender_id = '12' AND conversations.recipient_id ='11'))[0m
+Unpermitted parameters: body, format, subdomain
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mConversation Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "conversations" WHERE ("conversations"."sender_id" = 11 AND "conversations"."recipient_id" = 12) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "conversations" ("sender_id", "recipient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["sender_id", 11], ["recipient_id", 12], ["created_at", "2016-07-21 21:41:57.336370"], ["updated_at", "2016-07-21 21:41:57.336370"]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "messages" ("body", "conversation_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["body", "woah"], ["conversation_id", 14], ["user_id", 11], ["created_at", "2016-07-21 21:41:57.346062"], ["updated_at", "2016-07-21 21:41:57.346062"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 11]]
+Completed 201 Created in 66ms (Views: 9.5ms | ActiveRecord: 5.2ms)
+
+
+Started POST "/conversations" for 127.0.0.1 at 2016-07-22 03:13:52 +0530
+Processing by Api::V1::ConversationsController#create as JSON
+  Parameters: {"sender_id"=>"11", "recipient_id"=>"12", "body"=>"woah", "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mConversation Load (0.5ms)[0m  SELECT "conversations".* FROM "conversations" WHERE ((conversations.sender_id = '11' AND conversations.recipient_id ='12') OR (conversations.sender_id = '12' AND conversations.recipient_id ='11'))
+  [1m[36mConversation Load (0.2ms)[0m  [1mSELECT  "conversations".* FROM "conversations" WHERE ((conversations.sender_id = '11' AND conversations.recipient_id ='12') OR (conversations.sender_id = '12' AND conversations.recipient_id ='11'))  ORDER BY "conversations"."id" ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "messages" ("body", "conversation_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["body", "woah"], ["conversation_id", 14], ["user_id", 11], ["created_at", "2016-07-21 21:43:52.871265"], ["updated_at", "2016-07-21 21:43:52.871265"]]
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 11]]
+Completed 201 Created in 41ms (Views: 8.4ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/conversations" for 127.0.0.1 at 2016-07-22 03:13:56 +0530
+Processing by Api::V1::ConversationsController#create as JSON
+  Parameters: {"sender_id"=>"11", "recipient_id"=>"12", "body"=>"woah", "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mConversation Load (0.2ms)[0m  SELECT "conversations".* FROM "conversations" WHERE ((conversations.sender_id = '11' AND conversations.recipient_id ='12') OR (conversations.sender_id = '12' AND conversations.recipient_id ='11'))
+  [1m[36mConversation Load (0.2ms)[0m  [1mSELECT  "conversations".* FROM "conversations" WHERE ((conversations.sender_id = '11' AND conversations.recipient_id ='12') OR (conversations.sender_id = '12' AND conversations.recipient_id ='11'))  ORDER BY "conversations"."id" ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "messages" ("body", "conversation_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["body", "woah"], ["conversation_id", 14], ["user_id", 11], ["created_at", "2016-07-21 21:43:56.423626"], ["updated_at", "2016-07-21 21:43:56.423626"]]
+  [1m[35m (5.0ms)[0m  commit transaction
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 11]]
+Completed 201 Created in 20ms (Views: 9.2ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/conversations/11/12/open" for 127.0.0.1 at 2016-07-22 03:18:44 +0530
+Processing by Api::V1::ConversationsController#open as JSON
+  Parameters: {"subdomain"=>"api", "sender_id"=>"11", "recipient_id"=>"12"}
+Geokit is using the domain: localhost.com
+  [1m[35mConversation Load (0.4ms)[0m  SELECT "conversations".* FROM "conversations" WHERE ((conversations.sender_id = '11' AND conversations.recipient_id ='12') OR (conversations.sender_id = '12' AND conversations.recipient_id ='11'))
+  [1m[36mConversation Load (0.2ms)[0m  [1mSELECT  "conversations".* FROM "conversations" WHERE ((conversations.sender_id = '11' AND conversations.recipient_id ='12') OR (conversations.sender_id = '12' AND conversations.recipient_id ='11'))  ORDER BY "conversations"."id" ASC LIMIT 1[0m
+  [1m[35mMessage Load (0.2ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = ?  [["conversation_id", 14]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1
+Completed 201 Created in 91ms (Views: 62.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/conversations/7/5/open" for 127.0.0.1 at 2016-07-22 03:19:23 +0530
+Processing by Api::V1::ConversationsController#open as JSON
+  Parameters: {"subdomain"=>"api", "sender_id"=>"7", "recipient_id"=>"5"}
+Geokit is using the domain: localhost.com
+  [1m[36mConversation Load (0.2ms)[0m  [1mSELECT "conversations".* FROM "conversations" WHERE ((conversations.sender_id = '7' AND conversations.recipient_id ='5') OR (conversations.sender_id = '5' AND conversations.recipient_id ='7'))[0m
+  [1m[35mConversation Load (0.3ms)[0m  SELECT  "conversations".* FROM "conversations" WHERE ((conversations.sender_id = '7' AND conversations.recipient_id ='5') OR (conversations.sender_id = '5' AND conversations.recipient_id ='7'))  ORDER BY "conversations"."id" ASC LIMIT 1
+  [1m[36mMessage Load (0.2ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = ?[0m  [["conversation_id", 9]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1
+Completed 201 Created in 290ms (Views: 271.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/conversations/7/all" for 127.0.0.1 at 2016-07-22 03:24:47 +0530
+Processing by Api::V1::ConversationsController#all as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"7"}
+Geokit is using the domain: localhost.com
+  [1m[36mConversation Load (0.1ms)[0m  [1mSELECT "conversations".* FROM "conversations" WHERE "conversations"."sender_id" = ?[0m  [["sender_id", 7]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (6, 9)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1[0m
+Completed 201 Created in 76ms (Views: 52.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/conversations/5/all" for 127.0.0.1 at 2016-07-22 03:24:59 +0530
+Processing by Api::V1::ConversationsController#all as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"5"}
+Geokit is using the domain: localhost.com
+  [1m[35mConversation Load (0.1ms)[0m  SELECT "conversations".* FROM "conversations" WHERE "conversations"."sender_id" = ?  [["sender_id", 5]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (3, 4, 6, 7)[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1
+Completed 201 Created in 91ms (Views: 87.2ms | ActiveRecord: 0.6ms)
