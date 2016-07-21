@@ -1,13 +1,13 @@
 class Api::V1::FeedsController < ApplicationController
   respond_to :json
-#include V1::feeds_serializer
+
   def create
-    id = params[:id]
+    id = params[:uid]
     msg = params[:message]
     img = params[:image]
     feed = Feed.new({user_id: id, message: msg, like_count: 0, comment_count: 0, image: img})
     if feed.save
-      render json: feed, status: 201#, location: [:api_create, feed]
+      render json: feed.as_json(only:[:id]), status:201
     else
       render json: {errors: "Could not create post"}, status: 422
     end
@@ -81,7 +81,7 @@ class Api::V1::FeedsController < ApplicationController
 
 
   def nearbyfeeds
-    user = User.find(params[:id])
+    user = User.find(params[:uid])
     latstr = user.lat
     longstr = user.lng
     @lat = latstr.to_f

@@ -35155,3 +35155,266 @@ Geokit is using the domain: localhost.com
   [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE (pet_type LIKE '%dog%')[0m
   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1
 Completed 302 Found in 223ms (Views: 218.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2016-07-21 21:30:19 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::UsersController#new as JSON
+  Parameters: {"email"=>"ameya@gmail.com", "password"=>"[FILTERED]", "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'ameya@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."auth_token" = '' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 235ms (Views: 8.4ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2016-07-21 21:30:52 +0530
+Processing by Api::V1::UsersController#new as JSON
+  Parameters: {"email"=>"ameyagmail.com", "password"=>"[FILTERED]", "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'ameyagmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."auth_token" = '' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 139ms (Views: 6.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2016-07-21 21:31:48 +0530
+Processing by Api::V1::UsersController#new as JSON
+  Parameters: {"email"=>"ameya@gmail.com", "password"=>"[FILTERED]", "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'ameya@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."auth_token" = '' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 138ms (Views: 7.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2016-07-21 21:32:52 +0530
+Processing by Api::V1::UsersController#new as JSON
+  Parameters: {"email"=>"", "password"=>"[FILTERED]", "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."auth_token" = '' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 13ms (Views: 8.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2016-07-21 21:33:11 +0530
+Processing by Api::V1::UsersController#new as JSON
+  Parameters: {"password"=>"[FILTERED]", "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."auth_token" = '' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 13ms (Views: 9.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2016-07-21 21:33:40 +0530
+Processing by Api::V1::UsersController#new as JSON
+  Parameters: {"email"=>"ameyag@gmail.com", "password"=>"[FILTERED]", "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'ameyag@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."auth_token" = '' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "sBUy_UEXUSuccX_U81zm"]]
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "username", "created_at", "updated_at", "auth_token") VALUES (?, ?, ?, ?, ?, ?)  [["email", "ameyag@gmail.com"], ["encrypted_password", "$2a$11$dYrW/5wffFkacIsMs5kwYOhrbYMl4KuXBxfgx38JxQTd11C1EYBtG"], ["username", "anonymous"], ["created_at", "2016-07-21 16:03:40.509669"], ["updated_at", "2016-07-21 16:03:40.509669"], ["auth_token", "sBUy_UEXUSuccX_U81zm"]]
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 146ms (Views: 7.5ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/users/signup" for 127.0.0.1 at 2016-07-21 21:38:44 +0530
+Processing by Api::V1::UsersController#new as JSON
+  Parameters: {"email"=>"ameyag@gmail.com", "password"=>"[FILTERED]", "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'ameyag@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."auth_token" = '' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 161ms (Views: 9.2ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/users/signup" for 127.0.0.1 at 2016-07-21 21:38:50 +0530
+Processing by Api::V1::UsersController#new as JSON
+  Parameters: {"email"=>"ameyaga@gmail.com", "password"=>"[FILTERED]", "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'ameyaga@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."auth_token" = '' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "xPPXHNXiYwXZNKuHx7xn"]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "username", "created_at", "updated_at", "auth_token") VALUES (?, ?, ?, ?, ?, ?)  [["email", "ameyaga@gmail.com"], ["encrypted_password", "$2a$11$5PcGiXEfcxiCnpaQFW/MKOAMfUvum8EYppYan5LDh2VSvykDkv9Oy"], ["username", "anonymous"], ["created_at", "2016-07-21 16:08:51.059390"], ["updated_at", "2016-07-21 16:08:51.059390"], ["auth_token", "xPPXHNXiYwXZNKuHx7xn"]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 146ms (Views: 7.5ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/users/20/basicinfo" for 127.0.0.1 at 2016-07-21 21:49:53 +0530
+Processing by Api::V1::UsersController#info as JSON
+  Parameters: {"username"=>"Anthony Martial", "otype"=>"Pet Owner", "ptype"=>"Dog", "breed"=>"Labrador", "lat"=>"14.327643", "lng"=>"15.261733", "subdomain"=>"api", "id"=>"20"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 20]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."auth_token" = 'sBUy_UEXUSuccX_U81zm' AND "users"."id" != 20) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "owner_type" = ?, "username" = ?, "pet_type" = ?, "pet_breed" = ?, "lat" = ?, "lng" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["owner_type", "Pet Owner"], ["username", "Anthony Martial"], ["pet_type", "Dog"], ["pet_breed", "Labrador"], ["lat", 14.327643], ["lng", 15.261733], ["updated_at", "2016-07-21 16:19:53.382424"], ["id", 20]]
+  [1m[35m (12.4ms)[0m  commit transaction
+Completed 200 OK in 43ms (Views: 9.9ms | ActiveRecord: 13.9ms)
+
+
+Started POST "/users/20/basicinfo" for 127.0.0.1 at 2016-07-21 21:51:14 +0530
+Processing by Api::V1::UsersController#info as JSON
+  Parameters: {"username"=>"Anthony Martial", "otype"=>"Pet Owner", "ptype"=>"Dog", "breed"=>"Labrador", "lat"=>"14.327643", "lng"=>"15.261733", "subdomain"=>"api", "id"=>"20"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 20]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."auth_token" = 'sBUy_UEXUSuccX_U81zm' AND "users"."id" != 20) LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Completed 200 OK in 25ms (Views: 7.8ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/feeds/2/create" for 127.0.0.1 at 2016-07-21 22:06:15 +0530
+Processing by Api::V1::FeedsController#create as JSON
+  Parameters: {"message"=>"finally petoye is out!", "image"=>#<ActionDispatch::Http::UploadedFile:0x007fd78bba1a48 @tempfile=#<Tempfile:/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/RackMultipart20160721-19766-1duldap.jpg>, @original_filename="cute-dog-and-cat-sitting-together-1024x640.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image\"; filename=\"cute-dog-and-cat-sitting-together-1024x640.jpg\"\r\nContent-Type: image/jpeg\r\n">, "subdomain"=>"api", "id"=>"2"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+Command :: PATH=/usr/local/bin/:$PATH; file -b --mime '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160721-19766-hk07et.jpg'
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160721-19766-127dpto.jpg[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160721-19766-127dpto.jpg[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160721-19766-127dpto.jpg[0]' -auto-orient -resize "300x300>" '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/e91ed7007a3570c330675c6451e1c27320160721-19766-1ggin5'
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160721-19766-127dpto.jpg[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160721-19766-127dpto.jpg[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160721-19766-127dpto.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/e91ed7007a3570c330675c6451e1c27320160721-19766-4a1kht'
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Command :: PATH=/usr/local/bin/:$PATH; file -b --mime '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160721-19766-1xkahfv.jpg'
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 783ms (Views: 9.9ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/feeds/2/create" for 127.0.0.1 at 2016-07-21 22:07:27 +0530
+Processing by Api::V1::FeedsController#create as JSON
+  Parameters: {"message"=>"finally petoye is out!", "image"=>#<ActionDispatch::Http::UploadedFile:0x007fd78f9ed928 @tempfile=#<Tempfile:/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/RackMultipart20160721-19766-jla1ky.jpg>, @original_filename="cute-dog-and-cat-sitting-together-1024x640.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image\"; filename=\"cute-dog-and-cat-sitting-together-1024x640.jpg\"\r\nContent-Type: image/jpeg\r\n">, "subdomain"=>"api", "uid"=>"2"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+Command :: PATH=/usr/local/bin/:$PATH; file -b --mime '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160721-19766-urnyy3.jpg'
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160721-19766-t79onk.jpg[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160721-19766-t79onk.jpg[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160721-19766-t79onk.jpg[0]' -auto-orient -resize "300x300>" '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/dbdb3c1965889cdc35b9dda43f4dedd320160721-19766-1r2tx14'
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160721-19766-t79onk.jpg[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160721-19766-t79onk.jpg[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160721-19766-t79onk.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/dbdb3c1965889cdc35b9dda43f4dedd320160721-19766-exgq4r'
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Command :: PATH=/usr/local/bin/:$PATH; file -b --mime '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160721-19766-1gufdtg.jpg'
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "feeds" ("user_id", "message", "like_count", "comment_count", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["user_id", 2], ["message", "finally petoye is out!"], ["like_count", 0], ["comment_count", 0], ["image_file_name", "cute-dog-and-cat-sitting-together-1024x640.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 133987], ["image_updated_at", "2016-07-21 16:37:27.144074"], ["created_at", "2016-07-21 16:37:27.347655"], ["updated_at", "2016-07-21 16:37:27.347655"]]
+[paperclip] saving feeds/images/000/000/026/original/cute-dog-and-cat-sitting-together-1024x640.jpg
+[paperclip] saving feeds/images/000/000/026/medium/cute-dog-and-cat-sitting-together-1024x640.jpg
+[paperclip] saving feeds/images/000/000/026/thumb/cute-dog-and-cat-sitting-together-1024x640.jpg
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 289ms (Views: 10.0ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/feeds/2/create" for 127.0.0.1 at 2016-07-21 22:08:09 +0530
+Processing by Api::V1::FeedsController#create as JSON
+  Parameters: {"message"=>"finally petoye is out!", "image"=>#<ActionDispatch::Http::UploadedFile:0x007fd78d70f910 @tempfile=#<Tempfile:/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/RackMultipart20160721-19766-vpwadl.jpg>, @original_filename="cute-dog-and-cat-sitting-together-1024x640.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image\"; filename=\"cute-dog-and-cat-sitting-together-1024x640.jpg\"\r\nContent-Type: image/jpeg\r\n">, "subdomain"=>"api", "uid"=>"2"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+Command :: PATH=/usr/local/bin/:$PATH; file -b --mime '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160721-19766-14lzn4r.jpg'
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160721-19766-bpqu4n.jpg[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160721-19766-bpqu4n.jpg[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160721-19766-bpqu4n.jpg[0]' -auto-orient -resize "300x300>" '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/29db9b22c24ba87b84f48fb45f754b3e20160721-19766-1jm5ij1'
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160721-19766-bpqu4n.jpg[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160721-19766-bpqu4n.jpg[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160721-19766-bpqu4n.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/29db9b22c24ba87b84f48fb45f754b3e20160721-19766-1vr88sk'
+  [1m[35m (0.1ms)[0m  begin transaction
+Command :: PATH=/usr/local/bin/:$PATH; file -b --mime '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/0c5ee69762b185eae1a244fc2f53531e20160721-19766-4bthrd.jpg'
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "feeds" ("user_id", "message", "like_count", "comment_count", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["message", "finally petoye is out!"], ["like_count", 0], ["comment_count", 0], ["image_file_name", "cute-dog-and-cat-sitting-together-1024x640.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 133987], ["image_updated_at", "2016-07-21 16:38:09.863220"], ["created_at", "2016-07-21 16:38:10.076201"], ["updated_at", "2016-07-21 16:38:10.076201"]]
+[paperclip] saving feeds/images/000/000/027/original/cute-dog-and-cat-sitting-together-1024x640.jpg
+[paperclip] saving feeds/images/000/000/027/medium/cute-dog-and-cat-sitting-together-1024x640.jpg
+[paperclip] saving feeds/images/000/000/027/thumb/cute-dog-and-cat-sitting-together-1024x640.jpg
+  [1m[35m (1.1ms)[0m  commit transaction
+Completed 201 Created in 251ms (Views: 9.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/feeds/11/nearbyfeeds" for 127.0.0.1 at 2016-07-21 22:15:38 +0530
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "uid"=>"11"}
+Geokit is using the domain: localhost.com
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE (users.lat IS NOT NULL AND users.lng IS NOT NULL) AND (users.lat>19.119920014714644 AND users.lat<19.14883398528536 AND users.lng>72.7981865937463 AND users.lng<72.82879140625371) AND ((
+          (CASE WHEN users.lat IS NULL OR users.lng IS NULL THEN NULL ELSE
+          (ACOS(least(1,COS(0.33395787896787504)*COS(1.2708351229146735)*COS(RADIANS(users.lat))*COS(RADIANS(users.lng))+
+          COS(0.33395787896787504)*SIN(1.2708351229146735)*COS(RADIANS(users.lat))*SIN(RADIANS(users.lng))+
+          SIN(0.33395787896787504)*SIN(RADIANS(users.lat))))*3963.1899999999996)
+          END)
+          <= 1))
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?[0m  [["user_id", 11]]
+  [1m[35mFeed Load (0.2ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?  [["user_id", 12]]
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?[0m  [["user_id", 14]]
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?  [["user_id", 15]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1[0m
+Completed 201 Created in 172ms (Views: 94.9ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/feeds/12/nearbyfeeds" for 127.0.0.1 at 2016-07-21 22:20:43 +0530
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "uid"=>"12"}
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE (users.lat IS NOT NULL AND users.lng IS NOT NULL) AND (users.lat>19.109920014714643 AND users.lat<19.138833985285356 AND users.lng>72.80818752009037 AND users.lng<72.8387904799096) AND ((
+          (CASE WHEN users.lat IS NULL OR users.lng IS NULL THEN NULL ELSE
+          (ACOS(least(1,COS(0.33378334604267557)*COS(1.2710096558398727)*COS(RADIANS(users.lat))*COS(RADIANS(users.lng))+
+          COS(0.33378334604267557)*SIN(1.2710096558398727)*COS(RADIANS(users.lat))*SIN(RADIANS(users.lng))+
+          SIN(0.33378334604267557)*SIN(RADIANS(users.lat))))*3963.1899999999996)
+          END)
+          <= 1))[0m
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?  [["user_id", 11]]
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?[0m  [["user_id", 12]]
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?  [["user_id", 14]]
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?[0m  [["user_id", 15]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1
+Completed 201 Created in 137ms (Views: 89.6ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/feeds/13/nearbyfeeds" for 127.0.0.1 at 2016-07-21 22:22:20 +0530
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "uid"=>"13"}
+Geokit is using the domain: localhost.com
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE (users.lat IS NOT NULL AND users.lng IS NOT NULL) AND (users.lat>20.10992001471464 AND users.lat<20.138833985285356 AND users.lng>80.8080919961701 AND users.lng<80.83888600382987) AND ((
+          (CASE WHEN users.lat IS NULL OR users.lng IS NULL THEN NULL ELSE
+          (ACOS(least(1,COS(0.3512366385626189)*COS(1.410635995999419)*COS(RADIANS(users.lat))*COS(RADIANS(users.lng))+
+          COS(0.3512366385626189)*SIN(1.410635995999419)*COS(RADIANS(users.lat))*SIN(RADIANS(users.lng))+
+          SIN(0.3512366385626189)*SIN(RADIANS(users.lat))))*3963.1899999999996)
+          END)
+          <= 1))
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?[0m  [["user_id", 13]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1
+Completed 201 Created in 42ms (Views: 20.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/feeds/14/nearbyfeeds" for 127.0.0.1 at 2016-07-21 22:22:24 +0530
+Processing by Api::V1::FeedsController#nearbyfeeds as JSON
+  Parameters: {"subdomain"=>"api", "uid"=>"14"}
+Geokit is using the domain: localhost.com
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 14]]
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE (users.lat IS NOT NULL AND users.lng IS NOT NULL) AND (users.lat>19.109920014714643 AND users.lat<19.138833985285356 AND users.lng>72.80818752009037 AND users.lng<72.8387904799096) AND ((
+          (CASE WHEN users.lat IS NULL OR users.lng IS NULL THEN NULL ELSE
+          (ACOS(least(1,COS(0.33378334604267557)*COS(1.2710096558398727)*COS(RADIANS(users.lat))*COS(RADIANS(users.lng))+
+          COS(0.33378334604267557)*SIN(1.2710096558398727)*COS(RADIANS(users.lat))*SIN(RADIANS(users.lng))+
+          SIN(0.33378334604267557)*SIN(RADIANS(users.lat))))*3963.1899999999996)
+          END)
+          <= 1))
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?[0m  [["user_id", 11]]
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?  [["user_id", 12]]
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?[0m  [["user_id", 14]]
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?  [["user_id", 15]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1[0m
+Completed 201 Created in 95ms (Views: 76.4ms | ActiveRecord: 1.4ms)

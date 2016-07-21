@@ -5,11 +5,11 @@ Rails.application.routes.draw do
                               constraints: { subdomain: 'api' }, path: '/'  do
     scope module: :v1,
               constraints: ApiConstraints.new(version: 1, default: true) do
-    	resources :users, :only => [:show,:destroy,:new,:info]
+    	resources :users
     	resources :sessions, :only => [:create,:destroy]
-      post 'signup', to: 'users#new', as: "new_user"
-      post '/users/:id/basicinfo', to: 'users#info', as: "info_user"
-      post '/users/:id/poststory', to: 'users#poststory'
+      post '/users/signup', to: 'users#new', as: "new_user" #done
+      post '/users/:id/basicinfo', to: 'users#info', as: "info_user" #done
+      post '/users/:id/poststory', to: 'users#poststory' 
       post '/users/:id/likestory', to: 'users#likestory'
       get '/users/:id/posts', to: 'users#userposts'
       post '/:myid/follow', to: 'users#follow'
@@ -19,9 +19,9 @@ Rails.application.routes.draw do
 
 
        resources :feeds, :only => [:index]
-       post '/feeds/:id/create', to: 'feeds#create', as: "create_feed"
+       post '/feeds/:uid/create', to: 'feeds#create', as: "create_feed" #done
        #get '/feeds/trending', to: 'feeds#trending', as: "trending_feed"
-       get '/feeds/:id/nearbyfeeds', to: 'feeds#nearbyfeeds', as: "nearby_feed"
+       get '/feeds/:uid/nearbyfeeds', to: 'feeds#nearbyfeeds', as: "nearby_feed" #done
        get '/feeds/:id/followedfeeds', to: 'feeds#followeduserfeeds'
        get '/feeds/:id/time', to: 'feeds#timeelapsed'
 

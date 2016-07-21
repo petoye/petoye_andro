@@ -1,29 +1,200 @@
-== README
+== API DOCUMENTATION
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Sign up - This API call creates a new user 
 
-Things you may want to cover:
+  Request type: POST
+  URL: /users/signup
 
-* Ruby version
+  Required parameters:
+  * email 
+  * password
 
-* System dependencies
+  If successful it returns:
+  * id of the user created, status: 201
 
-* Configuration
+  If not successful it returns (user email_id already present, email_id not having @, no password typed, no email_id typed):
+  * errors: could not be created, status: 422
 
-* Database creation
+  Example:
+  http://api.localhost.com:3000/users/signup
+  email: ameyag@gmail.com
+  password: 1234
 
-* Database initialization
+  JSON returned as:
+  {
+    "id": 20
+  }
 
-* How to run the test suite
+* Basic info - This API call fills in user information like owner type, pet_type, pet_breed, username, location
 
-* Services (job queues, cache servers, search engines, etc.)
+  Request type: POST
+  URL: /users/:id/basicinfo
 
-* Deployment instructions
+  Required parameters:
+  * id
+  * username
+  * otype
+  * ptype
+  * breed
+  * lat (float)
+  * lng (float)
 
-* ...
+  If successful it returns:
+  * id of the user created, status: 200
+
+  If not successful it returns:
+  * errors: profile not set, status: 422
+
+  Example:
+  http://api.localhost.com:3000/users/20/basicinfo
+  username: Anthony Martial
+  otype: <anything>
+  ptype: <anything>
+  breed: <anything>
+  lat: <anything>
+  lng: <anything>
+
+  JSON returned as:
+  {
+    "id": 20,
+    "username": "Anthony Martial"
+  }
+
+* Creating posts - This API call will create a new post
+
+  Request type: POST
+  URL: /feeds/:uid/create
+
+  Required paramters:
+  * uid 
+  * message
+  * image (png,jpg,gif)
+
+  If successful it returns:
+  * id of the post created, status: 201
+
+  If not successful it returns:
+  * errors: could not create post, status: 422
+
+  Example:
+  http://api.localhost.com:3000/feeds/2/create
+  message: <anything>
+  image: <anything>
+
+  JSON returned as:
+  {
+    "id": 27
+  }
+
+* Nearby posts - This API call will show all nearby feeds subject to a particular user
+
+  Request type: GET
+  URL: /feeds/:uid/nearbyfeeds
+
+  Required parameters:
+  * uid
+
+  If successful it returns:
+  * feeds of nearby users, status: 200
+
+  If not successful it returns:
+  * errors: could not create post, status: 422
+
+  Example:
+  http://api.localhost.com:3000/feeds/11/nearbyfeeds
+
+  JSON returned as:
+  {
+  "feeds": [
+    {
+      "id": 11,
+      "username": "Allen",
+      "feeds": []
+    },
+    {
+      "id": 12,
+      "username": "Grujic",
+      "feeds": [
+        {
+          "message": "nice",
+          "like_count": 2,
+          "comment_count": 0
+        },
+        {
+          "message": "nice 2",
+          "like_count": 1,
+          "comment_count": 0
+        },
+        {
+          "message": "nice 3",
+          "like_count": 1,
+          "comment_count": 0
+        },
+        {
+          "message": "nice 4",
+          "like_count": 3,
+          "comment_count": 0
+        },
+        {
+          "message": "nice 5",
+          "like_count": 2,
+          "comment_count": 0
+        },
+        {
+          "message": "nice new",
+          "like_count": 2,
+          "comment_count": 0
+        },
+        {
+          "message": "nice new",
+          "like_count": 2,
+          "comment_count": 0
+        },
+        {
+          "message": "nice new",
+          "like_count": 6,
+          "comment_count": 0
+        },
+        {
+          "message": "nice new",
+          "like_count": 4,
+          "comment_count": 0
+        },
+        {
+          "message": "nice new",
+          "like_count": 1,
+          "comment_count": 0
+        },
+        {
+          "message": "nice new",
+          "like_count": 4,
+          "comment_count": 0
+        },
+        {
+          "message": "nice new",
+          "like_count": 3,
+          "comment_count": 0
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "username": "Matip",
+      "feeds": []
+    },
+    {
+      "id": 15,
+      "username": "Bellerin",
+      "feeds": []
+    }
+  ]
+}
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
-sakgdksajgc
+
+
+
+
+
+
+

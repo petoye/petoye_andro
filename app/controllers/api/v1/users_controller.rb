@@ -8,7 +8,7 @@ class Api::V1::UsersController < ApplicationController
     user_email = params[:email]
     user=User.new({email:  user_email  ,password: user_email, username: "anonymous"})
     if user.save
-      render json: user ,status: 200
+      render json: user.as_json(only:[:id]), status: 201
     else
       render json: {errors: "could not be created"}, status: 422
     end
@@ -20,12 +20,12 @@ class Api::V1::UsersController < ApplicationController
     user.username = params[:username]
     user.pet_type = params[:ptype]
     user.pet_breed = params[:breed]
-    lat = params[:latitude]
-    long = params[:longitude]
-    user.location[0] = lat
-    user.location[1] = long
+    lat = params[:lat]
+    lng = params[:lng]
+    user.lat = lat
+    user.lng = lng
     if user.save
-      render json: user, status: 200
+      render json: user.as_json(only:[:id,:username]), status: 200
     else
       render json: {errors: "profile not set"}, status: 422
     end
@@ -137,7 +137,7 @@ class Api::V1::UsersController < ApplicationController
     elsif parameter == 'type'
       @x = 'pet_type'
     elsif parameter == 'breed'
-      @x = 'pet_breed'
+      @x = '    pet_breed'
     end
 
     user = User.where("#{@x} LIKE ?","%#{name}%")
