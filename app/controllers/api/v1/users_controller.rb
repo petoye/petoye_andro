@@ -2,30 +2,11 @@ class Api::V1::UsersController < ApplicationController
  respond_to :json
  before_action :authenticate_with_token!, only: [:update, :destroy]
  after_action :checkfollowing, only: [:showprofile]
-  #attr_accessor :already_following
-  #def show
-   # respond_with User.find(params[:id])
-  #end
-
-  #def update
- #
-  #  if user.update(user_params)
-   #   render json: user, status: 200, location: [:api, user]
-    #else
-     # render json: { errors: user.errors }, status: 422
-    #end
-  #end
-
-  #def destroy
-   # current_user.destroy
-    #head 204
-  #end
 
   def new
     user_password = params[:password]
     user_email = params[:email]
     user=User.new({email:  user_email  ,password: user_email, username: "anonymous"})
-    #user.create({email:  user_email  ,password: user_email})
     if user.save
       render json: user ,status: 200
     else
@@ -34,11 +15,8 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def info
-    #info_pet_type=params[:pet_type]
-    #info_pet_breed=params[:pet_breed]
     user=User.find(params[:id])
     user.owner_type=params[:otype]
-    #username, pet_type, pet_breed 
     user.username = params[:username]
     user.pet_type = params[:ptype]
     user.pet_breed = params[:breed]
@@ -51,11 +29,9 @@ class Api::V1::UsersController < ApplicationController
     else
       render json: {errors: "profile not set"}, status: 422
     end
-
   end  
 
   def poststory
-    #pet story
 
     user = User.find(params[:id])
     user.pet_story = params[:story]
@@ -111,12 +87,7 @@ class Api::V1::UsersController < ApplicationController
     if follow.exists?
       already_following = true
     end
-    #Follow.where(follower_id: follower).all.each do |f|
-     # if f.following_id.include?(following)
-      #  already_following = already_following + 1
-      #end
-    #end
-    #render text: already_following
+
     if already_following == false
       follow = Follow.new({ follower_id: follower, following_id: following })
       if follow.save
@@ -129,15 +100,31 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
-  #def location
-   # user = User.find(params[:id])
-    #lat = params[:location][:lattitude]
-    #long = params[:location][:longitude]
-    #user.location = {lat,long}
-    #if user.save
-     # render json: user, status: 200
-    #else
-     # render json: {errors: "Didn't update location"}, status: 422
-    #end
-  #end
+  def discover
+    # You will discover users you havent followed within 50 miles of you
+    f_id = []
+    x_id = []
+    d_id = []
+    u_id = params[:id].to_i
+    user = User.find(params[:id])
+    latstr = user.lat
+    longstr = user.lng
+    @lat = latstr.to_f
+    @long = longstr.to_f
+
+    Follow.where(follower_id: u_id).each do |u|
+    f_id << u.following_id.to_i
+    end 
+
+    f_id << u_id
+
+    User.all.each do |p|
+    x_id << p.id
+    end
+
+    d_id = x_id - f_id
+
+    user = User.where(id: [d_id]).within(50, origin: [@lat,@long])
+    render json: user.as_json(only:[:username, :owner_type, :pet_breed, :pet_type]), status: 201
+  end
 end

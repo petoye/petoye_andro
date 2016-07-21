@@ -24,7 +24,9 @@ class Api::V1::FeedsController < ApplicationController
       feed.likedby[feed.like_count] = uid
       feed.like_count = feed.like_count + 1
       if feed.save
-        render json: feed, status:201
+        render json: feed.as_json(only:[:likedby,:like_count]), status:201
+      else
+        render json: { errors: "Could not be liked"}, status:422
       end
     end
   end
@@ -44,12 +46,12 @@ class Api::V1::FeedsController < ApplicationController
       feed.likedby.delete(uid)
       feed.like_count = feed.like_count - 1
       if feed.save
-        render json: feed, status: 200
+        render json: feed.as_json(only:[:likedby,:like_count]), status: 200
       else
         render json: {errors: "Could not be disliked"}, status: 422
       end
     else
-      render json: {errors: "Not liked so can't be disliked"}, status:422
+      render json: {errors: "Not liked so can't be disliked"}, status:422 
     end
   end
 

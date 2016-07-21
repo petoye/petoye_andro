@@ -1,22 +1,20 @@
 require 'api_constraints'
 Rails.application.routes.draw do
   devise_for :users
-# Api definition
   namespace :api, defaults: { format: :json },
                               constraints: { subdomain: 'api' }, path: '/'  do
     scope module: :v1,
               constraints: ApiConstraints.new(version: 1, default: true) do
-      # We are going to list our resources here
     	resources :users, :only => [:show,:destroy,:new,:info]
     	resources :sessions, :only => [:create,:destroy]
       post 'signup', to: 'users#new', as: "new_user"
       post '/users/:id/basicinfo', to: 'users#info', as: "info_user"
-       #resources :products, :only => [:show,:index]
       post '/users/:id/poststory', to: 'users#poststory'
       post '/users/:id/likestory', to: 'users#likestory'
       get '/users/:id/posts', to: 'users#userposts'
       post '/:myid/follow', to: 'users#follow'
       post '/:hisid/showprofile', to: 'users#showprofile'
+      get '/users/:id/discover', to: 'users#discover'
 
 
        resources :feeds, :only => [:index]
@@ -43,10 +41,7 @@ Rails.application.routes.draw do
        post '/conversations/open', to: 'conversations#open'
        post '/conversations/all', to: 'conversations#all'
 
-       #match '/feeds/:post_id/like' to: 'feeds#likeit', via: 'put'
-       #put '/feeds/:post_id/dislike', to: 'feeds#dislikeit', as: "dislike_feed"
-
-       #post '/feeds/:id/report', to: 'feeds#report', as: "report_feed"
+      
     end
   end
 end
