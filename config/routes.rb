@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       get '/users/:id/posts', to: 'users#userposts' #done
       post '/:myid/follow', to: 'users#follow' #done
       get 'users/:id/showprofile', to: 'users#showprofile' #done
+      get 'users/:myid/:hisid/checkfollowing', to: 'users#checkfollowing'
       get '/users/:id/discover', to: 'users#discover' #done
       get '/users/:query/:parameter/search', to: 'users#search' #done
 

@@ -678,6 +678,25 @@
     "story_like_count": 0
   }
 
+* Check following - This API call checks if a user is following another user to update the follow/following button
+
+  Request type: GET
+  URL: users/:myid/:hisid/checkfollowing
+
+  Required parameters:
+  * myid
+  * hisid
+
+  If successful it returns:
+  * true/false, status: 200
+
+  Example:
+  http://api.localhost.com:3000/users/1/19/checkfollowing
+  
+  JSON returned as:
+
+  false
+
 * Post story - This API call posts a story
 
   Request type: POST

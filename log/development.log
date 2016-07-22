@@ -36932,3 +36932,37 @@ Geokit is using the domain: localhost.com
   [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (3, 4, 6, 7)[0m
   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1
 Completed 201 Created in 91ms (Views: 87.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/19/1/checkfollowing" for 127.0.0.1 at 2016-07-22 10:16:23 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::UsersController#checkfollowing as JSON
+  Parameters: {"subdomain"=>"api", "myid"=>"19", "hisid"=>"1"}
+Geokit is using the domain: localhost.com
+  [1m[35mFollow Exists (0.6ms)[0m  SELECT  1 AS one FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."following_id" = ? LIMIT 1  [["follower_id", 19], ["following_id", 1]]
+Completed 200 OK in 60ms (Views: 10.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/19/1/checkfollowing" for 127.0.0.1 at 2016-07-22 10:16:50 +0530
+Processing by Api::V1::UsersController#checkfollowing as JSON
+  Parameters: {"subdomain"=>"api", "myid"=>"19", "hisid"=>"1"}
+Geokit is using the domain: localhost.com
+  [1m[36mFollow Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."following_id" = ? LIMIT 1[0m  [["follower_id", 19], ["following_id", 1]]
+  Rendered text template (0.1ms)
+Completed 200 OK in 50ms (Views: 43.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/19/1/checkfollowing" for 127.0.0.1 at 2016-07-22 10:17:08 +0530
+Processing by Api::V1::UsersController#checkfollowing as JSON
+  Parameters: {"subdomain"=>"api", "myid"=>"19", "hisid"=>"1"}
+Geokit is using the domain: localhost.com
+  [1m[35mFollow Exists (0.2ms)[0m  SELECT  1 AS one FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."following_id" = ? LIMIT 1  [["follower_id", 19], ["following_id", 1]]
+Completed 200 OK in 13ms (Views: 7.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/1/19/checkfollowing" for 127.0.0.1 at 2016-07-22 10:17:22 +0530
+Processing by Api::V1::UsersController#checkfollowing as JSON
+  Parameters: {"subdomain"=>"api", "myid"=>"1", "hisid"=>"19"}
+Geokit is using the domain: localhost.com
+  [1m[36mFollow Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."following_id" = ? LIMIT 1[0m  [["follower_id", 1], ["following_id", 19]]
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.1ms)

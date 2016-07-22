@@ -45,15 +45,6 @@ class Api::V1::UsersController < ApplicationController
 
   def showprofile
     user = User.find(params[:id])
-    #already_following = false
-    #following = params[:hisid]
-    #follower = params[:myid]
-    #follow = Follow.where({ follower_id: follower, following_id: following})
-    #if follow.exists?
-     # already_following = true
-    #end
-    #render text: already_following
-    #render text: :already_following, status: 201
     if user.save
       render json: user.as_json(only:[:id,:username, :owner_type, :pet_breed, :pet_story, :story_like_count]), status: 200
     else
@@ -62,7 +53,14 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def checkfollowing
-
+    already_following = false
+    follower = params[:myid]
+    following = params[:hisid]
+    follow = Follow.where({ follower_id: follower, following_id: following})
+    if follow.exists?
+      already_following = true
+    end
+    render json: already_following, status: 200
   end
 
   def likestory
