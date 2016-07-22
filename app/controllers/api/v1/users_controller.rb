@@ -1,7 +1,6 @@
 class Api::V1::UsersController < ApplicationController
  respond_to :json
  before_action :authenticate_with_token!, only: [:update, :destroy]
- after_action :checkfollowing, only: [:showprofile]
 
   def new
     user_password = params[:password]

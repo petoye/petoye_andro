@@ -2,8 +2,7 @@ require 'api_constraints'
 Rails.application.routes.draw do
   root to: 'application#show'
   devise_for :users
-  namespace :api, defaults: { format: :json },
-                              constraints: { subdomain: 'api' }, path: '/'  do
+  namespace :api, defaults: { format: :json }, path: '/api'  do #constraints: { subdomain: 'api' }
     scope module: :v1,
               constraints: ApiConstraints.new(version: 1, default: true) do
     	resources :users
