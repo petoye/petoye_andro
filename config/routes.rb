@@ -7,7 +7,6 @@ Rails.application.routes.draw do
     scope module: :v1,
               constraints: ApiConstraints.new(version: 1, default: true) do
     	resources :users
-    	resources :sessions, :only => [:create,:destroy]
       post '/users/signup', to: 'users#new', as: "new_user" #done
       post '/users/:id/basicinfo', to: 'users#info', as: "info_user" #done
       post '/users/:id/poststory', to: 'users#poststory' #done
@@ -19,6 +18,9 @@ Rails.application.routes.draw do
       get '/users/:id/discover', to: 'users#discover' #done
       get '/users/:query/:parameter/search', to: 'users#search' #done
       get '/users/:id/notifications', to: 'users#notification' 
+
+      resources :sessions
+      post '/users/login', to: 'sessions#create'
 
 
        resources :feeds, :only => [:index]

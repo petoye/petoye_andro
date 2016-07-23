@@ -37753,3 +37753,383 @@ Processing by Api::V1::UsersController#notification as JSON
 Geokit is using the domain: localhost.com
   [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 19]]
 Completed 200 OK in 12ms (Views: 10.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users/signup" for 127.0.0.1 at 2016-07-23 18:48:52 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::UsersController#new as JSON
+  Parameters: {"email"=>"payet@gmail.com", "password"=>"[FILTERED]", "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'payet@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."auth_token" = '' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "6pzyZqku-ob1sQXxwaG-"]]
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "username", "created_at", "updated_at", "auth_token") VALUES (?, ?, ?, ?, ?, ?)  [["email", "payet@gmail.com"], ["encrypted_password", "$2a$11$7wijNNxQp8GWSDRvKRvT3eaAv58/qeHdXJLgk8x5S1xztRfPCoI7G"], ["username", "anonymous"], ["created_at", "2016-07-23 13:18:53.059817"], ["updated_at", "2016-07-23 13:18:53.059817"], ["auth_token", "6pzyZqku-ob1sQXxwaG-"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 307ms (Views: 8.3ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2016-07-23 18:49:15 +0530
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"payet@gmail.com", "password"=>"[FILTERED]", "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/api/v1/sessions_controller.rb:3:in `create'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (63.6ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (167.6ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (242.3ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2016-07-23 18:50:26 +0530
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sesssion"=>{"email"=>"payet@gmail.com"}, "session"=>{"password"=>"[FILTERED]"}, "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+Completed 422 Unprocessable Entity in 12ms (Views: 11.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2016-07-23 18:53:09 +0530
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sesssion"=>{"email"=>"payet@gmail.com"}, "session"=>{"password"=>"[FILTERED]"}, "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+Completed 422 Unprocessable Entity in 10ms (Views: 9.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2016-07-23 18:54:07 +0530
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sesssion"=>{"email"=>"payet@gmail.com"}, "session"=>{"password"=>"[FILTERED]"}, "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+Completed 422 Unprocessable Entity in 8ms (Views: 7.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2016-07-23 18:56:27 +0530
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sesssion"=>{"email"=>"payet@gmail.com"}, "session"=>{"password"=>"[FILTERED]"}, "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2016-07-23 18:57:30 +0530
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sesssion"=>{"email"=>"payet@gmail.com"}, "session"=>{"password"=>"[FILTERED]"}, "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2016-07-23 18:58:11 +0530
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sesssion"=>{"email"=>"payet@gmail.com"}, "session"=>{"password"=>"[FILTERED]"}, "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2016-07-23 18:58:54 +0530
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"session"=>{"email"=>"payet@gmail.com", "password"=>"[FILTERED]"}, "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+RuntimeError (Could not find a valid mapping for true):
+  app/controllers/api/v1/sessions_controller.rb:8:in `create'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.6ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (49.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (36.6ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (81.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2016-07-23 18:59:38 +0530
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"session"=>{"email"=>"payet@gmail.com", "password"=>"[FILTERED]"}, "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "payet@gmail.com"]]
+Completed 422 Unprocessable Entity in 165ms (Views: 8.2ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2016-07-23 19:00:20 +0530
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"session"=>{"email"=>"payet@gmail.com", "password"=>"[FILTERED]"}, "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+Completed 200 OK in 8ms (Views: 8.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2016-07-23 19:01:22 +0530
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"session"=>{"email"=>"payet@gmail.com", "password"=>"[FILTERED]"}, "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "payet@gmail.com"]]
+Completed 200 OK in 21ms (Views: 7.6ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2016-07-23 19:02:25 +0530
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"session"=>{"email"=>"payet@gmail.com", "password"=>"[FILTERED]"}, "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "payet@gmail.com"]]
+Completed 200 OK in 24ms (Views: 9.4ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2016-07-23 19:04:11 +0530
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"session"=>{"email"=>"payet@gmail.com", "password"=>"[FILTERED]"}, "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "payet@gmail.com"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2016-07-23 13:34:12.088653"], ["current_sign_in_at", "2016-07-23 13:34:12.088653"], ["last_sign_in_ip", "127.0.0.1"], ["current_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2016-07-23 13:34:12.089452"], ["id", 23]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "cAjharSbmN12YQ-p1dpY"]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."auth_token" = 'cAjharSbmN12YQ-p1dpY' AND "users"."id" != 23) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "auth_token" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["auth_token", "cAjharSbmN12YQ-p1dpY"], ["updated_at", "2016-07-23 13:34:12.098243"], ["id", 23]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 68ms (Views: 41.9ms | ActiveRecord: 4.6ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2016-07-23 19:04:44 +0530
+
+SyntaxError (/Users/ameyavichare/Desktop/petoye_andro/app/controllers/api/v1/sessions_controller.rb:7: syntax error, unexpected tIDENTIFIER, expecting keyword_then or ';' or '\n'
+/Users/ameyavichare/Desktop/petoye_andro/app/controllers/api/v1/sessions_controller.rb:26: syntax error, unexpected keyword_end, expecting end-of-input):
+  app/controllers/api/v1/sessions_controller.rb:7: syntax error, unexpected tIDENTIFIER, expecting keyword_then or ';' or '\n'
+  app/controllers/api/v1/sessions_controller.rb:26: syntax error, unexpected keyword_end, expecting end-of-input
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (15.9ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (64.6ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (40.1ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (84.8ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2016-07-23 19:05:19 +0530
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"session"=>{"email"=>"payet@gmail.com", "password"=>"[FILTERED]"}, "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "payet@gmail.com"]]
+Completed 422 Unprocessable Entity in 153ms (Views: 8.0ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2016-07-23 19:06:37 +0530
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"session"=>{"email"=>"payet@gmail.com", "password"=>"[FILTERED]"}, "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "payet@gmail.com"]]
+Completed 200 OK in 20ms (Views: 7.6ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2016-07-23 19:07:58 +0530
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"session"=>{"email"=>"payet@gmail.com", "password"=>"[FILTERED]"}, "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "payet@gmail.com"]]
+Completed 200 OK in 151ms (Views: 8.7ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/users/signup" for 127.0.0.1 at 2016-07-23 19:10:27 +0530
+Processing by Api::V1::UsersController#new as JSON
+  Parameters: {"email"=>"keerti@gmail.com", "password"=>"[FILTERED]", "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'keerti@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."auth_token" = '' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."auth_token" = ? LIMIT 1  [["auth_token", "wsx7LZV-y8CTCxpg7BgF"]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "username", "created_at", "updated_at", "auth_token") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "keerti@gmail.com"], ["encrypted_password", "$2a$11$WirI9nKTNtYcDFA/lQrmUOGoVKXKUY0ntqw4JZHDRQ0a1oi0vorNq"], ["username", "anonymous"], ["created_at", "2016-07-23 13:40:27.678585"], ["updated_at", "2016-07-23 13:40:27.678585"], ["auth_token", "wsx7LZV-y8CTCxpg7BgF"]]
+  [1m[35m (1.5ms)[0m  commit transaction
+Completed 201 Created in 147ms (Views: 7.9ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/users/signup" for 127.0.0.1 at 2016-07-23 19:11:20 +0530
+Processing by Api::V1::UsersController#new as JSON
+  Parameters: {"sessions"=>{"email"=>"keerti@gmail.com", "password"=>"[FILTERED]"}, "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."auth_token" = '' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 24ms (Views: 7.9ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2016-07-23 19:11:33 +0530
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sessions"=>{"email"=>"keerti@gmail.com", "password"=>"[FILTERED]"}, "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/api/v1/sessions_controller.rb:3:in `create'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.9ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (49.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (36.7ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (80.8ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2016-07-23 19:12:03 +0530
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"session"=>{"email"=>"keerti@gmail.com", "password"=>"[FILTERED]"}, "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "keerti@gmail.com"]]
+Completed 200 OK in 140ms (Views: 10.9ms | ActiveRecord: 0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 24]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 24]]
+
+
+Started POST "/users/login" for 127.0.0.1 at 2016-07-23 19:21:43 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"session"=>{"email"=>"keerti@gmail.com", "password"=>"[FILTERED]"}, "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "keerti@gmail.com"]]
+Completed 500 Internal Server Error in 184ms (ActiveRecord: 0.6ms)
+
+NameError (undefined local variable or method `encrypted_password' for #<Api::V1::SessionsController:0x007fb34094ff98>):
+  app/controllers/api/v1/sessions_controller.rb:8:in `create'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.7ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (53.6ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (53.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (107.7ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2016-07-23 19:36:35 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"session"=>{"email"=>"keerti@gmail.com", "password"=>"[FILTERED]"}, "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "keerti@gmail.com"]]
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 0.7ms)
+
+NoMethodError (undefined method `pry' for #<Binding:0x007ff469b3eb78>
+Did you mean?  pretty_print
+               pretty_inspect
+               pretty_print_cycle
+               try):
+  app/controllers/api/v1/sessions_controller.rb:25:in `create'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.7ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (57.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (52.1ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (110.8ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2016-07-23 19:37:10 +0530
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"session"=>{"email"=>"keerti@gmail.com", "password"=>"[FILTERED]"}, "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "keerti@gmail.com"]]
+Completed 200 OK in 154ms (Views: 7.4ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2016-07-23 19:42:33 +0530
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"session"=>{"email"=>"keerti@gmail.com", "password"=>"[FILTERED]"}, "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "keerti@gmail.com"]]
+Completed 500 Internal Server Error in 156ms (ActiveRecord: 0.8ms)
+
+NameError (undefined local variable or method ` user' for #<Api::V1::SessionsController:0x007ff46473c6b0>
+Did you mean?  user):
+  app/controllers/api/v1/sessions_controller.rb:8:in `create'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (49.9ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (44.8ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (99.9ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2016-07-23 19:43:41 +0530
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"session"=>{"email"=>"keerti@gmail.com", "password"=>"[FILTERED]"}, "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "keerti@gmail.com"]]
+Completed 200 OK in 24ms (Views: 9.7ms | ActiveRecord: 0.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 24]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 24]]
