@@ -41,10 +41,10 @@ Rails.application.configure do
   config.paperclip_defaults = {
   storage: :s3,
   s3_credentials: {
-    bucket: "petoye",
-    access_key_id: "AKIAIRFYPC3337A7OAFA",
-    secret_access_key: "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",
-    s3_region: "us-west-2"
+    bucket: "",
+    access_key_id: "",
+    secret_access_key: "",
+    s3_region: ""
   }
 }
 
