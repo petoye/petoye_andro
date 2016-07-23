@@ -38133,3 +38133,71 @@ Geokit is using the domain: localhost.com
 Completed 200 OK in 24ms (Views: 9.7ms | ActiveRecord: 0.9ms)
   [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 24]]
   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 24]]
+
+
+Started POST "/feeds/2/create" for 127.0.0.1 at 2016-07-23 21:23:42 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::FeedsController#create as JSON
+  Parameters: {"message"=>"finally petoye is out!", "image"=>#<ActionDispatch::Http::UploadedFile:0x007fa930e3d1f0 @tempfile=#<Tempfile:/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/RackMultipart20160723-17467-pyzd9w.jpeg>, @original_filename="1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image\"; filename=\"1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg\"\r\nContent-Type: image/jpeg\r\n">, "subdomain"=>"api", "uid"=>"2"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+Command :: PATH=/usr/local/bin/:$PATH; file -b --mime '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/1e065ec88774f64b9406fa670c4c8a5a20160723-17467-48phbd.jpeg'
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/1e065ec88774f64b9406fa670c4c8a5a20160723-17467-1bstyci.jpeg[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/1e065ec88774f64b9406fa670c4c8a5a20160723-17467-1bstyci.jpeg[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/1e065ec88774f64b9406fa670c4c8a5a20160723-17467-1bstyci.jpeg[0]' -auto-orient -resize "300x300>" '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/a587ca6d1f8bcefb587691d35250c3f520160723-17467-1hildze'
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/1e065ec88774f64b9406fa670c4c8a5a20160723-17467-1bstyci.jpeg[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/1e065ec88774f64b9406fa670c4c8a5a20160723-17467-1bstyci.jpeg[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/1e065ec88774f64b9406fa670c4c8a5a20160723-17467-1bstyci.jpeg[0]' -auto-orient -resize "100x100>" '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/a587ca6d1f8bcefb587691d35250c3f520160723-17467-hsyyjp'
+  [1m[35m (0.1ms)[0m  begin transaction
+Command :: PATH=/usr/local/bin/:$PATH; file -b --mime '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/1e065ec88774f64b9406fa670c4c8a5a20160723-17467-13pxyuf.jpeg'
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "feeds" ("user_id", "message", "like_count", "comment_count", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["message", "finally petoye is out!"], ["like_count", 0], ["comment_count", 0], ["image_file_name", "1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg"], ["image_content_type", "image/jpeg"], ["image_file_size", 52516], ["image_updated_at", "2016-07-23 15:53:42.616236"], ["created_at", "2016-07-23 15:53:43.268764"], ["updated_at", "2016-07-23 15:53:43.268764"]]
+[paperclip] saving feeds/images/000/000/028/original/1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg
+[paperclip] saving feeds/images/000/000/028/medium/1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg
+[paperclip] saving feeds/images/000/000/028/thumb/1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg
+  [1m[35m (1.1ms)[0m  commit transaction
+Completed 201 Created in 756ms (Views: 8.9ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/feeds/2/create" for 127.0.0.1 at 2016-07-23 21:25:56 +0530
+Processing by Api::V1::FeedsController#create as JSON
+  Parameters: {"message"=>"finally petoye is out!", "subdomain"=>"api", "uid"=>"2"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 449ms (Views: 10.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/feeds/2/create" for 127.0.0.1 at 2016-07-23 21:26:34 +0530
+Processing by Api::V1::FeedsController#create as JSON
+  Parameters: {"message"=>"finally petoye is out!", "subdomain"=>"api", "uid"=>"2"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.6ms)
+
+Paperclip::Errors::MissingRequiredValidatorError (Paperclip::Errors::MissingRequiredValidatorError):
+  app/controllers/api/v1/feeds_controller.rb:8:in `create'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.8ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (55.9ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (46.8ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (107.8ms)
+
+
+Started POST "/feeds/2/create" for 127.0.0.1 at 2016-07-23 21:26:57 +0530
+Processing by Api::V1::FeedsController#create as JSON
+  Parameters: {"message"=>"finally petoye is out!", "subdomain"=>"api", "uid"=>"2"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 21ms (Views: 7.3ms | ActiveRecord: 0.6ms)
