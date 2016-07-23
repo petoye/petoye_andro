@@ -38201,3 +38201,138 @@ Geokit is using the domain: localhost.com
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
   [1m[35m (0.0ms)[0m  rollback transaction
 Completed 422 Unprocessable Entity in 21ms (Views: 7.3ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/feeds/1/create" for 127.0.0.1 at 2016-07-23 22:23:59 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::FeedsController#create as JSON
+  Parameters: {"message"=>"finally petoye is out!", "image"=>#<ActionDispatch::Http::UploadedFile:0x007ff7012d1ec8 @tempfile=#<Tempfile:/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/RackMultipart20160723-19407-dpr5if.jpeg>, @original_filename="1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image\"; filename=\"1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg\"\r\nContent-Type: image/jpeg\r\n">, "subdomain"=>"api", "uid"=>"1"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 0.4ms)
+
+NameError (uninitialized constant Paperclip::Storage::S3::Aws):
+  app/controllers/api/v1/feeds_controller.rb:8:in `create'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.1ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (67.0ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (167.7ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (252.1ms)
+
+
+Started POST "/feeds/1/create" for 127.0.0.1 at 2016-07-23 22:24:58 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::FeedsController#create as JSON
+  Parameters: {"message"=>"finally petoye is out!", "image"=>#<ActionDispatch::Http::UploadedFile:0x007fb8df6eab50 @tempfile=#<Tempfile:/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/RackMultipart20160723-19461-f43xth.jpeg>, @original_filename="1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image\"; filename=\"1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg\"\r\nContent-Type: image/jpeg\r\n">, "subdomain"=>"api", "uid"=>"1"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.4ms)
+
+NameError (uninitialized constant Paperclip::Storage::S3::Aws):
+  app/controllers/api/v1/feeds_controller.rb:8:in `create'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.5ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.7ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (69.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (177.1ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (239.7ms)
+
+
+Started POST "/feeds/1/create" for 127.0.0.1 at 2016-07-23 22:27:54 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::FeedsController#create as JSON
+  Parameters: {"message"=>"finally petoye is out!", "image"=>#<ActionDispatch::Http::UploadedFile:0x007fd6709ae2c0 @tempfile=#<Tempfile:/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/RackMultipart20160723-19564-15h084z.jpeg>, @original_filename="1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image\"; filename=\"1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg\"\r\nContent-Type: image/jpeg\r\n">, "subdomain"=>"api", "uid"=>"1"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.4ms)
+
+NameError (uninitialized constant Paperclip::Storage::S3::Aws):
+  app/controllers/api/v1/feeds_controller.rb:8:in `create'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.6ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (54.1ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (48.1ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (107.1ms)
+
+
+Started POST "/feeds/1/create" for 127.0.0.1 at 2016-07-23 22:33:45 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::FeedsController#create as JSON
+  Parameters: {"message"=>"finally petoye is out!", "image"=>#<ActionDispatch::Http::UploadedFile:0x007f862d2cd7f0 @tempfile=#<Tempfile:/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/RackMultipart20160723-19773-1qvai33.jpeg>, @original_filename="1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image\"; filename=\"1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg\"\r\nContent-Type: image/jpeg\r\n">, "subdomain"=>"api", "uid"=>"1"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+Command :: PATH=/usr/local/bin/:$PATH; file -b --mime '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/1e065ec88774f64b9406fa670c4c8a5a20160723-19773-1ctafda.jpeg'
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/1e065ec88774f64b9406fa670c4c8a5a20160723-19773-1a4di40.jpeg[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/1e065ec88774f64b9406fa670c4c8a5a20160723-19773-1a4di40.jpeg[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/1e065ec88774f64b9406fa670c4c8a5a20160723-19773-1a4di40.jpeg[0]' -auto-orient -resize "300x300>" '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/aaca8f3948925f60fec656d827a4ad9020160723-19773-zbdxei'
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/1e065ec88774f64b9406fa670c4c8a5a20160723-19773-1a4di40.jpeg[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/1e065ec88774f64b9406fa670c4c8a5a20160723-19773-1a4di40.jpeg[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/1e065ec88774f64b9406fa670c4c8a5a20160723-19773-1a4di40.jpeg[0]' -auto-orient -resize "100x100>" '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/aaca8f3948925f60fec656d827a4ad9020160723-19773-197d77d'
+  [1m[35m (0.1ms)[0m  begin transaction
+Command :: PATH=/usr/local/bin/:$PATH; file -b --mime '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/1e065ec88774f64b9406fa670c4c8a5a20160723-19773-rkkpud.jpeg'
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "feeds" ("user_id", "message", "like_count", "comment_count", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["message", "finally petoye is out!"], ["like_count", 0], ["comment_count", 0], ["image_file_name", "1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg"], ["image_content_type", "image/jpeg"], ["image_file_size", 52516], ["image_updated_at", "2016-07-23 17:03:46.455026"], ["created_at", "2016-07-23 17:03:47.229930"], ["updated_at", "2016-07-23 17:03:47.229930"]]
+[paperclip] saving /feeds/images/000/000/029/original/1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg
+[AWS S3 200 6.068803 0 retries] put_object(:acl=>:public_read,:bucket_name=>"petoye",:content_length=>52516,:content_type=>"image/jpeg",:data=>Paperclip::UploadedFileAdapter: 1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg,:key=>"feeds/images/000/000/029/original/1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg")  
+
+[paperclip] saving /feeds/images/000/000/029/medium/1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg
+[AWS S3 200 1.155693 0 retries] put_object(:acl=>:public_read,:bucket_name=>"petoye",:content_length=>20832,:content_type=>"image/jpeg",:data=>Paperclip::FileAdapter: aaca8f3948925f60fec656d827a4ad9020160723-19773-zbdxei,:key=>"feeds/images/000/000/029/medium/1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg")  
+
+[paperclip] saving /feeds/images/000/000/029/thumb/1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg
+[AWS S3 200 0.783427 0 retries] put_object(:acl=>:public_read,:bucket_name=>"petoye",:content_length=>4313,:content_type=>"image/jpeg",:data=>Paperclip::FileAdapter: aaca8f3948925f60fec656d827a4ad9020160723-19773-197d77d,:key=>"feeds/images/000/000/029/thumb/1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg")  
+
+  [1m[35m (1.5ms)[0m  commit transaction
+Completed 201 Created in 9103ms (Views: 11.2ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/feeds/1/create" for 127.0.0.1 at 2016-07-23 22:49:09 +0530
+Processing by Api::V1::FeedsController#create as JSON
+  Parameters: {"message"=>"Tanzeel is an idiot!", "image"=>#<ActionDispatch::Http::UploadedFile:0x007f862eeaf180 @tempfile=#<Tempfile:/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/RackMultipart20160723-19773-aqsxva.jpg>, @original_filename="458989879.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image\"; filename=\"458989879.jpg\"\r\nContent-Type: image/jpeg\r\n">, "subdomain"=>"api", "uid"=>"1"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+Command :: PATH=/usr/local/bin/:$PATH; file -b --mime '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/5c6db5b2d12287ce12f1345f27b0ac2f20160723-19773-1vxgs45.jpg'
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/5c6db5b2d12287ce12f1345f27b0ac2f20160723-19773-n6yrlu.jpg[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/5c6db5b2d12287ce12f1345f27b0ac2f20160723-19773-n6yrlu.jpg[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/5c6db5b2d12287ce12f1345f27b0ac2f20160723-19773-n6yrlu.jpg[0]' -auto-orient -resize "300x300>" '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/8c3bd5d63e1b7c54b2911424955052f320160723-19773-34uhhh'
+Command :: PATH=/usr/local/bin/:$PATH; identify -format '%wx%h,%[exif:orientation]' '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/5c6db5b2d12287ce12f1345f27b0ac2f20160723-19773-n6yrlu.jpg[0]' 2>/dev/null
+Command :: PATH=/usr/local/bin/:$PATH; identify -format %m '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/5c6db5b2d12287ce12f1345f27b0ac2f20160723-19773-n6yrlu.jpg[0]'
+Command :: PATH=/usr/local/bin/:$PATH; convert '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/5c6db5b2d12287ce12f1345f27b0ac2f20160723-19773-n6yrlu.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/8c3bd5d63e1b7c54b2911424955052f320160723-19773-1qjh0b9'
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+Command :: PATH=/usr/local/bin/:$PATH; file -b --mime '/var/folders/qv/wcn5ktld0qqdmsklxrb_3y3r0000gn/T/5c6db5b2d12287ce12f1345f27b0ac2f20160723-19773-qx0hq7.jpg'
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "feeds" ("user_id", "message", "like_count", "comment_count", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["user_id", 1], ["message", "Tanzeel is an idiot!"], ["like_count", 0], ["comment_count", 0], ["image_file_name", "458989879.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 78487], ["image_updated_at", "2016-07-23 17:19:09.850890"], ["created_at", "2016-07-23 17:19:09.984719"], ["updated_at", "2016-07-23 17:19:09.984719"]]
+[paperclip] saving /feeds/images/000/000/030/original/458989879.jpg
+[AWS S3 200 7.336219 0 retries] put_object(:acl=>:public_read,:bucket_name=>"petoye",:content_length=>78487,:content_type=>"image/jpeg",:data=>Paperclip::UploadedFileAdapter: 458989879.jpg,:key=>"feeds/images/000/000/030/original/458989879.jpg")  
+
+[paperclip] saving /feeds/images/000/000/030/medium/458989879.jpg
+[AWS S3 200 7.078322 0 retries] put_object(:acl=>:public_read,:bucket_name=>"petoye",:content_length=>41762,:content_type=>"image/jpeg",:data=>Paperclip::FileAdapter: 8c3bd5d63e1b7c54b2911424955052f320160723-19773-34uhhh,:key=>"feeds/images/000/000/030/medium/458989879.jpg")  
+
+[paperclip] saving /feeds/images/000/000/030/thumb/458989879.jpg
+[AWS S3 200 4.91326 0 retries] put_object(:acl=>:public_read,:bucket_name=>"petoye",:content_length=>8848,:content_type=>"image/jpeg",:data=>Paperclip::FileAdapter: 8c3bd5d63e1b7c54b2911424955052f320160723-19773-1qjh0b9,:key=>"feeds/images/000/000/030/thumb/458989879.jpg")  
+
+  [1m[36m (5.6ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 19491ms (Views: 10.8ms | ActiveRecord: 6.1ms)

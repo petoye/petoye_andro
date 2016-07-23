@@ -21,3 +21,5 @@ doc/
 *.swp
 *~
 .DS_Store
+
+.env
