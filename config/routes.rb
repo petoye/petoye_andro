@@ -18,7 +18,7 @@ Rails.application.routes.draw do
       get 'users/:myid/:hisid/checkfollowing', to: 'users#checkfollowing' #done
       get '/users/:id/discover', to: 'users#discover' #done
       get '/users/:query/:parameter/search', to: 'users#search' #done
-      get '/users/:id/notifications', to: 'users#notification'
+      get '/users/:id/notifications', to: 'users#notification' 
 
 
        resources :feeds, :only => [:index]
