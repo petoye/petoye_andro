@@ -37238,3 +37238,462 @@ Completed 200 OK in 26ms (Views: 7.9ms | ActiveRecord: 1.2ms)
             FROM sqlite_temp_master
             WHERE name='index_users_on_email' AND type='index'
 [0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddNotificationsToUsers (20160722182714)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "users" ADD "notifications" varchar DEFAULT '--- []
+'[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160722182714"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_conversations_on_recipient_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_conversations_on_recipient_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_conversations_on_sender_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_conversations_on_sender_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_conversation_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_conversation_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_products_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_products_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+
+
+Started POST "/feeds/19/like" for 127.0.0.1 at 2016-07-23 09:48:42 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::FeedsController#likeit as JSON
+  Parameters: {"uid"=>"13", "subdomain"=>"api", "pid"=>"19"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mFeed Load (0.3ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", 19]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "feeds" SET "likedby" = ?, "like_count" = ?, "updated_at" = ? WHERE "feeds"."id" = ?[0m  [["likedby", "---\n- '19'\n- '19'\n- '13'\n"], ["like_count", 3], ["updated_at", "2016-07-23 04:18:42.724264"], ["id", 19]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+Completed 200 OK in 240ms (Views: 8.2ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/feeds/19/like" for 127.0.0.1 at 2016-07-23 09:50:04 +0530
+Processing by Api::V1::FeedsController#likeit as JSON
+  Parameters: {"uid"=>"13", "subdomain"=>"api", "pid"=>"19"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mFeed Load (0.1ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", 19]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 13]]
+Completed 200 OK in 29ms (Views: 6.9ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/feeds/19/like" for 127.0.0.1 at 2016-07-23 09:52:10 +0530
+Processing by Api::V1::FeedsController#likeit as JSON
+  Parameters: {"uid"=>"13", "subdomain"=>"api", "pid"=>"19"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mFeed Load (0.1ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", 19]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 13]]
+Completed 500 Internal Server Error in 33ms (Views: 9.6ms | ActiveRecord: 1.1ms)
+
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  app/controllers/api/v1/feeds_controller.rb:39:in `likeit'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.0ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (63.8ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (157.1ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (229.2ms)
+
+
+Started POST "/feeds/19/like" for 127.0.0.1 at 2016-07-23 09:52:53 +0530
+Processing by Api::V1::FeedsController#likeit as JSON
+  Parameters: {"uid"=>"1", "subdomain"=>"api", "pid"=>"19"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mFeed Load (0.1ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", 19]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1
+Completed 200 OK in 24ms (Views: 21.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/feeds/19/like" for 127.0.0.1 at 2016-07-23 10:00:17 +0530
+Processing by Api::V1::FeedsController#likeit as JSON
+  Parameters: {"uid"=>"2", "subdomain"=>"api", "pid"=>"19"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", 19]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mFeed Load (0.2ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."user_id" = ?[0m  [["user_id", 19]]
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 1.2ms)
+
+NoMethodError (undefined method `id' for #<ActiveRecord::Relation []>
+Did you mean?  ids):
+  app/controllers/api/v1/feeds_controller.rb:32:in `likeit'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (51.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (43.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (93.5ms)
+
+
+Started POST "/feeds/19/like" for 127.0.0.1 at 2016-07-23 10:03:39 +0530
+Processing by Api::V1::FeedsController#likeit as JSON
+  Parameters: {"uid"=>"2", "subdomain"=>"api", "pid"=>"19"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mFeed Load (0.1ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", 19]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", nil]]
+Completed 404 Not Found in 27ms (ActiveRecord: 1.2ms)
+
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=):
+  app/controllers/api/v1/feeds_controller.rb:32:in `likeit'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.6ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (47.5ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (45.7ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.9ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (98.7ms)
+
+
+Started POST "/feeds/19/like" for 127.0.0.1 at 2016-07-23 10:05:01 +0530
+Processing by Api::V1::FeedsController#likeit as JSON
+  Parameters: {"uid"=>"2", "subdomain"=>"api", "pid"=>"19"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", 19]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Completed 200 OK in 29ms (Views: 6.6ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/feeds/19/like" for 127.0.0.1 at 2016-07-23 10:06:00 +0530
+Processing by Api::V1::FeedsController#likeit as JSON
+  Parameters: {"uid"=>"2", "subdomain"=>"api", "pid"=>"19"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[36mFeed Load (0.2ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", 19]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 19]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "feeds" SET "likedby" = ?, "like_count" = ?, "updated_at" = ? WHERE "feeds"."id" = ?[0m  [["likedby", "---\n- '19'\n- '19'\n- '13'\n- '2'\n"], ["like_count", 4], ["updated_at", "2016-07-23 04:36:00.432309"], ["id", 19]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+Completed 200 OK in 42ms (Views: 8.1ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/feeds/19/like" for 127.0.0.1 at 2016-07-23 10:06:29 +0530
+Processing by Api::V1::FeedsController#likeit as JSON
+  Parameters: {"uid"=>"2", "subdomain"=>"api", "pid"=>"19"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mFeed Load (0.1ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", 19]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 422 Unprocessable Entity in 36ms (Views: 8.9ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/feeds/19/like" for 127.0.0.1 at 2016-07-23 10:06:39 +0530
+Processing by Api::V1::FeedsController#likeit as JSON
+  Parameters: {"uid"=>"3", "subdomain"=>"api", "pid"=>"19"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mFeed Load (0.2ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", 19]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 19]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "feeds" SET "likedby" = ?, "like_count" = ?, "updated_at" = ? WHERE "feeds"."id" = ?  [["likedby", "---\n- '19'\n- '19'\n- '13'\n- '2'\n- '3'\n"], ["like_count", 5], ["updated_at", "2016-07-23 04:36:39.101767"], ["id", 19]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."auth_token" = 'gA9ryxYKyxwzd4nyDyTB' AND "users"."id" != 19) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "notifications" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["notifications", "---\n- Rooney[3] liked your post[19]\n"], ["updated_at", "2016-07-23 04:36:39.470585"], ["id", 19]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+Completed 200 OK in 391ms (Views: 9.8ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/feeds/19/like" for 127.0.0.1 at 2016-07-23 10:07:32 +0530
+Processing by Api::V1::FeedsController#likeit as JSON
+  Parameters: {"uid"=>"4", "subdomain"=>"api", "pid"=>"19"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", 19]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 19]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "feeds" SET "likedby" = ?, "like_count" = ?, "updated_at" = ? WHERE "feeds"."id" = ?[0m  [["likedby", "---\n- '19'\n- '19'\n- '13'\n- '2'\n- '3'\n- '4'\n"], ["like_count", 6], ["updated_at", "2016-07-23 04:37:32.506905"], ["id", 19]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."auth_token" = 'gA9ryxYKyxwzd4nyDyTB' AND "users"."id" != 19) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "notifications" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["notifications", "---\n- Rooney[3] liked your post[19]\n- Benzema[4] liked your post[19]\n"], ["updated_at", "2016-07-23 04:37:32.513473"], ["id", 19]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+Completed 200 OK in 27ms (Views: 11.4ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/feeds/19/like" for 127.0.0.1 at 2016-07-23 10:14:32 +0530
+Processing by Api::V1::FeedsController#likeit as JSON
+  Parameters: {"uid"=>"5", "subdomain"=>"api", "pid"=>"19"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mFeed Load (0.1ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", 19]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 19]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "feeds" SET "likedby" = ?, "like_count" = ?, "updated_at" = ? WHERE "feeds"."id" = ?  [["likedby", "---\n- '19'\n- '19'\n- '13'\n- '2'\n- '3'\n- '4'\n- '5'\n"], ["like_count", 7], ["updated_at", "2016-07-23 04:44:32.652590"], ["id", 19]]
+  [1m[36m (181.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."auth_token" = 'gA9ryxYKyxwzd4nyDyTB' AND "users"."id" != 19) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "notifications" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["notifications", "---\n- Rooney[3] liked your post[19]\n- Benzema[4] liked your post[19]\n- Ronaldo[5] liked your post[19]\n"], ["updated_at", "2016-07-23 04:44:32.842230"], ["id", 19]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 235ms (Views: 10.9ms | ActiveRecord: 184.9ms)
+
+
+Started POST "/feeds/19/comment" for 127.0.0.1 at 2016-07-23 10:20:11 +0530
+Processing by Api::V1::CommentsController#addcomment as JSON
+  Parameters: {"uid"=>"5", "comment"=>"hhahah", "subdomain"=>"api", "pid"=>"19"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1[0m  [["id", 19]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 19]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "comments" ("comment_message", "user_id", "post_id") VALUES (?, ?, ?)  [["comment_message", "hhahah"], ["user_id", 5], ["post_id", 19]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "feeds" SET "comment_count" = ?, "updated_at" = ? WHERE "feeds"."id" = ?[0m  [["comment_count", 1], ["updated_at", "2016-07-23 04:50:11.606109"], ["id", 19]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."auth_token" = 'gA9ryxYKyxwzd4nyDyTB' AND "users"."id" != 19) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "notifications" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["notifications", "---\n- Rooney[3] liked your post[19]\n- Benzema[4] liked your post[19]\n- Ronaldo[5] liked your post[19]\n- Ronaldo[5] commented on your post[19]\n"], ["updated_at", "2016-07-23 04:50:11.612810"], ["id", 19]]
+  [1m[35m (1.2ms)[0m  commit transaction
+Completed 201 Created in 319ms (Views: 8.1ms | ActiveRecord: 6.6ms)
+
+
+Started POST "/11/follow" for 127.0.0.1 at 2016-07-23 10:43:04 +0530
+Processing by Api::V1::UsersController#follow as JSON
+  Parameters: {"hisid"=>"12", "subdomain"=>"api", "myid"=>"11"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 11]]
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.7ms)
+
+NameError (undefined local variable or method `uid' for #<Api::V1::UsersController:0x007ff918656698>):
+  app/controllers/api/v1/users_controller.rb:93:in `follow'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.8ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (54.7ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (39.8ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (106.8ms)
+
+
+Started POST "/11/follow" for 127.0.0.1 at 2016-07-23 10:43:46 +0530
+Processing by Api::V1::UsersController#follow as JSON
+  Parameters: {"hisid"=>"12", "subdomain"=>"api", "myid"=>"11"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 11]]
+  [1m[36mFollow Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."following_id" = ? LIMIT 1[0m  [["follower_id", 11], ["following_id", 12]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "follows" ("follower_id", "following_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["follower_id", 11], ["following_id", 12], ["created_at", "2016-07-23 05:13:46.228784"], ["updated_at", "2016-07-23 05:13:46.228784"]]
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 42ms (Views: 9.7ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/11/follow" for 127.0.0.1 at 2016-07-23 10:45:22 +0530
+Processing by Api::V1::UsersController#follow as JSON
+  Parameters: {"hisid"=>"12", "subdomain"=>"api", "myid"=>"11"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 11]]
+  [1m[36mFollow Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."following_id" = ? LIMIT 1[0m  [["follower_id", 11], ["following_id", 12]]
+Completed 422 Unprocessable Entity in 25ms (Views: 7.7ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/11/follow" for 127.0.0.1 at 2016-07-23 10:45:32 +0530
+Processing by Api::V1::UsersController#follow as JSON
+  Parameters: {"hisid"=>"13", "subdomain"=>"api", "myid"=>"11"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 11]]
+  [1m[36mFollow Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."following_id" = ? LIMIT 1[0m  [["follower_id", 11], ["following_id", 13]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "follows" ("follower_id", "following_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["follower_id", 11], ["following_id", 13], ["created_at", "2016-07-23 05:15:32.509677"], ["updated_at", "2016-07-23 05:15:32.509677"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."auth_token" = '4AsKLkX_gtqD_TRBqXKg' AND "users"."id" != 13) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "notifications" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["notifications", "---\n- Allen[11] followed you\n"], ["updated_at", "2016-07-23 05:15:32.516309"], ["id", 13]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 27ms (Views: 9.7ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/11/follow" for 127.0.0.1 at 2016-07-23 10:48:09 +0530
+Processing by Api::V1::UsersController#follow as JSON
+  Parameters: {"hisid"=>"13", "subdomain"=>"api", "myid"=>"11"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 11]]
+  [1m[36mFollow Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."following_id" = ? LIMIT 1[0m  [["follower_id", 11], ["following_id", 13]]
+Completed 422 Unprocessable Entity in 11ms (Views: 8.8ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/11/follow" for 127.0.0.1 at 2016-07-23 10:48:21 +0530
+Processing by Api::V1::UsersController#follow as JSON
+  Parameters: {"hisid"=>"14", "subdomain"=>"api", "myid"=>"11"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 11]]
+  [1m[36mFollow Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."following_id" = ? LIMIT 1[0m  [["follower_id", 11], ["following_id", 14]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 14]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "follows" ("follower_id", "following_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["follower_id", 11], ["following_id", 14], ["created_at", "2016-07-23 05:18:21.739184"], ["updated_at", "2016-07-23 05:18:21.739184"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."auth_token" = 'JgzssxYeruCMefKizJmi' AND "users"."id" != 14) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "notifications" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["notifications", "---\n- Allen[11] followed you\n"], ["updated_at", "2016-07-23 05:18:21.744085"], ["id", 14]]
+  [1m[36m (3.4ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 30ms (Views: 16.1ms | ActiveRecord: 5.5ms)
+
+
+Started POST "/12/follow" for 127.0.0.1 at 2016-07-23 10:50:28 +0530
+Processing by Api::V1::UsersController#follow as JSON
+  Parameters: {"hisid"=>"14", "subdomain"=>"api", "myid"=>"12"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mFollow Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "follows" WHERE "follows"."follower_id" = ? AND "follows"."following_id" = ? LIMIT 1[0m  [["follower_id", 12], ["following_id", 14]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 14]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "follows" ("follower_id", "following_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["follower_id", 12], ["following_id", 14], ["created_at", "2016-07-23 05:20:28.797594"], ["updated_at", "2016-07-23 05:20:28.797594"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."auth_token" = 'JgzssxYeruCMefKizJmi' AND "users"."id" != 14) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "notifications" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["notifications", "---\n- Allen[11] followed you\n- Grujic[12] followed you\n"], ["updated_at", "2016-07-23 05:20:28.802012"], ["id", 14]]
+  [1m[36m (3.5ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 24ms (Views: 11.1ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/users/19/notifications" for 127.0.0.1 at 2016-07-23 12:13:19 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::UsersController#notification as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"19"}
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 19]]
+Completed 200 OK in 96ms (Views: 17.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/11/notifications" for 127.0.0.1 at 2016-07-23 12:14:47 +0530
+Processing by Api::V1::UsersController#notification as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"11"}
+Geokit is using the domain: localhost.com
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 11]]
+Completed 200 OK in 12ms (Views: 9.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/14/notifications" for 127.0.0.1 at 2016-07-23 12:14:52 +0530
+Processing by Api::V1::UsersController#notification as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"14"}
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 14]]
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/19/notifications" for 127.0.0.1 at 2016-07-23 12:15:02 +0530
+Processing by Api::V1::UsersController#notification as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"19"}
+Geokit is using the domain: localhost.com
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 19]]
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.1ms)

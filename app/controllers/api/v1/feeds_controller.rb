@@ -1,4 +1,4 @@
-class Api::V1::FeedsController < ApplicationController
+ class Api::V1::FeedsController < ApplicationController
   respond_to :json
 
   def create
@@ -17,17 +17,28 @@ class Api::V1::FeedsController < ApplicationController
     feed = Feed.find(params[:pid])
     uid = params[:uid]
     pid = params[:pid]
+    #notif
+    user = User.find(uid)
+    uname = user.username
+    @notif = "#{uname}[#{uid}] liked your post[#{pid}]"
+    #end notif
     if feed.likedby.include?(uid) 
       render json: {errors: "already liked"}, status: 422
     else
       feed.likedby[feed.like_count] = uid
       feed.like_count = feed.like_count + 1
-      if feed.save
+      #notif
+      x_id = feed.id
+      userx = User.find(x_id)
+      userx.notifications << @notif
+      #end notif
+      if feed.save && userx.save
         render json: feed.as_json(only:[:likedby,:like_count]), status: 200
       else
         render json: { errors: "Could not be liked"}, status:422
       end
     end
+    #render json: x_id
   end
 
   def showlikes

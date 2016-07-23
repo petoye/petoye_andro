@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
  validates :auth_token, uniqueness: true
  validates :owner_type ,presence: true
- serialize :location, Array
+ serialize :notifications, Array
  validates_length_of :pet_story, maximum: 300
  acts_as_mappable
  def generate_authentication_token!

@@ -87,6 +87,12 @@ class Api::V1::UsersController < ApplicationController
     following = params[:hisid]
     already_following = false
 
+    #notif got who's following you
+    user = User.find(follower)
+    uname = user.username
+    @notif = "#{uname}[#{follower}] followed you"
+    #end notif
+
     follow = Follow.where({ follower_id: follower, following_id: following})
     if follow.exists?
       already_following = true
@@ -94,7 +100,11 @@ class Api::V1::UsersController < ApplicationController
 
     if already_following == false
       follow = Follow.new({ follower_id: follower, following_id: following })
-      if follow.save
+      #notif
+        userx = User.find(following)
+        userx.notifications << @notif
+      #end notif
+      if follow.save && userx.save
         render json: follow.as_json(only:[:id,:follower_id,:following_id]), status: 201
       else
         render json: { errors: "could not follow"}, status: 422
@@ -146,6 +156,11 @@ class Api::V1::UsersController < ApplicationController
 
     user = User.where("#{@x} LIKE ?","%#{name}%")
     render json: user.as_json(only:[:username, :owner_type, :pet_breed, :pet_type]), status: 302
+  end
+
+  def notification
+    user = User.find(params[:id])
+    render json: user.as_json(only:[:notifications]), status: 200
   end
 
 end
