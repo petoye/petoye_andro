@@ -15,10 +15,14 @@ class Api::V1::UsersController < ApplicationController
 
   def info
     user=User.find(params[:id])
-    user.owner_type=params[:otype]
-    user.username = params[:username]
-    user.pet_type = params[:ptype]
-    user.pet_breed = params[:breed]
+    o_t = params[:otype]
+    user.owner_type=o_t.downcase
+    u = params[:username]
+    user.username = u.downcase
+    p_t = params[:ptype]
+    user.pet_type = p_t.downcase
+    b = params[:breed]
+    user.pet_breed = b.downcase
     lat = params[:lat]
     lng = params[:lng]
     user.lat = lat
@@ -144,7 +148,8 @@ class Api::V1::UsersController < ApplicationController
 
 
   def search
-    name = params[:query]
+    query = params[:query]
+    name = query.downcase
     parameter = params[:parameter]
     if parameter == 'user'
       @x = 'username'
@@ -156,6 +161,7 @@ class Api::V1::UsersController < ApplicationController
 
     user = User.where("#{@x} LIKE ?","%#{name}%")
     render json: user.as_json(only:[:username, :owner_type, :pet_breed, :pet_type]), status: 302
+    #render json: name
   end
 
   def notification

@@ -38730,3 +38730,130 @@ Geokit is using the domain: localhost.com
   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
   [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1[0m
 Completed 201 Created in 367ms (Views: 24.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/mah/user/search" for 127.0.0.1 at 2016-07-24 20:36:37 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::UsersController#search as JSON
+  Parameters: {"subdomain"=>"api", "query"=>"mah", "parameter"=>"user"}
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE (username LIKE '%mah%')
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1[0m
+Completed 302 Found in 59ms (Views: 30.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/Mah/user/search" for 127.0.0.1 at 2016-07-24 20:36:48 +0530
+Processing by Api::V1::UsersController#search as JSON
+  Parameters: {"subdomain"=>"api", "query"=>"Mah", "parameter"=>"user"}
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE (username LIKE '%Mah%')
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1[0m
+Completed 302 Found in 21ms (Views: 18.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/mah/user/search" for 127.0.0.1 at 2016-07-24 20:36:57 +0530
+Processing by Api::V1::UsersController#search as JSON
+  Parameters: {"subdomain"=>"api", "query"=>"mah", "parameter"=>"user"}
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE (username LIKE '%mah%')
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1[0m
+Completed 302 Found in 22ms (Views: 19.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/Ant/user/search" for 127.0.0.1 at 2016-07-24 20:48:28 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::UsersController#search as JSON
+  Parameters: {"subdomain"=>"api", "query"=>"Ant", "parameter"=>"user"}
+Geokit is using the domain: localhost.com
+Completed 200 OK in 26ms (Views: 17.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/AntMar/user/search" for 127.0.0.1 at 2016-07-24 20:48:39 +0530
+Processing by Api::V1::UsersController#search as JSON
+  Parameters: {"subdomain"=>"api", "query"=>"AntMar", "parameter"=>"user"}
+Geokit is using the domain: localhost.com
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/Ant%20Mar/user/search" for 127.0.0.1 at 2016-07-24 20:48:42 +0530
+Processing by Api::V1::UsersController#search as JSON
+  Parameters: {"subdomain"=>"api", "query"=>"Ant Mar", "parameter"=>"user"}
+Geokit is using the domain: localhost.com
+Completed 200 OK in 8ms (Views: 7.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/Ant/user/search" for 127.0.0.1 at 2016-07-24 20:49:18 +0530
+Processing by Api::V1::UsersController#search as JSON
+  Parameters: {"subdomain"=>"api", "query"=>"Ant", "parameter"=>"user"}
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE (username LIKE '%ant%')
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1[0m
+Completed 302 Found in 39ms (Views: 22.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/ant/user/search" for 127.0.0.1 at 2016-07-24 20:49:27 +0530
+Processing by Api::V1::UsersController#search as JSON
+  Parameters: {"subdomain"=>"api", "query"=>"ant", "parameter"=>"user"}
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE (username LIKE '%ant%')
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."auth_token" IS NULL LIMIT 1[0m
+Completed 302 Found in 22ms (Views: 20.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/1/basicinfo" for 127.0.0.1 at 2016-07-24 20:54:17 +0530
+
+ActionController::RoutingError (No route matches [POST] "/users/1/basicinfo"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/ameyavichare/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/ameyavichare/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/ameyavichare/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.1ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (20.5ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (104.9ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (57.7ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (117.2ms)
+
+
+Started POST "/users/1/basicinfo" for 127.0.0.1 at 2016-07-24 20:54:38 +0530
+Processing by Api::V1::UsersController#info as JSON
+  Parameters: {"username"=>"Anthony Martial", "otype"=>"Pet Owner", "ptype"=>"Dog", "breed"=>"Labrador", "subdomain"=>"api", "id"=>"1"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."auth_token" = 'ynuKyPfM3KnynzHLnRYz' AND "users"."id" != 1) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "username" = ?, "pet_type" = ?, "pet_breed" = ?, "lat" = ?, "lng" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["username", "anthony martial"], ["pet_type", "dog"], ["pet_breed", "labrador"], ["lat", nil], ["lng", nil], ["updated_at", "2016-07-24 15:24:39.080578"], ["id", 1]]
+  [1m[35m (1.2ms)[0m  commit transaction
+Completed 200 OK in 93ms (Views: 10.7ms | ActiveRecord: 2.6ms)

@@ -44,7 +44,7 @@ Rails.application.routes.draw do
 
        resources :conversations, :only => [:create] #done #checked
        get '/conversations/:sender_id/:recipient_id/open', to: 'conversations#open' #done #checked
-       get '/conversations/:id/all', to: 'conversations#all' #done #problem in code conversations of only senders get shown
+       get '/conversations/:id/all', to: 'conversations#all' #done #checked
        
     end
   end
