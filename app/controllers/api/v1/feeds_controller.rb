@@ -18,9 +18,9 @@
     uid = params[:uid]
     pid = params[:pid]
     #notif
-    #user = User.find(uid)
-    #uname = user.username
-    #@notif = "#{uname}[#{uid}] liked your post[#{pid}]"
+    user = User.find(uid)
+    uname = user.username
+    @notif = "#{uname}[#{uid}] liked your post[#{pid}]"
     #end notif
     if feed.likedby.include?(uid) 
       render json: {errors: "already liked"}, status: 422
@@ -28,9 +28,9 @@
       feed.likedby[feed.like_count] = uid
       feed.like_count = feed.like_count + 1
       #notif
-      #x_id = feed.id
-      #userx = User.find(x_id)
-      #userx.notifications << @notif
+      x_id = feed.id
+      userx = User.find(x_id)
+      userx.notifications << @notif
       #end notif
       if feed.save && userx.save
         render json: feed.as_json(only:[:likedby,:like_count]), status: 200
