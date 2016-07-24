@@ -38857,3 +38857,1585 @@ Geokit is using the domain: localhost.com
   [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "username" = ?, "pet_type" = ?, "pet_breed" = ?, "lat" = ?, "lng" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["username", "anthony martial"], ["pet_type", "dog"], ["pet_breed", "labrador"], ["lat", nil], ["lng", nil], ["updated_at", "2016-07-24 15:24:39.080578"], ["id", 1]]
   [1m[35m (1.2ms)[0m  commit transaction
 Completed 200 OK in 93ms (Views: 10.7ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/feeds/12/report" for 127.0.0.1 at 2016-07-24 21:25:47 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::FeedsController#report as JSON
+  Parameters: {"report"=>"3", "subdomain"=>"api", "pid"=>"12"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mFeed Load (0.2ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "feeds" SET "report" = ?, "updated_at" = ? WHERE "feeds"."id" = ?  [["report", "---\n- 4\n- 3\n- '3'\n"], ["updated_at", "2016-07-24 15:55:48.143906"], ["id", 12]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 77ms (Views: 8.8ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/feeds/12/report" for 127.0.0.1 at 2016-07-24 21:26:20 +0530
+Processing by Api::V1::FeedsController#report as JSON
+  Parameters: {"report"=>"3", "subdomain"=>"api", "pid"=>"12"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mFeed Load (0.1ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "feeds" SET "report" = ?, "updated_at" = ? WHERE "feeds"."id" = ?  [["report", "---\n- 4\n- 3\n- '3'\n- '3'\n"], ["updated_at", "2016-07-24 15:56:20.875417"], ["id", 12]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 27ms (Views: 7.7ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/feeds/12/report" for 127.0.0.1 at 2016-07-24 21:26:35 +0530
+Processing by Api::V1::FeedsController#report as JSON
+  Parameters: {"report"=>"3", "subdomain"=>"api", "pid"=>"12"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mFeed Load (0.1ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "feeds" SET "report" = ?, "updated_at" = ? WHERE "feeds"."id" = ?  [["report", "---\n- 4\n- 3\n- '3'\n- '3'\n- 3\n"], ["updated_at", "2016-07-24 15:56:35.841357"], ["id", 12]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 25ms (Views: 7.4ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/feeds/12/report" for 127.0.0.1 at 2016-07-24 21:26:37 +0530
+Processing by Api::V1::FeedsController#report as JSON
+  Parameters: {"report"=>"3", "subdomain"=>"api", "pid"=>"12"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mFeed Load (0.1ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "feeds" SET "report" = ?, "updated_at" = ? WHERE "feeds"."id" = ?  [["report", "---\n- 4\n- 3\n- '3'\n- '3'\n- 3\n- 3\n"], ["updated_at", "2016-07-24 15:56:37.307782"], ["id", 12]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 17ms (Views: 8.6ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/feeds/12/report" for 127.0.0.1 at 2016-07-24 21:26:38 +0530
+Processing by Api::V1::FeedsController#report as JSON
+  Parameters: {"report"=>"3", "subdomain"=>"api", "pid"=>"12"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mFeed Load (0.1ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "feeds" SET "report" = ?, "updated_at" = ? WHERE "feeds"."id" = ?  [["report", "---\n- 4\n- 3\n- '3'\n- '3'\n- 3\n- 3\n- 3\n"], ["updated_at", "2016-07-24 15:56:38.699267"], ["id", 12]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 16ms (Views: 9.7ms | ActiveRecord: 1.4ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to RemoveLikedbyFromFeeds (20160724170101)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TEMPORARY TABLE "afeeds" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "message" varchar, "like_count" integer, "comment_count" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "image_file_name" varchar, "image_content_type" varchar, "image_file_size" integer, "image_updated_at" datetime, "likedby" varchar DEFAULT '--- []
+', "report" varchar DEFAULT '--- []
+') [0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  CREATE  INDEX "tindex_afeeds_on_user_id" ON "afeeds" ("user_id")
+  [1m[36m (0.2ms)[0m  [1mSELECT * FROM "feeds"[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby","report") VALUES (10, 'bruh', 2, 0, 3, '2016-06-14 15:50:43.775196', '2016-06-20 11:57:42.563335', '1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg', 'image/jpeg', 52516, '2016-06-14 15:50:43.580888', '--- []
+', '--- []
+')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby","report") VALUES (11, 'new', 2, 0, 8, '2016-06-15 05:08:19.099364', '2016-06-20 11:50:53.780144', '458989879.jpg', 'image/jpeg', 78487, '2016-06-15 05:08:18.885531', '--- []
+', '--- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby","report") VALUES (12, 'new', 3, 10, 8, '2016-06-16 09:33:53.563026', '2016-07-24 15:56:38.699267', 'Cute-puppy-7.jpg', 'image/jpeg', 194126, '2016-06-16 09:33:52.347204', '--- []
+', '---
+- 4
+- 3
+- ''3''
+- ''3''
+- 3
+- 3
+- 3
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby","report") VALUES (13, 'new', 2, 2, 8, '2016-06-16 09:37:22.270833', '2016-06-20 13:25:12.527220', 'cute-dog-and-cat-sitting-together-1024x640.jpg', 'image/jpeg', 133987, '2016-06-16 09:37:22.061258', '--- []
+', '--- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby","report") VALUES (14, 'nice', 2, 0, 12, '2016-06-20 12:38:22.347878', '2016-06-20 13:01:16.745719', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:21.511265', '--- []
+', '--- []
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby","report") VALUES (15, 'nice 2', 1, 0, 12, '2016-06-20 12:38:35.023502', '2016-06-20 12:40:34.924384', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:34.866585', '--- []
+', '--- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby","report") VALUES (16, 'nice 3', 1, 0, 12, '2016-06-20 12:38:39.549407', '2016-06-20 12:43:56.368619', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:39.376660', '--- []
+', '--- []
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby","report") VALUES (17, 'nice 4', 3, 0, 12, '2016-06-20 12:38:49.577452', '2016-06-20 12:50:45.008971', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:49.422807', '--- []
+', '--- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby","report") VALUES (18, 'nice 5', 2, 0, 12, '2016-06-20 12:38:52.922823', '2016-06-20 12:47:48.648792', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:52.760956', '--- []
+', '--- []
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby","report") VALUES (19, 'nice new', 7, 1, 12, '2016-06-20 13:14:01.923817', '2016-07-23 04:50:11.606109', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:01.544928', '---
+- ''19''
+- ''19''
+- ''13''
+- ''2''
+- ''3''
+- ''4''
+- ''5''
+', '--- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby","report") VALUES (20, 'nice new', 2, 0, 12, '2016-06-20 13:14:07.063005', '2016-06-24 01:50:00.443038', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:06.951532', '--- []
+', '--- []
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby","report") VALUES (21, 'nice new', 6, 3, 12, '2016-06-20 13:14:08.719673', '2016-07-21 19:49:44.916235', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:08.610393', '---
+- ''12''
+- ''11''
+- ''10''
+- ''14''
+- ''15''
+- ''16''
+', '---
+- 2
+- 2
+- 2
+- 2
+- 3
+- 4
+- 4
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby","report") VALUES (22, 'nice new', 4, 0, 12, '2016-06-20 13:14:09.804578', '2016-06-24 02:06:23.799279', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:09.679815', '--- []
+', '--- []
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby","report") VALUES (23, 'nice new', 1, 0, 12, '2016-06-20 13:14:10.928157', '2016-06-24 02:07:49.262318', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:10.814558', '--- []
+', '--- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby","report") VALUES (24, 'nice new', 4, 0, 12, '2016-06-20 13:20:54.256966', '2016-06-24 02:09:24.720796', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:20:54.115290', '---
+- 
+- ''11''
+- ''19''
+- ''18''
+', '---
+- 2
+- 2
+- 3
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby","report") VALUES (25, 'nice new', 3, 0, 12, '2016-06-20 13:21:09.195543', '2016-07-21 12:01:21.917928', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:21:09.080972', '---
+- 
+- 
+- 
+', '--- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby","report") VALUES (26, 'finally petoye is out!', 0, 0, 2, '2016-07-21 16:37:27.347655', '2016-07-21 16:37:27.347655', 'cute-dog-and-cat-sitting-together-1024x640.jpg', 'image/jpeg', 133987, '2016-07-21 16:37:27.144074', '--- []
+', '--- []
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby","report") VALUES (27, 'finally petoye is out!', 0, 0, 2, '2016-07-21 16:38:10.076201', '2016-07-21 16:38:10.076201', 'cute-dog-and-cat-sitting-together-1024x640.jpg', 'image/jpeg', 133987, '2016-07-21 16:38:09.863220', '--- []
+', '--- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby","report") VALUES (28, 'finally petoye is out!', 0, 0, 2, '2016-07-23 15:53:43.268764', '2016-07-23 15:53:43.268764', '1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg', 'image/jpeg', 52516, '2016-07-23 15:53:42.616236', '--- []
+', '--- []
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby","report") VALUES (29, 'finally petoye is out!', 0, 0, 1, '2016-07-23 17:03:47.229930', '2016-07-23 17:03:47.229930', '1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg', 'image/jpeg', 52516, '2016-07-23 17:03:46.455026', '--- []
+', '--- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","likedby","report") VALUES (30, 'Tanzeel is an idiot!', 0, 0, 1, '2016-07-23 17:19:09.984719', '2016-07-23 17:19:09.984719', '458989879.jpg', 'image/jpeg', 78487, '2016-07-23 17:19:09.850890', '--- []
+', '--- []
+')
+  [1m[36m (0.4ms)[0m  [1mDROP TABLE "feeds"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "feeds" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "message" varchar, "like_count" integer, "comment_count" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "image_file_name" varchar, "image_content_type" varchar, "image_file_size" integer, "image_updated_at" datetime, "report" varchar DEFAULT '--- []
+') 
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_afeeds_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_afeeds_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  CREATE  INDEX "index_feeds_on_user_id" ON "feeds" ("user_id")
+  [1m[36m (0.2ms)[0m  [1mSELECT * FROM "afeeds"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (10, 'bruh', 2, 0, 3, '2016-06-14 15:50:43.775196', '2016-06-20 11:57:42.563335', '1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg', 'image/jpeg', 52516, '2016-06-14 15:50:43.580888', '--- []
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (11, 'new', 2, 0, 8, '2016-06-15 05:08:19.099364', '2016-06-20 11:50:53.780144', '458989879.jpg', 'image/jpeg', 78487, '2016-06-15 05:08:18.885531', '--- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (12, 'new', 3, 10, 8, '2016-06-16 09:33:53.563026', '2016-07-24 15:56:38.699267', 'Cute-puppy-7.jpg', 'image/jpeg', 194126, '2016-06-16 09:33:52.347204', '---
+- 4
+- 3
+- ''3''
+- ''3''
+- 3
+- 3
+- 3
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (13, 'new', 2, 2, 8, '2016-06-16 09:37:22.270833', '2016-06-20 13:25:12.527220', 'cute-dog-and-cat-sitting-together-1024x640.jpg', 'image/jpeg', 133987, '2016-06-16 09:37:22.061258', '--- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (14, 'nice', 2, 0, 12, '2016-06-20 12:38:22.347878', '2016-06-20 13:01:16.745719', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:21.511265', '--- []
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (15, 'nice 2', 1, 0, 12, '2016-06-20 12:38:35.023502', '2016-06-20 12:40:34.924384', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:34.866585', '--- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (16, 'nice 3', 1, 0, 12, '2016-06-20 12:38:39.549407', '2016-06-20 12:43:56.368619', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:39.376660', '--- []
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (17, 'nice 4', 3, 0, 12, '2016-06-20 12:38:49.577452', '2016-06-20 12:50:45.008971', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:49.422807', '--- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (18, 'nice 5', 2, 0, 12, '2016-06-20 12:38:52.922823', '2016-06-20 12:47:48.648792', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:52.760956', '--- []
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (19, 'nice new', 7, 1, 12, '2016-06-20 13:14:01.923817', '2016-07-23 04:50:11.606109', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:01.544928', '--- []
+')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (20, 'nice new', 2, 0, 12, '2016-06-20 13:14:07.063005', '2016-06-24 01:50:00.443038', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:06.951532', '--- []
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (21, 'nice new', 6, 3, 12, '2016-06-20 13:14:08.719673', '2016-07-21 19:49:44.916235', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:08.610393', '---
+- 2
+- 2
+- 2
+- 2
+- 3
+- 4
+- 4
+')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (22, 'nice new', 4, 0, 12, '2016-06-20 13:14:09.804578', '2016-06-24 02:06:23.799279', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:09.679815', '--- []
+')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (23, 'nice new', 1, 0, 12, '2016-06-20 13:14:10.928157', '2016-06-24 02:07:49.262318', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:10.814558', '--- []
+')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (24, 'nice new', 4, 0, 12, '2016-06-20 13:20:54.256966', '2016-06-24 02:09:24.720796', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:20:54.115290', '---
+- 2
+- 2
+- 3
+')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (25, 'nice new', 3, 0, 12, '2016-06-20 13:21:09.195543', '2016-07-21 12:01:21.917928', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:21:09.080972', '--- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (26, 'finally petoye is out!', 0, 0, 2, '2016-07-21 16:37:27.347655', '2016-07-21 16:37:27.347655', 'cute-dog-and-cat-sitting-together-1024x640.jpg', 'image/jpeg', 133987, '2016-07-21 16:37:27.144074', '--- []
+')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (27, 'finally petoye is out!', 0, 0, 2, '2016-07-21 16:38:10.076201', '2016-07-21 16:38:10.076201', 'cute-dog-and-cat-sitting-together-1024x640.jpg', 'image/jpeg', 133987, '2016-07-21 16:38:09.863220', '--- []
+')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (28, 'finally petoye is out!', 0, 0, 2, '2016-07-23 15:53:43.268764', '2016-07-23 15:53:43.268764', '1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg', 'image/jpeg', 52516, '2016-07-23 15:53:42.616236', '--- []
+')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (29, 'finally petoye is out!', 0, 0, 1, '2016-07-23 17:03:47.229930', '2016-07-23 17:03:47.229930', '1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg', 'image/jpeg', 52516, '2016-07-23 17:03:46.455026', '--- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (30, 'Tanzeel is an idiot!', 0, 0, 1, '2016-07-23 17:19:09.984719', '2016-07-23 17:19:09.984719', '458989879.jpg', 'image/jpeg', 78487, '2016-07-23 17:19:09.850890', '--- []
+')
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "afeeds"[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160724170101"]]
+  [1m[36m (2.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_conversations_on_recipient_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_conversations_on_recipient_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_conversations_on_sender_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_conversations_on_sender_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_conversation_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_conversation_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_products_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_products_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddLikedbyidToFeeds (20160724170454)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "feeds" ADD "likedbyid" integer DEFAULT NULL[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160724170454"]]
+  [1m[36m (4.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_conversations_on_recipient_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_conversations_on_recipient_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_conversations_on_sender_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_conversations_on_sender_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_conversation_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_conversation_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_products_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_products_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+
+
+Started POST "/feeds/19/like" for 127.0.0.1 at 2016-07-24 22:38:22 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::FeedsController#likeit as JSON
+  Parameters: {"uid"=>"5", "subdomain"=>"api", "pid"=>"19"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mFeed Load (0.2ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", 19]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 19]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "feeds" SET "likedbyid" = ?, "like_count" = ?, "updated_at" = ? WHERE "feeds"."id" = ?  [["likedbyid", 0], ["like_count", 8], ["updated_at", "2016-07-24 17:08:23.003199"], ["id", 19]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."auth_token" = 'gA9ryxYKyxwzd4nyDyTB' AND "users"."id" != 19) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "notifications" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["notifications", "---\n- Rooney[3] liked your post[19]\n- Benzema[4] liked your post[19]\n- Ronaldo[5] liked your post[19]\n- Ronaldo[5] commented on your post[19]\n- Ronaldo[5] liked your post[19]\n"], ["updated_at", "2016-07-24 17:08:23.044792"], ["id", 19]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 168ms (Views: 8.1ms | ActiveRecord: 4.4ms)
+
+
+Started POST "/feeds/19/like" for 127.0.0.1 at 2016-07-24 22:39:44 +0530
+Processing by Api::V1::FeedsController#likeit as JSON
+  Parameters: {"uid"=>"5", "subdomain"=>"api", "pid"=>"19"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mFeed Load (0.2ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", 19]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 1.6ms)
+
+NoMethodError (undefined method `include?' for 0:Fixnum):
+  app/controllers/api/v1/feeds_controller.rb:26:in `likeit'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (59.6ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (154.1ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (2.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (225.8ms)
+
+
+Started POST "/feeds/19/like" for 127.0.0.1 at 2016-07-24 22:40:38 +0530
+Processing by Api::V1::FeedsController#likeit as JSON
+  Parameters: {"uid"=>"5", "subdomain"=>"api", "pid"=>"19"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mFeed Load (0.2ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", 19]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 1.2ms)
+
+NoMethodError (undefined method `include?' for 0:Fixnum):
+  app/controllers/api/v1/feeds_controller.rb:25:in `likeit'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.5ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (50.6ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (44.5ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (96.7ms)
+
+
+Started POST "/feeds/19/like" for 127.0.0.1 at 2016-07-24 22:40:52 +0530
+Processing by Api::V1::FeedsController#likeit as JSON
+  Parameters: {"uid"=>"6", "subdomain"=>"api", "pid"=>"19"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mFeed Load (0.1ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", 19]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms)
+
+NoMethodError (undefined method `include?' for 0:Fixnum):
+  app/controllers/api/v1/feeds_controller.rb:25:in `likeit'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (48.6ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (41.7ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (99.2ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to AddLikedbyidToFeeds (20160724170454)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TEMPORARY TABLE "afeeds" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "message" varchar, "like_count" integer, "comment_count" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "image_file_name" varchar, "image_content_type" varchar, "image_file_size" integer, "image_updated_at" datetime, "report" varchar DEFAULT '--- []
+', "likedbyid" integer) 
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "tindex_afeeds_on_user_id" ON "afeeds" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "feeds"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (10, 'bruh', 2, 0, 3, '2016-06-14 15:50:43.775196', '2016-06-20 11:57:42.563335', '1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg', 'image/jpeg', 52516, '2016-06-14 15:50:43.580888', '--- []
+', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (11, 'new', 2, 0, 8, '2016-06-15 05:08:19.099364', '2016-06-20 11:50:53.780144', '458989879.jpg', 'image/jpeg', 78487, '2016-06-15 05:08:18.885531', '--- []
+', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (12, 'new', 3, 10, 8, '2016-06-16 09:33:53.563026', '2016-07-24 15:56:38.699267', 'Cute-puppy-7.jpg', 'image/jpeg', 194126, '2016-06-16 09:33:52.347204', '---
+- 4
+- 3
+- ''3''
+- ''3''
+- 3
+- 3
+- 3
+', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (13, 'new', 2, 2, 8, '2016-06-16 09:37:22.270833', '2016-06-20 13:25:12.527220', 'cute-dog-and-cat-sitting-together-1024x640.jpg', 'image/jpeg', 133987, '2016-06-16 09:37:22.061258', '--- []
+', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (14, 'nice', 2, 0, 12, '2016-06-20 12:38:22.347878', '2016-06-20 13:01:16.745719', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:21.511265', '--- []
+', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (15, 'nice 2', 1, 0, 12, '2016-06-20 12:38:35.023502', '2016-06-20 12:40:34.924384', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:34.866585', '--- []
+', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (16, 'nice 3', 1, 0, 12, '2016-06-20 12:38:39.549407', '2016-06-20 12:43:56.368619', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:39.376660', '--- []
+', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (17, 'nice 4', 3, 0, 12, '2016-06-20 12:38:49.577452', '2016-06-20 12:50:45.008971', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:49.422807', '--- []
+', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (18, 'nice 5', 2, 0, 12, '2016-06-20 12:38:52.922823', '2016-06-20 12:47:48.648792', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:52.760956', '--- []
+', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (19, 'nice new', 8, 1, 12, '2016-06-20 13:14:01.923817', '2016-07-24 17:08:23.003199', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:01.544928', '--- []
+', 0)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (20, 'nice new', 2, 0, 12, '2016-06-20 13:14:07.063005', '2016-06-24 01:50:00.443038', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:06.951532', '--- []
+', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (21, 'nice new', 6, 3, 12, '2016-06-20 13:14:08.719673', '2016-07-21 19:49:44.916235', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:08.610393', '---
+- 2
+- 2
+- 2
+- 2
+- 3
+- 4
+- 4
+', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (22, 'nice new', 4, 0, 12, '2016-06-20 13:14:09.804578', '2016-06-24 02:06:23.799279', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:09.679815', '--- []
+', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (23, 'nice new', 1, 0, 12, '2016-06-20 13:14:10.928157', '2016-06-24 02:07:49.262318', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:10.814558', '--- []
+', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (24, 'nice new', 4, 0, 12, '2016-06-20 13:20:54.256966', '2016-06-24 02:09:24.720796', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:20:54.115290', '---
+- 2
+- 2
+- 3
+', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (25, 'nice new', 3, 0, 12, '2016-06-20 13:21:09.195543', '2016-07-21 12:01:21.917928', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:21:09.080972', '--- []
+', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (26, 'finally petoye is out!', 0, 0, 2, '2016-07-21 16:37:27.347655', '2016-07-21 16:37:27.347655', 'cute-dog-and-cat-sitting-together-1024x640.jpg', 'image/jpeg', 133987, '2016-07-21 16:37:27.144074', '--- []
+', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (27, 'finally petoye is out!', 0, 0, 2, '2016-07-21 16:38:10.076201', '2016-07-21 16:38:10.076201', 'cute-dog-and-cat-sitting-together-1024x640.jpg', 'image/jpeg', 133987, '2016-07-21 16:38:09.863220', '--- []
+', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (28, 'finally petoye is out!', 0, 0, 2, '2016-07-23 15:53:43.268764', '2016-07-23 15:53:43.268764', '1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg', 'image/jpeg', 52516, '2016-07-23 15:53:42.616236', '--- []
+', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (29, 'finally petoye is out!', 0, 0, 1, '2016-07-23 17:03:47.229930', '2016-07-23 17:03:47.229930', '1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg', 'image/jpeg', 52516, '2016-07-23 17:03:46.455026', '--- []
+', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (30, 'Tanzeel is an idiot!', 0, 0, 1, '2016-07-23 17:19:09.984719', '2016-07-23 17:19:09.984719', '458989879.jpg', 'image/jpeg', 78487, '2016-07-23 17:19:09.850890', '--- []
+', NULL)[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "feeds"
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "feeds" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "message" varchar, "like_count" integer, "comment_count" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "image_file_name" varchar, "image_content_type" varchar, "image_file_size" integer, "image_updated_at" datetime, "report" varchar DEFAULT '--- []
+') [0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_afeeds_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_afeeds_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_feeds_on_user_id" ON "feeds" ("user_id")[0m
+  [1m[35m (0.3ms)[0m  SELECT * FROM "afeeds"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (10, 'bruh', 2, 0, 3, '2016-06-14 15:50:43.775196', '2016-06-20 11:57:42.563335', '1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg', 'image/jpeg', 52516, '2016-06-14 15:50:43.580888', '--- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (11, 'new', 2, 0, 8, '2016-06-15 05:08:19.099364', '2016-06-20 11:50:53.780144', '458989879.jpg', 'image/jpeg', 78487, '2016-06-15 05:08:18.885531', '--- []
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (12, 'new', 3, 10, 8, '2016-06-16 09:33:53.563026', '2016-07-24 15:56:38.699267', 'Cute-puppy-7.jpg', 'image/jpeg', 194126, '2016-06-16 09:33:52.347204', '---
+- 4
+- 3
+- ''3''
+- ''3''
+- 3
+- 3
+- 3
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (13, 'new', 2, 2, 8, '2016-06-16 09:37:22.270833', '2016-06-20 13:25:12.527220', 'cute-dog-and-cat-sitting-together-1024x640.jpg', 'image/jpeg', 133987, '2016-06-16 09:37:22.061258', '--- []
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (14, 'nice', 2, 0, 12, '2016-06-20 12:38:22.347878', '2016-06-20 13:01:16.745719', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:21.511265', '--- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (15, 'nice 2', 1, 0, 12, '2016-06-20 12:38:35.023502', '2016-06-20 12:40:34.924384', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:34.866585', '--- []
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (16, 'nice 3', 1, 0, 12, '2016-06-20 12:38:39.549407', '2016-06-20 12:43:56.368619', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:39.376660', '--- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (17, 'nice 4', 3, 0, 12, '2016-06-20 12:38:49.577452', '2016-06-20 12:50:45.008971', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:49.422807', '--- []
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (18, 'nice 5', 2, 0, 12, '2016-06-20 12:38:52.922823', '2016-06-20 12:47:48.648792', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:52.760956', '--- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (19, 'nice new', 8, 1, 12, '2016-06-20 13:14:01.923817', '2016-07-24 17:08:23.003199', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:01.544928', '--- []
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (20, 'nice new', 2, 0, 12, '2016-06-20 13:14:07.063005', '2016-06-24 01:50:00.443038', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:06.951532', '--- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (21, 'nice new', 6, 3, 12, '2016-06-20 13:14:08.719673', '2016-07-21 19:49:44.916235', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:08.610393', '---
+- 2
+- 2
+- 2
+- 2
+- 3
+- 4
+- 4
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (22, 'nice new', 4, 0, 12, '2016-06-20 13:14:09.804578', '2016-06-24 02:06:23.799279', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:09.679815', '--- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (23, 'nice new', 1, 0, 12, '2016-06-20 13:14:10.928157', '2016-06-24 02:07:49.262318', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:10.814558', '--- []
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (24, 'nice new', 4, 0, 12, '2016-06-20 13:20:54.256966', '2016-06-24 02:09:24.720796', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:20:54.115290', '---
+- 2
+- 2
+- 3
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (25, 'nice new', 3, 0, 12, '2016-06-20 13:21:09.195543', '2016-07-21 12:01:21.917928', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:21:09.080972', '--- []
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (26, 'finally petoye is out!', 0, 0, 2, '2016-07-21 16:37:27.347655', '2016-07-21 16:37:27.347655', 'cute-dog-and-cat-sitting-together-1024x640.jpg', 'image/jpeg', 133987, '2016-07-21 16:37:27.144074', '--- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (27, 'finally petoye is out!', 0, 0, 2, '2016-07-21 16:38:10.076201', '2016-07-21 16:38:10.076201', 'cute-dog-and-cat-sitting-together-1024x640.jpg', 'image/jpeg', 133987, '2016-07-21 16:38:09.863220', '--- []
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (28, 'finally petoye is out!', 0, 0, 2, '2016-07-23 15:53:43.268764', '2016-07-23 15:53:43.268764', '1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg', 'image/jpeg', 52516, '2016-07-23 15:53:42.616236', '--- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (29, 'finally petoye is out!', 0, 0, 1, '2016-07-23 17:03:47.229930', '2016-07-23 17:03:47.229930', '1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg', 'image/jpeg', 52516, '2016-07-23 17:03:46.455026', '--- []
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (30, 'Tanzeel is an idiot!', 0, 0, 1, '2016-07-23 17:19:09.984719', '2016-07-23 17:19:09.984719', '458989879.jpg', 'image/jpeg', 78487, '2016-07-23 17:19:09.850890', '--- []
+')[0m
+  [1m[35m (0.5ms)[0m  DROP TABLE "afeeds"
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20160724170454"]]
+  [1m[35m (1.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_conversations_on_recipient_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_conversations_on_recipient_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_conversations_on_sender_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_conversations_on_sender_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_conversation_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_conversation_id' AND type='index'
+
+  [1m[36m (1.4ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_products_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_products_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to RemoveLikedbyFromFeeds (20160724170101)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to RemoveLikedbyFromFeeds (20160724170101)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?  [["version", "20160724170101"]]
+  [1m[36m (5.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_conversations_on_recipient_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_conversations_on_recipient_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_conversations_on_sender_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_conversations_on_sender_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_conversation_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_conversation_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_products_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_products_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to AddNotificationsToUsers (20160722182714)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TEMPORARY TABLE "ausers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "owner_type" varchar DEFAULT 'none', "auth_token" varchar DEFAULT '', "username" varchar, "pet_type" varchar, "pet_breed" varchar, "pet_story" varchar, "story_like_count" integer DEFAULT 0, "lat" float, "lng" float, "notifications" varchar DEFAULT '--- []
+') 
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.3ms)[0m  [1mCREATE UNIQUE INDEX "tindex_ausers_on_auth_token" ON "ausers" ("auth_token")[0m
+  [1m[35m (0.1ms)[0m  CREATE UNIQUE INDEX "tindex_ausers_on_reset_password_token" ON "ausers" ("reset_password_token")
+  [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "tindex_ausers_on_email" ON "ausers" ("email")[0m
+  [1m[35m (0.3ms)[0m  SELECT * FROM "users"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng","notifications") VALUES (1, 'ameya@gmail.com', '$2a$11$4I.kN8AL2vd1Pf7ck9QOVOjacMq.eyq0hv5LcjFH5A8Y5lE15nClC', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 08:41:17.783595', '2016-07-24 15:24:39.080578', 'pet owner', 'ynuKyPfM3KnynzHLnRYz', 'anthony martial', 'dog', 'labrador', NULL, 0, NULL, NULL, '--- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng","notifications") VALUES (2, 'ameya123@gmail.com', '$2a$11$7ix7h66h44t3YHwdQ/29f.TlKR0OVzfDU1YN4.t39uC7CakLvtZTm', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:40:50.609841', '2016-06-23 05:13:33.797782', 'pet owner', 'BF9UDYusJtUVosg5BQz7', 'Drinkwater', 'dog', 'pug', 'My dog is the best', 2, 20.0, 76.0, '--- []
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng","notifications") VALUES (3, 'ameya1234@gmail.com', '$2a$11$NhGRfR5MAL.CRf/333YZAOcmZ/MwQsIFMYm9OxKonw7vpFyzbY7Xi', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:41:12.990765', '2016-06-15 09:42:17.169906', 'pet owner', 'tHZ-wkFnpUCrmy1zfhKi', 'Rooney', 'dog', 'labrador', NULL, 0, 10.0, 9.0, '--- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng","notifications") VALUES (4, 'ameya12345@gmail.com', '$2a$11$Dspc2APAaDtMaAC5ACm1x.yV8Ubq/RP1ID8q2Ng//MVVNsz6ysrK.', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:42:40.470589', '2016-06-15 09:42:53.934406', 'pet owner', 'zzwQ-kAyShF_Uek9xdzE', 'Benzema', 'hamster', 'ham', NULL, 0, 8.0, 7.0, '--- []
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng","notifications") VALUES (5, 'ameya1234thget@gmail.com', '$2a$11$CVF8Qfw4ImIqZ3tL3znrcObNLRI2LOIzQTc24ahAqNdXJvg9BMXq.', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:45:48.665184', '2016-06-15 09:46:28.377919', 'pet owner', 'LzeXe6T4hqu8xbXRkJ5U', 'Ronaldo', 'cat', 'indian', NULL, 0, 6.0, 5.0, '--- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng","notifications") VALUES (6, 'ameya1@gmail.com', '$2a$11$ZQZEBpYYISoukLcgjcfFDuhL5M3cvtECMeYl.BByqkK0trKXkqKdG', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:34:40.674675', '2016-06-15 14:35:34.239186', 'pet owner', 'QebPLJgQTsNs6yv4aEGZ', 'Griezmann', 'dog', 'dane', NULL, 0, 4.0, 3.0, '--- []
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng","notifications") VALUES (7, 'ameya2@gmail.com', '$2a$11$vEpTgBUIC5Ux49wza3j1HOGB8iNOjJbTLtC1lllnAtvrlgOU/HmWm', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:34:51.611935', '2016-06-15 14:36:05.717491', 'pet owner', 'pRzN4iKv5yqTSfW1UxLy', 'Messi', 'bird', 'parrot', NULL, 0, 2.0, 1.0, '--- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng","notifications") VALUES (8, 'ameya3@gmail.com', '$2a$11$Qeir/EhDzWcl4Jz1EeKhWOk6Un.MfW7bevnzArIabNd.gpQe74cZu', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:34:58.485124', '2016-06-15 14:37:08.385683', 'pet owner', 'cxQJGLS8wPwHfJZ6tVSL', 'Zlatan', 'dog', 'st. bernard', NULL, 0, 1.0, 2.0, '--- []
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng","notifications") VALUES (9, 'ameya4@gmail.com', '$2a$11$Yz07DSRni7gF.RqmXRsWq.0XgTLIifYtnSbtYNlfBYHEnHYvvRU/m', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:35:08.632886', '2016-06-15 14:37:40.404686', 'pet owner', '3aXPyQNoXdkViffesx9a', 'Payet', 'dog', 'pug', NULL, 0, 3.0, 4.0, '--- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng","notifications") VALUES (10, 'ameya5@gmail.com', '$2a$11$tXJ1j9NRn9zRE/79hBZHU.ydNrwx681o9x2sE0W9mQlGlaK0fUaaS', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:35:13.737255', '2016-06-15 14:35:13.737255', 'none', 'FrDVNRFbYqEyevAywGKe', 'Bale', 'dog', 'beagle', NULL, 0, 5.0, 6.0, '--- []
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng","notifications") VALUES (11, 'tanzeel1@gmail.com', '$2a$11$9xkYE.4X110xIw8zNh.4..jcavz0BsPyLde/cvMHww0bEoCzwdci2', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:29:53.067010', '2016-06-16 06:32:56.650376', 'pet owner', '9f5Cg2FNJULL9o4HAYyM', 'Allen', 'cat', 'indian', NULL, 0, 19.134377, 72.813489, '--- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng","notifications") VALUES (12, 'tanzeel2@gmail.com', '$2a$11$//C5ZOMDVkWccJp0ACbWkukemhucl/nhag0603KMKWd5rCvIHDppO', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:30:14.666754', '2016-06-16 06:33:39.130134', 'pet owner', 'KjJ2oh7H2K1WBAiGsz9D', 'Grujic', 'dog', 'dane', NULL, 0, 19.124377, 72.823489, '--- []
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng","notifications") VALUES (13, 'tanzeel3@gmail.com', '$2a$11$gg0eZOjG8Z6S2RPFUsDqaeRyScOBn7O6XQajzHXIz8AV3eQadz.9m', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:30:31.475669', '2016-07-23 05:15:32.516309', 'pet owner', '4AsKLkX_gtqD_TRBqXKg', 'Karius', 'dog', 'st. bernard', NULL, 0, 20.124377, 80.823489, '---
+- Allen[11] followed you
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng","notifications") VALUES (14, 'tanzeel4@gmail.com', '$2a$11$GQ8wP9bO6u0o2IHun/Dcp.LkvFR32.xwevOaLtScyFdnViBnECZsi', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:31:04.819204', '2016-07-23 05:20:28.802012', 'pet owner', 'JgzssxYeruCMefKizJmi', 'Matip', 'bird', 'lovebirds', NULL, 0, 19.124377, 72.823489, '---
+- Allen[11] followed you
+- Grujic[12] followed you
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng","notifications") VALUES (15, 'tanzeel5@gmail.com', '$2a$11$pnr5DnZQdyw6BtE13nP60.fmz0AOqkfxtH4un4uvM9D8OC6J/FloG', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:31:10.179710', '2016-06-16 06:35:17.818254', 'pet owner', 'HPbZTgz7NXsUWpTWk9vm', 'Bellerin', 'cat', 'persian', NULL, 0, 19.124377, 72.823489, '--- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng","notifications") VALUES (16, 'tanzeel6@gmail.com', '$2a$11$ADdAfAIzI76YFQ4T2YD6Bu76DfT9WhGNL80/cy6py.vx6v7bhirfW', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-20 02:10:08.127925', '2016-06-20 02:10:08.127925', 'none', 'zy1xia5ePLxgpyN4hwDy', 'KDB', 'dog', 'indian', NULL, 0, 7.0, 8.0, '--- []
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng","notifications") VALUES (17, 'tanzeel7@gmail.com', '$2a$11$TIDHXv7HJJ3k9Q6uBePS/OwBZxujS2eSOj83WV5n/ttkdePWvZXwi', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-20 02:10:15.354001', '2016-06-20 02:10:15.354001', 'none', 'tb_VYJ41iubZ9NbL_84Z', 'Vardy', 'hamster', 'ham', NULL, 0, 9.0, 10.0, '--- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng","notifications") VALUES (18, 'tanzeel8@gmail.com', '$2a$11$aQH3.7cJjr7s0lrVBVYzs.u9iD96meZ3Dc40LjSAyBemV.hTF1bXy', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-20 02:10:20.045481', '2016-06-20 02:10:20.045481', 'none', 'C3Tzsov2KLLyPdyp_BGs', 'Mahrez', 'dog', 'labrador', NULL, 0, 11.0, 12.0, '--- []
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng","notifications") VALUES (19, 'ronaldo@gmail.com', '$2a$11$Z9DKPM/r03rEHro5OxlQMuQMifVpFW4SpSJA5SAgutFkOtfnITfQu', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-20 03:05:09.625680', '2016-07-24 17:08:23.044792', 'none', 'gA9ryxYKyxwzd4nyDyTB', 'Morgan', 'dog', 'pug', 'blahblah', 1, 13.0, 14.0, '---
+- Rooney[3] liked your post[19]
+- Benzema[4] liked your post[19]
+- Ronaldo[5] liked your post[19]
+- Ronaldo[5] commented on your post[19]
+- Ronaldo[5] liked your post[19]
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng","notifications") VALUES (20, 'ameyag@gmail.com', '$2a$11$dYrW/5wffFkacIsMs5kwYOhrbYMl4KuXBxfgx38JxQTd11C1EYBtG', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-07-21 16:03:40.509669', '2016-07-21 16:19:53.382424', 'Pet Owner', 'sBUy_UEXUSuccX_U81zm', 'Anthony Martial', 'Dog', 'Labrador', NULL, 0, 14.327643, 15.261733, '--- []
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng","notifications") VALUES (21, 'ameyaga@gmail.com', '$2a$11$5PcGiXEfcxiCnpaQFW/MKOAMfUvum8EYppYan5LDh2VSvykDkv9Oy', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-07-21 16:08:51.059390', '2016-07-21 16:08:51.059390', 'none', 'xPPXHNXiYwXZNKuHx7xn', 'anonymous', NULL, NULL, NULL, 0, NULL, NULL, '--- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng","notifications") VALUES (22, 'ameyaheroku@gmail.com', '$2a$11$5WBkDHLFexJWt6u5j2pmbuMkuIokS/0ueyOT/hijdZCN1UgVxzVPO', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-07-22 10:22:22.471504', '2016-07-22 10:22:22.471504', 'none', 'LQx39NUNDEWm1LPKFyW5', 'anonymous', NULL, NULL, NULL, 0, NULL, NULL, '--- []
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng","notifications") VALUES (23, 'payet@gmail.com', '$2a$11$7wijNNxQp8GWSDRvKRvT3eaAv58/qeHdXJLgk8x5S1xztRfPCoI7G', NULL, NULL, NULL, 1, '2016-07-23 13:34:12.088653', '2016-07-23 13:34:12.088653', '127.0.0.1', '127.0.0.1', '2016-07-23 13:18:53.059817', '2016-07-23 13:34:12.098243', 'none', 'cAjharSbmN12YQ-p1dpY', 'anonymous', NULL, NULL, NULL, 0, NULL, NULL, '--- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng","notifications") VALUES (24, 'keerti@gmail.com', '$2a$11$WirI9nKTNtYcDFA/lQrmUOGoVKXKUY0ntqw4JZHDRQ0a1oi0vorNq', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-07-23 13:40:27.678585', '2016-07-23 13:40:27.678585', 'none', 'wsx7LZV-y8CTCxpg7BgF', 'anonymous', NULL, NULL, NULL, 0, NULL, NULL, '--- []
+')
+  [1m[36m (0.4ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "owner_type" varchar DEFAULT 'none', "auth_token" varchar DEFAULT '', "username" varchar, "pet_type" varchar, "pet_breed" varchar, "pet_story" varchar, "story_like_count" integer DEFAULT 0, "lat" float, "lng" float) 
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_auth_token' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_auth_token" ON "users" ("auth_token")[0m
+  [1m[35m (0.2ms)[0m  SELECT * FROM "ausers"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (1, 'ameya@gmail.com', '$2a$11$4I.kN8AL2vd1Pf7ck9QOVOjacMq.eyq0hv5LcjFH5A8Y5lE15nClC', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 08:41:17.783595', '2016-07-24 15:24:39.080578', 'pet owner', 'ynuKyPfM3KnynzHLnRYz', 'anthony martial', 'dog', 'labrador', NULL, 0, NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (2, 'ameya123@gmail.com', '$2a$11$7ix7h66h44t3YHwdQ/29f.TlKR0OVzfDU1YN4.t39uC7CakLvtZTm', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:40:50.609841', '2016-06-23 05:13:33.797782', 'pet owner', 'BF9UDYusJtUVosg5BQz7', 'Drinkwater', 'dog', 'pug', 'My dog is the best', 2, 20.0, 76.0)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (3, 'ameya1234@gmail.com', '$2a$11$NhGRfR5MAL.CRf/333YZAOcmZ/MwQsIFMYm9OxKonw7vpFyzbY7Xi', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:41:12.990765', '2016-06-15 09:42:17.169906', 'pet owner', 'tHZ-wkFnpUCrmy1zfhKi', 'Rooney', 'dog', 'labrador', NULL, 0, 10.0, 9.0)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (4, 'ameya12345@gmail.com', '$2a$11$Dspc2APAaDtMaAC5ACm1x.yV8Ubq/RP1ID8q2Ng//MVVNsz6ysrK.', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:42:40.470589', '2016-06-15 09:42:53.934406', 'pet owner', 'zzwQ-kAyShF_Uek9xdzE', 'Benzema', 'hamster', 'ham', NULL, 0, 8.0, 7.0)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (5, 'ameya1234thget@gmail.com', '$2a$11$CVF8Qfw4ImIqZ3tL3znrcObNLRI2LOIzQTc24ahAqNdXJvg9BMXq.', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 09:45:48.665184', '2016-06-15 09:46:28.377919', 'pet owner', 'LzeXe6T4hqu8xbXRkJ5U', 'Ronaldo', 'cat', 'indian', NULL, 0, 6.0, 5.0)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (6, 'ameya1@gmail.com', '$2a$11$ZQZEBpYYISoukLcgjcfFDuhL5M3cvtECMeYl.BByqkK0trKXkqKdG', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:34:40.674675', '2016-06-15 14:35:34.239186', 'pet owner', 'QebPLJgQTsNs6yv4aEGZ', 'Griezmann', 'dog', 'dane', NULL, 0, 4.0, 3.0)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (7, 'ameya2@gmail.com', '$2a$11$vEpTgBUIC5Ux49wza3j1HOGB8iNOjJbTLtC1lllnAtvrlgOU/HmWm', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:34:51.611935', '2016-06-15 14:36:05.717491', 'pet owner', 'pRzN4iKv5yqTSfW1UxLy', 'Messi', 'bird', 'parrot', NULL, 0, 2.0, 1.0)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (8, 'ameya3@gmail.com', '$2a$11$Qeir/EhDzWcl4Jz1EeKhWOk6Un.MfW7bevnzArIabNd.gpQe74cZu', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:34:58.485124', '2016-06-15 14:37:08.385683', 'pet owner', 'cxQJGLS8wPwHfJZ6tVSL', 'Zlatan', 'dog', 'st. bernard', NULL, 0, 1.0, 2.0)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (9, 'ameya4@gmail.com', '$2a$11$Yz07DSRni7gF.RqmXRsWq.0XgTLIifYtnSbtYNlfBYHEnHYvvRU/m', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:35:08.632886', '2016-06-15 14:37:40.404686', 'pet owner', '3aXPyQNoXdkViffesx9a', 'Payet', 'dog', 'pug', NULL, 0, 3.0, 4.0)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (10, 'ameya5@gmail.com', '$2a$11$tXJ1j9NRn9zRE/79hBZHU.ydNrwx681o9x2sE0W9mQlGlaK0fUaaS', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-15 14:35:13.737255', '2016-06-15 14:35:13.737255', 'none', 'FrDVNRFbYqEyevAywGKe', 'Bale', 'dog', 'beagle', NULL, 0, 5.0, 6.0)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (11, 'tanzeel1@gmail.com', '$2a$11$9xkYE.4X110xIw8zNh.4..jcavz0BsPyLde/cvMHww0bEoCzwdci2', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:29:53.067010', '2016-06-16 06:32:56.650376', 'pet owner', '9f5Cg2FNJULL9o4HAYyM', 'Allen', 'cat', 'indian', NULL, 0, 19.134377, 72.813489)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (12, 'tanzeel2@gmail.com', '$2a$11$//C5ZOMDVkWccJp0ACbWkukemhucl/nhag0603KMKWd5rCvIHDppO', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:30:14.666754', '2016-06-16 06:33:39.130134', 'pet owner', 'KjJ2oh7H2K1WBAiGsz9D', 'Grujic', 'dog', 'dane', NULL, 0, 19.124377, 72.823489)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (13, 'tanzeel3@gmail.com', '$2a$11$gg0eZOjG8Z6S2RPFUsDqaeRyScOBn7O6XQajzHXIz8AV3eQadz.9m', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:30:31.475669', '2016-07-23 05:15:32.516309', 'pet owner', '4AsKLkX_gtqD_TRBqXKg', 'Karius', 'dog', 'st. bernard', NULL, 0, 20.124377, 80.823489)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (14, 'tanzeel4@gmail.com', '$2a$11$GQ8wP9bO6u0o2IHun/Dcp.LkvFR32.xwevOaLtScyFdnViBnECZsi', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:31:04.819204', '2016-07-23 05:20:28.802012', 'pet owner', 'JgzssxYeruCMefKizJmi', 'Matip', 'bird', 'lovebirds', NULL, 0, 19.124377, 72.823489)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (15, 'tanzeel5@gmail.com', '$2a$11$pnr5DnZQdyw6BtE13nP60.fmz0AOqkfxtH4un4uvM9D8OC6J/FloG', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-16 06:31:10.179710', '2016-06-16 06:35:17.818254', 'pet owner', 'HPbZTgz7NXsUWpTWk9vm', 'Bellerin', 'cat', 'persian', NULL, 0, 19.124377, 72.823489)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (16, 'tanzeel6@gmail.com', '$2a$11$ADdAfAIzI76YFQ4T2YD6Bu76DfT9WhGNL80/cy6py.vx6v7bhirfW', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-20 02:10:08.127925', '2016-06-20 02:10:08.127925', 'none', 'zy1xia5ePLxgpyN4hwDy', 'KDB', 'dog', 'indian', NULL, 0, 7.0, 8.0)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (17, 'tanzeel7@gmail.com', '$2a$11$TIDHXv7HJJ3k9Q6uBePS/OwBZxujS2eSOj83WV5n/ttkdePWvZXwi', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-20 02:10:15.354001', '2016-06-20 02:10:15.354001', 'none', 'tb_VYJ41iubZ9NbL_84Z', 'Vardy', 'hamster', 'ham', NULL, 0, 9.0, 10.0)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (18, 'tanzeel8@gmail.com', '$2a$11$aQH3.7cJjr7s0lrVBVYzs.u9iD96meZ3Dc40LjSAyBemV.hTF1bXy', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-20 02:10:20.045481', '2016-06-20 02:10:20.045481', 'none', 'C3Tzsov2KLLyPdyp_BGs', 'Mahrez', 'dog', 'labrador', NULL, 0, 11.0, 12.0)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (19, 'ronaldo@gmail.com', '$2a$11$Z9DKPM/r03rEHro5OxlQMuQMifVpFW4SpSJA5SAgutFkOtfnITfQu', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-06-20 03:05:09.625680', '2016-07-24 17:08:23.044792', 'none', 'gA9ryxYKyxwzd4nyDyTB', 'Morgan', 'dog', 'pug', 'blahblah', 1, 13.0, 14.0)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (20, 'ameyag@gmail.com', '$2a$11$dYrW/5wffFkacIsMs5kwYOhrbYMl4KuXBxfgx38JxQTd11C1EYBtG', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-07-21 16:03:40.509669', '2016-07-21 16:19:53.382424', 'Pet Owner', 'sBUy_UEXUSuccX_U81zm', 'Anthony Martial', 'Dog', 'Labrador', NULL, 0, 14.327643, 15.261733)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (21, 'ameyaga@gmail.com', '$2a$11$5PcGiXEfcxiCnpaQFW/MKOAMfUvum8EYppYan5LDh2VSvykDkv9Oy', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-07-21 16:08:51.059390', '2016-07-21 16:08:51.059390', 'none', 'xPPXHNXiYwXZNKuHx7xn', 'anonymous', NULL, NULL, NULL, 0, NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (22, 'ameyaheroku@gmail.com', '$2a$11$5WBkDHLFexJWt6u5j2pmbuMkuIokS/0ueyOT/hijdZCN1UgVxzVPO', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-07-22 10:22:22.471504', '2016-07-22 10:22:22.471504', 'none', 'LQx39NUNDEWm1LPKFyW5', 'anonymous', NULL, NULL, NULL, 0, NULL, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (23, 'payet@gmail.com', '$2a$11$7wijNNxQp8GWSDRvKRvT3eaAv58/qeHdXJLgk8x5S1xztRfPCoI7G', NULL, NULL, NULL, 1, '2016-07-23 13:34:12.088653', '2016-07-23 13:34:12.088653', '127.0.0.1', '127.0.0.1', '2016-07-23 13:18:53.059817', '2016-07-23 13:34:12.098243', 'none', 'cAjharSbmN12YQ-p1dpY', 'anonymous', NULL, NULL, NULL, 0, NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","owner_type","auth_token","username","pet_type","pet_breed","pet_story","story_like_count","lat","lng") VALUES (24, 'keerti@gmail.com', '$2a$11$WirI9nKTNtYcDFA/lQrmUOGoVKXKUY0ntqw4JZHDRQ0a1oi0vorNq', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2016-07-23 13:40:27.678585', '2016-07-23 13:40:27.678585', 'none', 'wsx7LZV-y8CTCxpg7BgF', 'anonymous', NULL, NULL, NULL, 0, NULL, NULL)
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "ausers"[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?  [["version", "20160722182714"]]
+  [1m[36m (2.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_conversations_on_recipient_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_conversations_on_recipient_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_conversations_on_sender_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_conversations_on_sender_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_conversation_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_conversation_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_products_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_products_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddNotificationsToUsers (20160722182714)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "users" ADD "notifications" varchar DEFAULT '--- []
+'[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160722182714"]]
+  [1m[36m (5.4ms)[0m  [1mcommit transaction[0m
+Migrating to RemoveLikedbyFromFeeds (20160724170101)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160724170101"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Migrating to AddLikedbyidToFeeds (20160724170454)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "feeds" ADD "likedbyid" integer DEFAULT NULL
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160724170454"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_conversations_on_recipient_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_conversations_on_recipient_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_conversations_on_sender_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_conversations_on_sender_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_conversation_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_conversation_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_products_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_products_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to AddLikedbyidToFeeds (20160724170454)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TEMPORARY TABLE "afeeds" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "message" varchar, "like_count" integer, "comment_count" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "image_file_name" varchar, "image_content_type" varchar, "image_file_size" integer, "image_updated_at" datetime, "report" varchar DEFAULT '--- []
+', "likedbyid" integer) 
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "tindex_afeeds_on_user_id" ON "afeeds" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "feeds"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (10, 'bruh', 2, 0, 3, '2016-06-14 15:50:43.775196', '2016-06-20 11:57:42.563335', '1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg', 'image/jpeg', 52516, '2016-06-14 15:50:43.580888', '--- []
+', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (11, 'new', 2, 0, 8, '2016-06-15 05:08:19.099364', '2016-06-20 11:50:53.780144', '458989879.jpg', 'image/jpeg', 78487, '2016-06-15 05:08:18.885531', '--- []
+', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (12, 'new', 3, 10, 8, '2016-06-16 09:33:53.563026', '2016-07-24 15:56:38.699267', 'Cute-puppy-7.jpg', 'image/jpeg', 194126, '2016-06-16 09:33:52.347204', '---
+- 4
+- 3
+- ''3''
+- ''3''
+- 3
+- 3
+- 3
+', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (13, 'new', 2, 2, 8, '2016-06-16 09:37:22.270833', '2016-06-20 13:25:12.527220', 'cute-dog-and-cat-sitting-together-1024x640.jpg', 'image/jpeg', 133987, '2016-06-16 09:37:22.061258', '--- []
+', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (14, 'nice', 2, 0, 12, '2016-06-20 12:38:22.347878', '2016-06-20 13:01:16.745719', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:21.511265', '--- []
+', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (15, 'nice 2', 1, 0, 12, '2016-06-20 12:38:35.023502', '2016-06-20 12:40:34.924384', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:34.866585', '--- []
+', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (16, 'nice 3', 1, 0, 12, '2016-06-20 12:38:39.549407', '2016-06-20 12:43:56.368619', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:39.376660', '--- []
+', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (17, 'nice 4', 3, 0, 12, '2016-06-20 12:38:49.577452', '2016-06-20 12:50:45.008971', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:49.422807', '--- []
+', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (18, 'nice 5', 2, 0, 12, '2016-06-20 12:38:52.922823', '2016-06-20 12:47:48.648792', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:52.760956', '--- []
+', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (19, 'nice new', 8, 1, 12, '2016-06-20 13:14:01.923817', '2016-07-24 17:08:23.003199', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:01.544928', '--- []
+', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (20, 'nice new', 2, 0, 12, '2016-06-20 13:14:07.063005', '2016-06-24 01:50:00.443038', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:06.951532', '--- []
+', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (21, 'nice new', 6, 3, 12, '2016-06-20 13:14:08.719673', '2016-07-21 19:49:44.916235', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:08.610393', '---
+- 2
+- 2
+- 2
+- 2
+- 3
+- 4
+- 4
+', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (22, 'nice new', 4, 0, 12, '2016-06-20 13:14:09.804578', '2016-06-24 02:06:23.799279', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:09.679815', '--- []
+', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (23, 'nice new', 1, 0, 12, '2016-06-20 13:14:10.928157', '2016-06-24 02:07:49.262318', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:10.814558', '--- []
+', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (24, 'nice new', 4, 0, 12, '2016-06-20 13:20:54.256966', '2016-06-24 02:09:24.720796', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:20:54.115290', '---
+- 2
+- 2
+- 3
+', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (25, 'nice new', 3, 0, 12, '2016-06-20 13:21:09.195543', '2016-07-21 12:01:21.917928', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:21:09.080972', '--- []
+', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (26, 'finally petoye is out!', 0, 0, 2, '2016-07-21 16:37:27.347655', '2016-07-21 16:37:27.347655', 'cute-dog-and-cat-sitting-together-1024x640.jpg', 'image/jpeg', 133987, '2016-07-21 16:37:27.144074', '--- []
+', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (27, 'finally petoye is out!', 0, 0, 2, '2016-07-21 16:38:10.076201', '2016-07-21 16:38:10.076201', 'cute-dog-and-cat-sitting-together-1024x640.jpg', 'image/jpeg', 133987, '2016-07-21 16:38:09.863220', '--- []
+', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (28, 'finally petoye is out!', 0, 0, 2, '2016-07-23 15:53:43.268764', '2016-07-23 15:53:43.268764', '1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg', 'image/jpeg', 52516, '2016-07-23 15:53:42.616236', '--- []
+', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (29, 'finally petoye is out!', 0, 0, 1, '2016-07-23 17:03:47.229930', '2016-07-23 17:03:47.229930', '1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg', 'image/jpeg', 52516, '2016-07-23 17:03:46.455026', '--- []
+', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "afeeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report","likedbyid") VALUES (30, 'Tanzeel is an idiot!', 0, 0, 1, '2016-07-23 17:19:09.984719', '2016-07-23 17:19:09.984719', '458989879.jpg', 'image/jpeg', 78487, '2016-07-23 17:19:09.850890', '--- []
+', NULL)[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "feeds"
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "feeds" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "message" varchar, "like_count" integer, "comment_count" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "image_file_name" varchar, "image_content_type" varchar, "image_file_size" integer, "image_updated_at" datetime, "report" varchar DEFAULT '--- []
+') [0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_afeeds_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_afeeds_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_feeds_on_user_id" ON "feeds" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "afeeds"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (10, 'bruh', 2, 0, 3, '2016-06-14 15:50:43.775196', '2016-06-20 11:57:42.563335', '1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg', 'image/jpeg', 52516, '2016-06-14 15:50:43.580888', '--- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (11, 'new', 2, 0, 8, '2016-06-15 05:08:19.099364', '2016-06-20 11:50:53.780144', '458989879.jpg', 'image/jpeg', 78487, '2016-06-15 05:08:18.885531', '--- []
+')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (12, 'new', 3, 10, 8, '2016-06-16 09:33:53.563026', '2016-07-24 15:56:38.699267', 'Cute-puppy-7.jpg', 'image/jpeg', 194126, '2016-06-16 09:33:52.347204', '---
+- 4
+- 3
+- ''3''
+- ''3''
+- 3
+- 3
+- 3
+')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (13, 'new', 2, 2, 8, '2016-06-16 09:37:22.270833', '2016-06-20 13:25:12.527220', 'cute-dog-and-cat-sitting-together-1024x640.jpg', 'image/jpeg', 133987, '2016-06-16 09:37:22.061258', '--- []
+')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (14, 'nice', 2, 0, 12, '2016-06-20 12:38:22.347878', '2016-06-20 13:01:16.745719', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:21.511265', '--- []
+')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (15, 'nice 2', 1, 0, 12, '2016-06-20 12:38:35.023502', '2016-06-20 12:40:34.924384', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:34.866585', '--- []
+')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (16, 'nice 3', 1, 0, 12, '2016-06-20 12:38:39.549407', '2016-06-20 12:43:56.368619', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:39.376660', '--- []
+')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (17, 'nice 4', 3, 0, 12, '2016-06-20 12:38:49.577452', '2016-06-20 12:50:45.008971', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:49.422807', '--- []
+')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (18, 'nice 5', 2, 0, 12, '2016-06-20 12:38:52.922823', '2016-06-20 12:47:48.648792', 'IMG_2623.JPG', 'image/jpeg', 109767, '2016-06-20 12:38:52.760956', '--- []
+')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (19, 'nice new', 8, 1, 12, '2016-06-20 13:14:01.923817', '2016-07-24 17:08:23.003199', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:01.544928', '--- []
+')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (20, 'nice new', 2, 0, 12, '2016-06-20 13:14:07.063005', '2016-06-24 01:50:00.443038', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:06.951532', '--- []
+')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (21, 'nice new', 6, 3, 12, '2016-06-20 13:14:08.719673', '2016-07-21 19:49:44.916235', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:08.610393', '---
+- 2
+- 2
+- 2
+- 2
+- 3
+- 4
+- 4
+')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (22, 'nice new', 4, 0, 12, '2016-06-20 13:14:09.804578', '2016-06-24 02:06:23.799279', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:09.679815', '--- []
+')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (23, 'nice new', 1, 0, 12, '2016-06-20 13:14:10.928157', '2016-06-24 02:07:49.262318', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:14:10.814558', '--- []
+')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (24, 'nice new', 4, 0, 12, '2016-06-20 13:20:54.256966', '2016-06-24 02:09:24.720796', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:20:54.115290', '---
+- 2
+- 2
+- 3
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (25, 'nice new', 3, 0, 12, '2016-06-20 13:21:09.195543', '2016-07-21 12:01:21.917928', 'IMG_2580.JPG', 'image/jpeg', 10312, '2016-06-20 13:21:09.080972', '--- []
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (26, 'finally petoye is out!', 0, 0, 2, '2016-07-21 16:37:27.347655', '2016-07-21 16:37:27.347655', 'cute-dog-and-cat-sitting-together-1024x640.jpg', 'image/jpeg', 133987, '2016-07-21 16:37:27.144074', '--- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (27, 'finally petoye is out!', 0, 0, 2, '2016-07-21 16:38:10.076201', '2016-07-21 16:38:10.076201', 'cute-dog-and-cat-sitting-together-1024x640.jpg', 'image/jpeg', 133987, '2016-07-21 16:38:09.863220', '--- []
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (28, 'finally petoye is out!', 0, 0, 2, '2016-07-23 15:53:43.268764', '2016-07-23 15:53:43.268764', '1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg', 'image/jpeg', 52516, '2016-07-23 15:53:42.616236', '--- []
+')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (29, 'finally petoye is out!', 0, 0, 1, '2016-07-23 17:03:47.229930', '2016-07-23 17:03:47.229930', '1*7IQ2mo9IJF7c1aHhfzOqIQ.jpeg', 'image/jpeg', 52516, '2016-07-23 17:03:46.455026', '--- []
+')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "feeds" ("id","message","like_count","comment_count","user_id","created_at","updated_at","image_file_name","image_content_type","image_file_size","image_updated_at","report") VALUES (30, 'Tanzeel is an idiot!', 0, 0, 1, '2016-07-23 17:19:09.984719', '2016-07-23 17:19:09.984719', '458989879.jpg', 'image/jpeg', 78487, '2016-07-23 17:19:09.850890', '--- []
+')[0m
+  [1m[35m (0.4ms)[0m  DROP TABLE "afeeds"
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20160724170454"]]
+  [1m[35m (6.1ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_conversations_on_recipient_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_conversations_on_recipient_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_conversations_on_sender_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_conversations_on_sender_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_conversation_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_conversation_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_products_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_products_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_conversations_on_recipient_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_conversations_on_recipient_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_conversations_on_sender_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_conversations_on_sender_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_conversation_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_conversation_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_products_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_products_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddLikedbyToFeeds (20160724171838)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "feeds" ADD "likedby" text DEFAULT '--- []
+'[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160724171838"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_conversations_on_recipient_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_conversations_on_recipient_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_conversations_on_sender_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_conversations_on_sender_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_feeds_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_conversation_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_conversation_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_products_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_products_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_auth_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+
+
+Started POST "/feeds/19/like" for 127.0.0.1 at 2016-07-24 22:49:39 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::FeedsController#likeit as JSON
+  Parameters: {"uid"=>"6", "subdomain"=>"api", "pid"=>"19"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mFeed Load (0.3ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", 19]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 19]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "feeds" SET "likedby" = ?, "like_count" = ?, "updated_at" = ? WHERE "feeds"."id" = ?  [["likedby", "---\n- \n- \n- \n- \n- \n- \n- \n- \n- '6'\n"], ["like_count", 9], ["updated_at", "2016-07-24 17:19:39.806811"], ["id", 19]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."auth_token" = 'gA9ryxYKyxwzd4nyDyTB' AND "users"."id" != 19) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "notifications" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["notifications", "---\n- Griezmann[6] liked your post[19]\n"], ["updated_at", "2016-07-24 17:19:39.834472"], ["id", 19]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 153ms (Views: 11.0ms | ActiveRecord: 6.7ms)
+
+
+Started POST "/feeds/19/like" for 127.0.0.1 at 2016-07-24 22:49:44 +0530
+Processing by Api::V1::FeedsController#likeit as JSON
+  Parameters: {"uid"=>"6", "subdomain"=>"api", "pid"=>"19"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mFeed Load (0.2ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", 19]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+Completed 422 Unprocessable Entity in 10ms (Views: 7.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/feeds/19/like" for 127.0.0.1 at 2016-07-24 22:49:47 +0530
+Processing by Api::V1::FeedsController#likeit as JSON
+  Parameters: {"uid"=>"6", "subdomain"=>"api", "pid"=>"19"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mFeed Load (0.1ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", 19]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+Completed 422 Unprocessable Entity in 11ms (Views: 9.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/feeds/19/like" for 127.0.0.1 at 2016-07-24 22:49:54 +0530
+Processing by Api::V1::FeedsController#likeit as JSON
+  Parameters: {"uid"=>"7", "subdomain"=>"api", "pid"=>"19"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mFeed Load (0.1ms)[0m  SELECT  "feeds".* FROM "feeds" WHERE "feeds"."id" = ? LIMIT 1  [["id", 19]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 19]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "feeds" SET "likedby" = ?, "like_count" = ?, "updated_at" = ? WHERE "feeds"."id" = ?  [["likedby", "---\n- \n- \n- \n- \n- \n- \n- \n- \n- '6'\n- '7'\n"], ["like_count", 10], ["updated_at", "2016-07-24 17:19:54.794812"], ["id", 19]]
+  [1m[36m (31.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."auth_token" = 'gA9ryxYKyxwzd4nyDyTB' AND "users"."id" != 19) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "notifications" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["notifications", "---\n- Griezmann[6] liked your post[19]\n- Messi[7] liked your post[19]\n"], ["updated_at", "2016-07-24 17:19:54.832043"], ["id", 19]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 57ms (Views: 11.6ms | ActiveRecord: 34.2ms)
