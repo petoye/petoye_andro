@@ -28,7 +28,7 @@
       feed.likedby[feed.like_count] = uid
       feed.like_count = feed.like_count + 1
       #notif
-      x_id = feed.id
+      x_id = feed.user_id
       userx = User.find(x_id)
       userx.notifications << @notif
       #end notif

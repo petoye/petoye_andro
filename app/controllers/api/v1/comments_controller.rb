@@ -14,7 +14,7 @@ class Api::V1::CommentsController < ApplicationController
     feed = Feed.find(params[:pid])
     feed.comment_count = feed.comment_count + 1
     #notif
-    x_id = feed.id
+    x_id = feed.user_id
     userx = User.find(x_id)
     userx.notifications << @notif
     #end notif
