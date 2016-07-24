@@ -33,17 +33,33 @@ class Api::V1::ConversationsController < ApplicationController
 
   def all
     r_id = []
+    c_id = []
     u_id = params[:id]
+    #Conversation.where(["sender_id = ? OR recipient_id = ?", u_id, u_id]).each do |u|
+      #if u_id == u.recipient_id
+       # r_id << u.sender_id
+      #elsif u_id == u.sender_id
+       # r_id << u.recipient_id
+      #end
+      #r_id << u.sender_id
+    #end 
+
     Conversation.where(sender_id: u_id).each do |u|
-    r_id << u.recipient_id.to_i
-    end 
+      r_id << u.recipient_id
+      c_id << u.id
+      Conversation.where(recipient_id: u_id).each do |x|
+        r_id << x.sender_id
+        c_id << x.id
+      end
+    end
 
     if r_id.count > 0
       user = User.find([r_id])
-      render json: user.as_json(only:[:username]), status: 201
+      render json: user.as_json(only:[:username,:id]), status: 201
     else
       render json: {errors: "No conversations"}, status: 422
     end
+    #render json: c_id
   end
 
   private
