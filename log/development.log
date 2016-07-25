@@ -40439,3 +40439,137 @@ Geokit is using the domain: localhost.com
   [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "notifications" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["notifications", "---\n- Griezmann[6] liked your post[19]\n- Messi[7] liked your post[19]\n"], ["updated_at", "2016-07-24 17:19:54.832043"], ["id", 19]]
   [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
 Completed 200 OK in 57ms (Views: 11.6ms | ActiveRecord: 34.2ms)
+
+
+Started POST "/users/signup" for 127.0.0.1 at 2016-07-25 10:46:33 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::UsersController#new as JSON
+  Parameters: {"email"=>"ameyavi1@gmail.com", "password"=>"[FILTERED]", "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'ameyavi1@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."auth_token" = '' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "XAVXAWeUtEWq-imqdzZY"]]
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "username", "created_at", "updated_at", "auth_token") VALUES (?, ?, ?, ?, ?, ?)  [["email", "ameyavi1@gmail.com"], ["encrypted_password", "$2a$11$dKFppdFvX.wxBLiK4Ws3z.e3s.IehukNrLFEkDmkEa82S6TfKpDNK"], ["username", "anonymous"], ["created_at", "2016-07-25 05:16:34.162571"], ["updated_at", "2016-07-25 05:16:34.162571"], ["auth_token", "XAVXAWeUtEWq-imqdzZY"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 295ms (Views: 9.1ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2016-07-25 10:47:07 +0530
+Processing by Api::V1::SessionsController#new as JSON
+  Parameters: {"session"=>{"email"=>"ameyavi1@gmail.com", "password"=>"[FILTERED]"}, "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "ameyavi1@gmail.com"]]
+Completed 500 Internal Server Error in 183ms (Views: 8.0ms | ActiveRecord: 0.2ms)
+
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  app/controllers/api/v1/sessions_controller.rb:15:in `new'
+
+
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.8ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (63.6ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (167.2ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/ameyavichare/.rvm/gems/ruby-2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (263.9ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2016-07-25 10:47:20 +0530
+Processing by Api::V1::SessionsController#new as JSON
+  Parameters: {"session"=>{"email"=>"ameyavi1@gmail.com", "password"=>"[FILTERED]"}, "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "ameyavi1@gmail.com"]]
+Completed 422 Unprocessable Entity in 152ms (Views: 9.1ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/users/signup" for 127.0.0.1 at 2016-07-25 18:12:47 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::UsersController#new as JSON
+  Parameters: {"email"=>"ameya123@gmail.com", "password"=>"[FILTERED]", "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (11.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'ameya123@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (8.9ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."auth_token" = '' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 384ms (Views: 8.8ms | ActiveRecord: 20.7ms)
+
+
+Started POST "/users/signup" for 127.0.0.1 at 2016-07-25 18:13:02 +0530
+Processing by Api::V1::UsersController#new as JSON
+  Parameters: {"email"=>"ameya12345@gmail.com", "password"=>"[FILTERED]", "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'ameya12345@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."auth_token" = '' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 140ms (Views: 6.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/signup" for 127.0.0.1 at 2016-07-25 18:13:30 +0530
+Processing by Api::V1::UsersController#new as JSON
+  Parameters: {"email"=>"hello@gmail.com", "password"=>"[FILTERED]", "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'hello@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."auth_token" = '' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "zCFvHbC4KXKYFcmAKoow"]]
+  [1m[35mSQL (15.7ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "username", "created_at", "updated_at", "auth_token") VALUES (?, ?, ?, ?, ?, ?)  [["email", "hello@gmail.com"], ["encrypted_password", "$2a$11$4bM3yIpysDdnzHpQSr7ue.xmdWSo1Y3HeRWt2LGKerCWk6HkAMpyK"], ["username", "anonymous"], ["created_at", "2016-07-25 12:43:30.985665"], ["updated_at", "2016-07-25 12:43:30.985665"], ["auth_token", "zCFvHbC4KXKYFcmAKoow"]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 173ms (Views: 10.1ms | ActiveRecord: 17.5ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2016-07-25 18:14:22 +0530
+Processing by Api::V1::SessionsController#new as JSON
+  Parameters: {"session"=>{"email"=>"hello@gmail.com", "password"=>"[FILTERED]"}, "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "hello@gmail.com"]]
+Completed 422 Unprocessable Entity in 147ms (Views: 7.1ms | ActiveRecord: 0.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 26]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'hello2@gmail.com' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."auth_token" = '' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."auth_token" = ? LIMIT 1  [["auth_token", "emc48KsrSb8kwx2tJ44V"]]
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "auth_token") VALUES (?, ?, ?, ?, ?)[0m  [["email", "hello2@gmail.com"], ["encrypted_password", "$2a$11$UCIcpORjgg1j.OqvMVuNgen2I1gLvNeWzAQae2FJRrplx/WfqUEy2"], ["created_at", "2016-07-25 13:14:51.533233"], ["updated_at", "2016-07-25 13:14:51.533233"], ["auth_token", "emc48KsrSb8kwx2tJ44V"]]
+  [1m[35m (1.5ms)[0m  commit transaction
+
+
+Started POST "/users/signup" for 127.0.0.1 at 2016-07-25 18:56:28 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::UsersController#new as JSON
+  Parameters: {"email"=>"hello123@gmail.com", "password"=>"[FILTERED]", "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'hello123@gmail.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."auth_token" = '' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "7X5yemjh9fC8qHQFuGyT"]]
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "username", "created_at", "updated_at", "auth_token") VALUES (?, ?, ?, ?, ?, ?)  [["email", "hello123@gmail.com"], ["encrypted_password", "$2a$11$5iprjjN1hiY0x9Io//P9U.4E7AHZ3qal9tSQMoy2dsBMGN7MjFk6m"], ["username", "anonymous"], ["created_at", "2016-07-25 13:26:29.540260"], ["updated_at", "2016-07-25 13:26:29.540260"], ["auth_token", "7X5yemjh9fC8qHQFuGyT"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 191ms (Views: 9.6ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2016-07-25 18:57:13 +0530
+Processing by Api::V1::SessionsController#new as JSON
+  Parameters: {"session"=>{"email"=>"hello123@gmail.com", "password"=>"[FILTERED]"}, "subdomain"=>"api"}
+Can't verify CSRF token authenticity
+Geokit is using the domain: localhost.com
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "hello123@gmail.com"]]
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."auth_token" = ? LIMIT 1[0m  [["auth_token", "-gcF3QaYUgQarRissbiG"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."auth_token" = '-gcF3QaYUgQarRissbiG' AND "users"."id" != 28) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "auth_token" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["auth_token", "-gcF3QaYUgQarRissbiG"], ["updated_at", "2016-07-25 13:27:14.144342"], ["id", 28]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 248ms (Views: 35.7ms | ActiveRecord: 2.3ms)

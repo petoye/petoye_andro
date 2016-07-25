@@ -1,19 +1,18 @@
 class Api::V1::SessionsController < ApplicationController
-  def create
+  def new
     user_password = params[:session][:password]
     user_email = params[:session][:email]
     user = user_email.present? && User.find_by(email: user_email)
-    #flag = user.valid_password? params[:session][:password]
 
-    if user and BCrypt::Engine.hash_secret(user_password,user.encrypted_password) == user.encrypted_password
-      sign_in user
+    if user and user.valid_password?(user_password)
+      #sign_in user
       user.generate_authentication_token!
       user.save
       render json: user.as_json(only:[:id]), status: 200, location: [:api, user]
     else
       render json: { errors: "Invalid email or password"}, status: 422
     end
-    render json: user
+    #render json: user
   end
   #def create     
    # if params[:session][:email].blank? || params[:session][:password].blank?       

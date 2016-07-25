@@ -12,15 +12,15 @@ Rails.application.routes.draw do
       post '/users/:id/poststory', to: 'users#poststory' #working
       get '/users/:id/likestory', to: 'users#likestory' #working
       get '/users/:id/posts', to: 'users#userposts' #working
-      post '/:myid/follow', to: 'users#follow' #done #working adding record but giving 500 error on return
-      get 'users/:id/showprofile', to: 'users#showprofile' ##working
+      post '/:myid/follow', to: 'users#follow' #working
+      get 'users/:id/showprofile', to: 'users#showprofile' #working
       get 'users/:myid/:hisid/checkfollowing', to: 'users#checkfollowing' #working
       get '/users/:id/discover', to: 'users#discover' #working
       get '/users/:query/:parameter/search', to: 'users#search' #working
-      get '/users/:id/notifications', to: 'users#notification' #problem
+      get '/users/:id/notifications', to: 'users#notification' #working
 
       resources :sessions
-      post '/users/login', to: 'sessions#create' #problem
+      post '/users/login', to: 'sessions#new' #working
 
 
        resources :feeds, :only => [:index] 
@@ -29,14 +29,14 @@ Rails.application.routes.draw do
        get '/feeds/:uid/followedfeeds', to: 'feeds#followeduserfeeds' #working
        get '/feeds/:id/time', to: 'feeds#timeelapsed' 
 
-       post 'feeds/:pid/comment', to: 'comments#addcomment', as: "comment_users" #done #comment is added but giving 500 error, problem in notification
+       post 'feeds/:pid/comment', to: 'comments#addcomment', as: "comment_users" #working
        get 'feeds/:pid/showcomment', to: 'comments#showcomment' #working
 
        post '/feeds/:pid/like', to: 'feeds#likeit' #working #removed serialize: array from feeds model
        get '/feeds/:pid/showlike', to: 'feeds#showlikes' #working
        post '/feeds/:pid/dislike', to: 'feeds#dislikeit' #working
 
-       post '/feeds/:pid/report', to: 'feeds#report' #done #problem
+       post '/feeds/:pid/report', to: 'feeds#report' #working
 
        resources :adoptions
        post '/adopt/:id/createadoption', to: 'adoptions#newadoption' #working

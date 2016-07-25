@@ -5,7 +5,7 @@ class Api::V1::UsersController < ApplicationController
   def new
     user_password = params[:password]
     user_email = params[:email]
-    user=User.new({email:  user_email  ,password: user_email, username: "anonymous"})
+    user=User.new({email: user_email,password: user_password, username: "anonymous"})
     if user.save
       render json: user.as_json(only:[:id]), status: 201
     else
