@@ -114,7 +114,7 @@
     end 
     if r_id.count > 0
       feed = Feed.where(user_id: [r_id])
-      render json: feed.as_json(only:[:id,:message,:like_count,:comment_count], include: { user: {only: :username,:id}}), status: 200
+      render json: feed.as_json(only:[:id,:message,:like_count,:comment_count], include: { user: {only: [:username,:id]}}), status: 200
     else
       render json: { errors: "No followed users" }, status: 422
     end
