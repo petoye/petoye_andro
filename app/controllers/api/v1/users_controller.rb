@@ -143,7 +143,7 @@ class Api::V1::UsersController < ApplicationController
     d_id = x_id - f_id
 
     user = User.where(id: [d_id]).within(50, origin: [@lat,@long])
-    render json: user.as_json(only:[:username, :owner_type, :pet_breed, :pet_type]), status: 200
+    render json: user.as_json(only:[:id, :username, :owner_type, :pet_breed, :pet_type]), status: 200
   end
 
 
