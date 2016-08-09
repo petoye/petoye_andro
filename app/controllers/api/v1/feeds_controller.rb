@@ -5,7 +5,7 @@
     id = params[:uid]
     #msg = params[:message]
     img = params[:image]
-    feed = Feed.new({user_id: id, like_count: 0, comment_count: 0, image: img})
+    feed = Feed.new({user_id: id, message: "wow", like_count: 0, comment_count: 0, image: img})
     if feed.save
       render json: feed.as_json(only:[:id]), status:201
     else
