@@ -6,6 +6,7 @@
     msg = params[:message]
     img = params[:image]
     feed = Feed.new({user_id: id, message: msg, like_count: 0, comment_count: 0, image: img})
+    feed.save
     feed.imageurl = feed.image.url(:medium)
     feed.smallimageurl = feed.image.url(:thumb)
     if feed.save
