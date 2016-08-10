@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160724171838) do
+ActiveRecord::Schema.define(version: 20160810130035) do
 
   create_table "adoptions", force: :cascade do |t|
     t.integer  "user_id"
@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(version: 20160724171838) do
     t.datetime "image_updated_at"
     t.string   "report",             default: "--- []\n"
     t.text     "likedby",            default: "--- []\n"
+    t.string   "imageurl"
+    t.string   "smallimageurl"
   end
 
   add_index "feeds", ["user_id"], name: "index_feeds_on_user_id"
