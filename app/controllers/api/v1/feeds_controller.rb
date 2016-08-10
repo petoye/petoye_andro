@@ -6,10 +6,10 @@
     msg = params[:message]
     img = params[:image]
     feed = Feed.new({user_id: id, message: msg, like_count: 0, comment_count: 0, image: img})
-    feed.imageurl = feed.image.url(:medium)
-    feed.smallimageurl = feed.image.url(:thumb)
     if feed.save
       render json: feed.as_json(only:[:id]), status:201
+      feed.imageurl = feed.image.url(:medium)
+      feed.smallimageurl = feed.image.url(:thumb)
     else
       render json: {errors: "Could not create post"}, status: 422
     end
