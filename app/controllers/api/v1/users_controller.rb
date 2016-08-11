@@ -13,6 +13,33 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+  def fbnew
+    user_email = params[:email]
+    user_password = params[:password]
+    u = params[:username]
+    user_name = u.downcase
+
+    lat1 = params[:lat]
+    lng1 = params[:lng]
+
+    o_t = params[:otype]
+    o_type=o_t.downcase
+    p_t = params[:ptype]
+    p_type = p_t.downcase
+    b = params[:breed]
+    breed = b.downcase
+
+    p_url = params[:url]
+
+    user=User.new({email: user_email,password: user_password, username: user_name, owner_type: o_type, pet_type: p_type, pet_breed: breed, lat: lat1, lng: lng1})
+
+    if user.save
+      render json: user.as_json(only:[:id,:username]), status: 200
+    else
+      render json: {errors: "profile not set"}, status: 422
+    end
+  end
+
   def info
     user=User.find(params[:id])
     o_t = params[:otype]

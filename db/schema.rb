@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160810130035) do
+ActiveRecord::Schema.define(version: 20160811105217) do
 
   create_table "adoptions", force: :cascade do |t|
     t.integer  "user_id"
@@ -114,6 +114,7 @@ ActiveRecord::Schema.define(version: 20160810130035) do
     t.float    "lat"
     t.float    "lng"
     t.string   "notifications",          default: "--- []\n"
+    t.string   "imageurl"
   end
 
   add_index "users", ["auth_token"], name: "index_users_on_auth_token", unique: true

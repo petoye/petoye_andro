@@ -8,6 +8,7 @@ Rails.application.routes.draw do
               constraints: ApiConstraints.new(version: 1, default: true) do
     	resources :users
       post '/users/signup', to: 'users#new', as: "new_user" #working
+      post '/users/fb', to: 'users#fbnew'
       post '/users/:id/basicinfo', to: 'users#info', as: "info_user" #working
       post '/users/:id/poststory', to: 'users#poststory' #working
       get '/users/:id/likestory', to: 'users#likestory' #working
