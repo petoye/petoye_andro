@@ -105,7 +105,7 @@
     @lat = latstr.to_f
     @long = longstr.to_f
     nearbyuser = User.where.not(id: uid).within(1, origin: [@lat,@long]) 
-    render json: nearbyuser.as_json(only:[:username,:id] ,include: { feeds: {only:[:id,:message,:like_count,:comment_count,:imageurl,:created_at]}}), status: 201
+    render json: nearbyuser.as_json(only:[:username,:id,:imageurl] ,include: { feeds: {only:[:id,:message,:like_count,:comment_count,:imageurl,:created_at]}}), status: 201
   end
 
 
@@ -117,7 +117,7 @@
     end 
     if r_id.count > 0
       feed = Feed.where(user_id: [r_id])
-      render json: feed.as_json(only:[:id,:message,:like_count,:comment_count,:imageurl,:created_at], include: { user: {only: [:username,:id]}}), status: 200
+      render json: feed.as_json(only:[:id,:message,:like_count,:comment_count,:imageurl,:created_at], include: { user: {only: [:username,:id,:imageurl]}}), status: 200
     else
       render json: { errors: "No followed users" }, status: 422
     end
