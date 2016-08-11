@@ -31,7 +31,7 @@ class Api::V1::UsersController < ApplicationController
 
     p_url = params[:url]
 
-    user=User.new({email: user_email,password: user_password, username: user_name, owner_type: o_type, pet_type: p_type, pet_breed: breed, lat: lat1, lng: lng1})
+    user=User.new({email: user_email,password: user_password, username: user_name, owner_type: o_type, pet_type: p_type, pet_breed: breed, lat: lat1, lng: lng1, imageurl: p_url})
 
     if user.save
       render json: user.as_json(only:[:id,:username]), status: 200
