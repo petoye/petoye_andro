@@ -7,7 +7,7 @@
     img = params[:image]
     feed = Feed.new({user_id: id, message: msg, like_count: 0, comment_count: 0, image: img})
     feed.save
-    feed.imageurl = feed.image.url(:medium)
+    feed.imageurl = feed.image.url(:original)
     feed.smallimageurl = feed.image.url(:thumb)
     if feed.save
       render json: feed.as_json(only:[:id]), status:201
