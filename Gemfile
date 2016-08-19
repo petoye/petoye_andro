@@ -34,8 +34,6 @@ gem 'geokit-rails'
 
 gem 'devise', '~> 4.1'
 
-
-
 group :development, :test do
   gem 'byebug'
 end

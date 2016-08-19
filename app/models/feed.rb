@@ -10,4 +10,11 @@ class Feed < ActiveRecord::Base
   validates_attachment :image, content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
   validates_with AttachmentSizeValidator, attributes: :image, less_than: 1.megabytes
   validates_with AttachmentPresenceValidator, attributes: :image
+
+
+def self.popularity!(count, weight: 3)
+  count * weight
+end
+
+
 end
