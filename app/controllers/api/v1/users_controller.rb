@@ -186,7 +186,7 @@ class Api::V1::UsersController < ApplicationController
       @x = 'pet_breed'
     end
 
-    user = User.where("#{@x} LIKE ?","%#{name}%")
+    user = User.where("#{@x} LIKE ?","#{name}%")
     render json: user.as_json(only:[:username, :owner_type, :pet_breed, :pet_type]), status: 302
     #render json: name
   end
