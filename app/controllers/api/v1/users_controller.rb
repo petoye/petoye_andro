@@ -107,7 +107,7 @@ class Api::V1::UsersController < ApplicationController
     uid = params[:id]
     feed = Feed.where(user_id: uid).all
     if feed.exists?
-      render json: feed.as_json(only:[:message,:like_count,:comment_count], include: { user: {only: :username}}), status: 200
+      render json: feed.as_json(only:[:id,:created_at,:message,:like_count,:comment_count,:imageurl], include: { user: {only: :username}}), status: 200
     else
       render json: { errors: "no posts" }, status: 422
     end
