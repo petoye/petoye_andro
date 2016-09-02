@@ -20,7 +20,7 @@ class Api::V1::AdoptionsController < ApplicationController
   def show
     adoption = Adoption.all
     if adoption
-      render json: adoption.as_json(only:[:pet_type,:breed,:age,:description], include: { user: {only: :username}}), status: 200
+      render json: adoption.as_json(only:[:pet_type,:breed,:age,:description], include: { user: {only:[:username,:id]}}), status: 200
     else
       render json: { errors: "No adoptions"}, status: 422
     end
