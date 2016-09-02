@@ -50,7 +50,7 @@
     l_id << feed.likedby
     if feed.likedby.count > 0
       user = User.find([l_id])
-      render json: user.as_json(only:[:username]), status: 200
+      render json: user.as_json(only:[:username,:id]), status: 200
     else
       render json: { errors: "No likes yet" }, status: 422
     end
