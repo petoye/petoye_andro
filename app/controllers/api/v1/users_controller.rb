@@ -187,8 +187,11 @@ class Api::V1::UsersController < ApplicationController
     end
 
     user = User.where("#{@x} LIKE ?","#{name}%")
-    render json: user.as_json(only:[:id, :username, :owner_type, :pet_breed, :pet_type, :imageurl]), status: 302
-    #render json: name
+    if user.exists? 
+      render json: user.as_json(only:[:id, :username, :owner_type, :pet_breed, :pet_type, :imageurl]), status: 302
+    else 
+      render json: {errors: "No users"}, status: 422
+    end
   end
 
   def notification
