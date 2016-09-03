@@ -9,7 +9,9 @@ class Api::V1::AdoptionsController < ApplicationController
     des = params[:description]
     img = params[:image]
     adoption = Adoption.new({user_id: uid, pet_type: typ, breed: br, age: ag, description: des, image: img})
-
+    adoption.save
+    adoption.imageurl = adoption.image.url(:original)
+    adoption.smallimageurl = adoption.image.url(:thumb)
     if adoption.save
       render json: adoption.as_json(only:[:id]), status: 201
     else
@@ -20,7 +22,7 @@ class Api::V1::AdoptionsController < ApplicationController
   def show
     adoption = Adoption.all
     if adoption
-      render json: adoption.as_json(only:[:pet_type,:breed,:age,:description], include: { user: {only:[:username,:id]}}), status: 200
+      render json: adoption.as_json(only:[:pet_type,:breed,:age,:description,:imageurl], include: { user: {only:[:username,:id]}}), status: 200
     else
       render json: { errors: "No adoptions"}, status: 422
     end
