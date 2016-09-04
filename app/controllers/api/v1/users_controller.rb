@@ -34,7 +34,7 @@ class Api::V1::UsersController < ApplicationController
 
     p_url = params[:url]
 
-    user=User.new({email: user_email,password: user_password, username: user_name, owner_type: o_type, pet_type: p_type, pet_breed: breed, lat: lat1, lng: lng1, imageurl: p_url, city: user_city})
+    user=User.new({email: user_email,password: user_password, username: user_name, owner_type: o_type, pet_type: p_type, pet_breed: breed, lat: lat1, lng: lng1, imageurl: p_url, city: user_city,followercount: 0})
 
     if user.save
       render json: user.as_json(only:[:id,:username]), status: 200
@@ -56,8 +56,11 @@ class Api::V1::UsersController < ApplicationController
     lat = params[:lat]
     lng = params[:lng]
 
+
     res=Geokit::Geocoders::GoogleGeocoder.reverse_geocode "#{lat},#{lng}"
     user.city = res.city
+
+    user.followercount = 0
 
     user.lat = lat
     user.lng = lng
