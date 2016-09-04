@@ -131,6 +131,11 @@ class Api::V1::UsersController < ApplicationController
     @notif = "#{uname}[#{follower}] followed you"
     #end notif
 
+    #follower count
+
+    followeduser = User.find(following)
+    followeduser.followerno = followeduser.followerno + 1
+
     follow = Follow.where({ follower_id: follower, following_id: following})
     if follow.exists?
       already_following = true
