@@ -46,7 +46,7 @@ class Api::V1::ConversationsController < ApplicationController
 
     if r_id.count > 0
       user = User.find([r_id])
-      render json: user.as_json(only:[:username,:id]), status: 201
+      render json: user.as_json(only:[:username,:id,:imageurl]), status: 201
     else
       render json: {errors: "No conversations"}, status: 422
     end

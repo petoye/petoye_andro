@@ -84,7 +84,7 @@ class Api::V1::UsersController < ApplicationController
   def showprofile
     user = User.find(params[:id])
     if user.save
-      render json: user.as_json(only:[:id,:username, :owner_type, :pet_type, :pet_breed, :city, :followers, :pet_name, :pet_age, :pet_breeding]), status: 200
+      render json: user.as_json(only:[:id,:username, :owner_type, :pet_type, :pet_breed, :city, :followers, :pet_name, :pet_age, :pet_breeding, :imageurl, :headerurl]), status: 200
     else
       render json: {errors: "can't show profile" }, status: 422
     end
@@ -217,7 +217,7 @@ class Api::V1::UsersController < ApplicationController
     d_id = x_id - f_id
 
     user = User.where(id: [d_id]).within(50, origin: [@lat,@long])
-    render json: user.as_json(only:[:id, :username, :owner_type, :pet_breed, :pet_type]), status: 200
+    render json: user.as_json(only:[:id, :username, :owner_type, :pet_breed, :pet_type, :imageurl]), status: 200
   end
 
 
@@ -243,7 +243,7 @@ class Api::V1::UsersController < ApplicationController
 
   def notification
     user = User.find(params[:id])
-    render json: user.as_json(only:[:notifications]), status: 200
+    render json: user.as_json(only:[:notifications,:imageurl]), status: 200
   end
 
 end
