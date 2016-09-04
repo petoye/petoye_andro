@@ -134,8 +134,7 @@ class Api::V1::UsersController < ApplicationController
 
     #follower count
 
-    followeduser = User.find(following)
-    followeduser.followers = followeduser.followers + 1
+    
 
     follow = Follow.where({ follower_id: follower, following_id: following})
     if follow.exists?
@@ -144,6 +143,10 @@ class Api::V1::UsersController < ApplicationController
 
     if already_following == false
       follow = Follow.new({ follower_id: follower, following_id: following })
+
+      followeduser = User.find(following)
+      followeduser.followers = followeduser.followers + 1
+
       #notif
         userx = User.find(following)
         userx.notifications << @notif
