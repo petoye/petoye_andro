@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160904063234) do
+ActiveRecord::Schema.define(version: 20160904065121) do
 
   create_table "adoptions", force: :cascade do |t|
     t.integer  "user_id"
@@ -131,6 +131,7 @@ ActiveRecord::Schema.define(version: 20160904063234) do
     t.string   "header_content_type"
     t.integer  "header_file_size"
     t.datetime "header_updated_at"
+    t.string   "headerurl"
   end
 
   add_index "users", ["auth_token"], name: "index_users_on_auth_token", unique: true
