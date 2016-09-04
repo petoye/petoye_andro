@@ -100,16 +100,21 @@ class Api::V1::UsersController < ApplicationController
     breed = params[:breed]
     prof = params[:profilepic]
     head = params[:header]
-    
-    user.save
-    user.imageurl = user.profilepic.url(:original)
-    user.headerurl = user.header.url(:original)
+
+    user.profilepic = prof
+    user.header = head
 
     user.username = user_name
     user.pet_name = name
     user.pet_age = age
     user.pet_type = type
     user.pet_breed = breed
+
+    user.save
+    user.imageurl = user.profilepic.url(:original)
+    user.headerurl = user.header.url(:original)
+
+    
 
     if user.save
       render json: user.as_json(only:[:id,:username]), status: 200
