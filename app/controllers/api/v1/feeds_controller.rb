@@ -105,7 +105,12 @@
     @lat = latstr.to_f
     @long = longstr.to_f
     nearbyuser = User.where.not(id: uid).within(1, origin: [@lat,@long]) 
-    render json: nearbyuser.as_json(only:[:username,:id,:imageurl] ,include: { feeds: {only:[:id,:message,:like_count,:comment_count,:imageurl,:created_at]}}), status: 201
+
+    if nearbyuser.exists?
+      render json: nearbyuser.as_json(only:[:username,:id,:imageurl] ,include: { feeds: {only:[:id,:message,:like_count,:comment_count,:imageurl,:created_at]}}), status: 201
+    else
+      render json: { errors: "No nearby posts" }, status: 422
+    end
   end
 
 
