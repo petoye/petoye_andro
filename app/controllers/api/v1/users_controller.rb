@@ -83,10 +83,32 @@ class Api::V1::UsersController < ApplicationController
 
   def showprofile
     user = User.find(params[:id])
-    if user.save
+    if user.exists?
       render json: user.as_json(only:[:id,:username, :owner_type, :pet_type, :pet_breed, :city, :followers, :pet_name, :pet_age, :pet_breeding]), status: 200
     else
       render json: {errors: "can't show profile" }, status: 422
+    end
+  end
+
+  def editprofile
+    user = User.find(params[:id])
+    name = params[:pname]
+    age = params[:page]
+    breeding = params[:breeding]
+    user_name = params[:username]
+    type = params[:type]
+    breed = params[:breed]
+
+    user.username = user_name
+    user.pet_name = name
+    user.pet_age = age
+    user.pet_type = type
+    user.pet_breed = breed
+
+    if user.save
+      render json: user.as_json(only:[:id,:username]), status: 200
+    else
+      render json: {errors: "profile not set"}, status: 422
     end
   end
 
