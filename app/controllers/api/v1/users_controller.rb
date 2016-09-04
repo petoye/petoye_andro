@@ -84,7 +84,7 @@ class Api::V1::UsersController < ApplicationController
   def showprofile
     user = User.find(params[:id])
     if user.save
-      render json: user.as_json(only:[:id,:username, :owner_type, :pet_breed, :pet_story, :story_like_count,:city,:followercount]), status: 200
+      render json: user.as_json(only:[:id,:username, :owner_type, :pet_breed, :pet_story, :story_like_count,:city,:followers]), status: 200
     else
       render json: {errors: "can't show profile" }, status: 422
     end
@@ -135,7 +135,7 @@ class Api::V1::UsersController < ApplicationController
     #follower count
 
     followeduser = User.find(following)
-    followeduser.followercount = followeduser.followercount + 1
+    followeduser.followers = followeduser.followers + 1
 
     follow = Follow.where({ follower_id: follower, following_id: following})
     if follow.exists?
