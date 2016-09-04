@@ -98,6 +98,12 @@ class Api::V1::UsersController < ApplicationController
     user_name = params[:username]
     type = params[:type]
     breed = params[:breed]
+    prof = params[:profilepic]
+    head = params[:header]
+    
+    user.save
+    user.imageurl = user.profilepic.url(:original)
+    user.headerurl = user.header.url(:original)
 
     user.username = user_name
     user.pet_name = name
