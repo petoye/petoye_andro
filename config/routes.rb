@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       get '/users/:id/discover', to: 'users#discover' #working
       get '/users/:query/:parameter/search', to: 'users#search' #working
       get '/users/:id/notifications', to: 'users#notification' #working
-      post '/users/:id/editprofile', to: 'user#editprofile'
+      post '/users/:id/editprofile', to: 'users#editprofile'
 
       resources :sessions
       post '/users/login', to: 'sessions#new' #working
