@@ -83,7 +83,7 @@ class Api::V1::UsersController < ApplicationController
   def showprofile
     user = User.find(params[:id])
     if user.save
-      render json: user.as_json(only:[:id,:username, :owner_type, :pet_breed, :pet_story, :story_like_count,:city]), status: 200
+      render json: user.as_json(only:[:id,:username, :owner_type, :pet_breed, :pet_story, :story_like_count,:city,:followerno]), status: 200
     else
       render json: {errors: "can't show profile" }, status: 422
     end
