@@ -16,6 +16,17 @@ class User < ActiveRecord::Base
  #serialize :notifications, Array
  validates_length_of :pet_story, maximum: 300
  acts_as_mappable
+
+  has_attached_file :profilepic, styles: { original: "138x138>", thumb: "55x55>" }, default_url: "/images/:style/missing.png"
+  validates_attachment :profilepic, content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
+  #validates_with AttachmentSizeValidator, attributes: :profilepic, less_than: 1.megabytes
+  validates_with AttachmentPresenceValidator, attributes: :profilepic
+
+  has_attached_file :header, styles: { original: "185x185>" }, default_url: "/images/:style/missing.png"
+  validates_attachment :header, content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
+  #validates_with AttachmentSizeValidator, attributes: :profilepic, less_than: 1.megabytes
+  validates_with AttachmentPresenceValidator, attributes: :header
+
  def generate_authentication_token!
     begin
       self.auth_token = Devise.friendly_token
