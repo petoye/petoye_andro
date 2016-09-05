@@ -29,7 +29,7 @@ class Api::V1::CommentsController < ApplicationController
     pid = params[:pid]
     comment = Comment.where(post_id: pid).all
     if comment.exists?
-      render json: comment.as_json(only:[:comment_message] ,include: { user: {only: [:username,:id]}}), status: 200
+      render json: comment.as_json(only:[:comment_message] ,include: { user: {only: [:username,:id,:imageurl]}}), status: 200
     else
       render json: {errors: "No comments yet"}, status: 422
     end
