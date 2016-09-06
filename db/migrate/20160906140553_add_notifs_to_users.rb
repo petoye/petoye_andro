@@ -1,5 +1,5 @@
 class AddNotifsToUsers < ActiveRecord::Migration
   def change
-    add_column :users, :notifications, :string
+    add_column :users, :notifications, :string, array: true, default: []
   end
 end
