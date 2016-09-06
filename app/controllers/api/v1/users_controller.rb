@@ -244,7 +244,7 @@ class Api::V1::UsersController < ApplicationController
 
   def notification
     user = User.find(params[:id])
-    render json: user.as_json(only:[:notifications,:imageurl]), status: 200
+    render json: user.as_json(only:[:notifications]), status: 200
   end
 
 end
