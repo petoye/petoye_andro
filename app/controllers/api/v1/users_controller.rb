@@ -180,7 +180,7 @@ class Api::V1::UsersController < ApplicationController
 
       #notif
         userx = User.find(following)
-        userx.notifications << @notif
+        userx.notify << @notif
         userx.followers = userx.followers + 1
       #end notif
       if follow.save && userx.save
@@ -244,7 +244,7 @@ class Api::V1::UsersController < ApplicationController
 
   def notification
     user = User.find(params[:id])
-    render json: user.as_json(only:[:notifications]), status: 200
+    render json: user.as_json(only:[:notify]), status: 200
   end
 
 end

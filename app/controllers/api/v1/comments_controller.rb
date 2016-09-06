@@ -22,7 +22,7 @@ class Api::V1::CommentsController < ApplicationController
     #notif
     x_id = feed.user_id
     userx = User.find(x_id)
-    userx.notifications << @notif
+    userx.notify << @notif
     #end notif
     if comment.save && feed.save && userx.save
       render json: comment.as_json(only:[:id,:comment_message]), status: 201

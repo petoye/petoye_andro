@@ -35,7 +35,7 @@
       #notif
       x_id = feed.user_id
       userx = User.find(x_id)
-      userx.notifications << @notif
+      userx.notify << @notif
       #end notif
       if feed.save && userx.save
         render json: feed.as_json(only:[:likedby,:like_count]), status: 200
