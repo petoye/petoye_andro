@@ -23,7 +23,9 @@
     #notif
     user = User.find(uid)
     uname = user.username
-    @notif = "#{uname}[#{uid}] liked your post[#{pid}]"
+    prof = user.imageurl
+    postpic = feed.smallimageurl
+    @notif = "#{uname}[#{uid}][#{prof}] liked your post[#{pid}][#{postpic}]"
     #end notif
     if feed.likedby.include?(uid) 
       render json: {errors: "already liked"}, status: 422
