@@ -162,7 +162,8 @@ class Api::V1::UsersController < ApplicationController
     #notif got who's following you
     user = User.find(follower)
     uname = user.username
-    @notif = "#{uname}[#{follower}] followed you"
+    prof = user.imageurl
+    @notif = "#{uname}[#{follower}][#{prof}] followed you"
     #end notif
 
     #follower count

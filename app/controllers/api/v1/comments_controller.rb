@@ -2,17 +2,23 @@ class Api::V1::CommentsController < ApplicationController
   respond_to :json
 
   def addcomment
+    feed = Feed.find(params[:pid])
+
     message = params[:comment]
     uid = params[:uid]
     pid = params[:pid]
+
     #notif
     user = User.find(uid)
     uname = user.username
-    @notif = "#{uname}[#{uid}] commented on your post[#{pid}]"
+    prof = user.imageurl
+    postpic = feed.smallimageurl
+    @notif = "#{uname}[#{uid}][#{prof}] commented on your post[#{pid}][#{postpic}]"
     #end notif
     comment = Comment.new({comment_message: message, user_id: uid, post_id: pid})
-    feed = Feed.find(params[:pid])
+    
     feed.comment_count = feed.comment_count + 1
+
     #notif
     x_id = feed.user_id
     userx = User.find(x_id)
