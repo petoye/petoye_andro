@@ -132,12 +132,7 @@
 
   def onefeed
     feed = Feed.find(params[:pid])
-
-    if feed.exists?
-      render json: feed.as_json(only:[:id,:message,:like_count,:comment_count,:imageurl,:created_at], include: { user: {only: [:username,:id,:imageurl]}}), status: 200
-    else
-      render json: { errors: "No such post" }, status: 422
-    end
+    render json: feed.as_json(only:[:id,:message,:like_count,:comment_count,:imageurl,:created_at], include: { user: {only: [:username,:id,:imageurl]}}), status: 200
   end
 
   def timeelapsed
