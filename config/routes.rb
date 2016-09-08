@@ -29,7 +29,7 @@ Rails.application.routes.draw do
        post '/feeds/:uid/create', to: 'feeds#create', as: "create_feed" #working
        get '/feeds/:uid/nearbyfeeds', to: 'feeds#nearbyfeeds', as: "nearby_feed" #working
        get '/feeds/:uid/followedfeeds', to: 'feeds#followeduserfeeds' #working
-       get 'feeds/:uid/show', to: 'feeds#onefeed'
+       get 'feeds/:pid/show', to: 'feeds#onefeed'
        get '/feeds/:id/time', to: 'feeds#timeelapsed' 
 
        post 'feeds/:pid/comment', to: 'comments#addcomment', as: "comment_users" #working
