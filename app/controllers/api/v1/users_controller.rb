@@ -247,4 +247,22 @@ class Api::V1::UsersController < ApplicationController
     render json: user.as_json(only:[:notify]), status: 200
   end
 
+  def token
+    tok = params[:token]
+    ena = params[:enabled]
+    pla = params[:platform]
+
+    user = User.find(params[:id])
+    user.token = tok
+    user.enabled = ena
+    user.platform = pla
+
+    if user.save
+      render json: user.as_json(only:[:id]), status: 200
+    else
+      render json: {errors: "couldn't add device token"}, status: 422
+    end
+    
+  end
+
 end
