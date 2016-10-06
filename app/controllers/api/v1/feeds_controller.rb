@@ -26,7 +26,28 @@
     prof = user.imageurl
     postpic = feed.smallimageurl
     @notif = "#{uname}[#{uid}][#{prof}] liked your post[#{pid}][#{postpic}]"
+    token = user.token
     #end notif
+
+    #push notif
+    pusher = Grocer.pusher(
+      certificate: "/Users/ameyavichare/Desktop/certificates/cert.pem",      # required
+      passphrase:  "",                       # optional
+      gateway:     "gateway.push.apple.com", # optional; See note below.
+      port:        2195,                     # optional
+      retries:     3                         # optional
+    ) 
+
+
+    notification = Grocer::Notification.new(
+      device_token: token,
+      alert: "#{uname} liked your post",
+      sound: 'default',
+      badge:  0
+    )
+
+    pusher.push(notification) # return value is the number of bytes sent successfully
+
     if feed.likedby.include?(uid) 
       render json: {errors: "already liked"}, status: 422
     else
