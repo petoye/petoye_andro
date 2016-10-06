@@ -31,7 +31,7 @@
 
     #push notif
     pusher = Grocer.pusher(
-      certificate: "/Users/ameyavichare/Desktop/certificates/cert.pem",      # required
+      certificate: "/Users/ameyavichare/Desktop/certificates/certificate.pem",      # required
       passphrase:  "",                       # optional
       gateway:     "gateway.push.apple.com", # optional; See note below.
       port:        2195,                     # optional
