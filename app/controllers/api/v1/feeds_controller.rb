@@ -32,7 +32,7 @@
     #push notif
     pusher = Grocer.pusher(
       certificate: "#{Rails.root}/public/certificate1.pem",      # required
-      passphrase:  "",                       # optional
+      passphrase:  "1234",                       # optional
       gateway:     "gateway.push.apple.com", # optional; See note below.
       port:        2195,                     # optional
       retries:     3                         # optional
