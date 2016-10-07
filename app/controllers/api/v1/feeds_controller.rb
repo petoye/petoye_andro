@@ -30,23 +30,23 @@
     #end notif
 
     #push notif
-    #pusher = Grocer.pusher(
-     # certificate: "#{Rails.root}/public/certificate1.pem",      # required
-      #passphrase:  "",                       # optional
-      #gateway:     "gateway.push.apple.com", # optional; See note below.
-      #port:        2195,                     # optional
-      #retries:     3                         # optional
-    #) 
+    pusher = Grocer.pusher(
+      certificate: "#{Rails.root}/public/certificate1.pem",      # required
+      passphrase:  "1234",                       # optional
+      gateway:     "gateway.push.apple.com", # optional; See note below.
+      port:        2195,                     # optional
+      retries:     3                         # optional
+    ) 
 
 
-    #notification = Grocer::Notification.new(
-     # device_token: token,
-     # alert: "#{uname} liked your post",
-      #sound: 'default',
-      #badge:  0
-    #)
+    notification = Grocer::Notification.new(
+      device_token: token,
+      alert: "#{uname} liked your post",
+      sound: 'default',
+      badge:  0
+    )
 
-    #pusher.push(notification) # return value is the number of bytes sent successfully
+    pusher.push(notification) # return value is the number of bytes sent successfully
 
     if feed.likedby.include?(uid) 
       render json: {errors: "already liked"}, status: 422
