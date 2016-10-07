@@ -43,7 +43,7 @@
       device_token: "#{token}",
       alert: "#{uname} liked your post",
       sound: 'default',
-      badge:  1
+      badge:  42
     )
 
     pusher.push(notification) # return value is the number of bytes sent successfully
