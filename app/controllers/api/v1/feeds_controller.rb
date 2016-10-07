@@ -40,7 +40,7 @@
 
 
     notification = Grocer::Notification.new(
-      device_token: "#{token}",
+      device_token: token,
       alert: "#{uname} liked your post",
       sound: 'default',
       badge:  0
