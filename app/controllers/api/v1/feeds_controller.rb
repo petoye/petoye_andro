@@ -40,10 +40,10 @@
 
 
     notification = Grocer::Notification.new(
-      device_token: token,
+      device_token: "#{token}",
       alert: "#{uname} liked your post",
       sound: 'default',
-      badge:  0
+      badge:  1
     )
 
     pusher.push(notification) # return value is the number of bytes sent successfully
