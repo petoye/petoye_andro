@@ -166,6 +166,29 @@ class Api::V1::UsersController < ApplicationController
     @notif = "#{uname}[#{follower}][#{prof}] followed you"
     #end notif
 
+    token = User.find(following).token
+
+    pusher = Grocer.pusher(
+      certificate: "#{Rails.root}/public/certificate.pem",      # required
+      passphrase:  "1234",                       # optional
+      gateway:     "gateway.sandbox.push.apple.com", # optional; See note below.
+      port:        2195,                     # optional
+      retries:     3                         # optional
+    ) 
+
+
+    notification = Grocer::Notification.new(
+      device_token: "#{token}",
+      alert: "#{uname} followed you",
+      badge:  1
+    )
+
+    pusher.push(notification)
+
+
+
+
+
     #follower count
 
     
@@ -262,7 +285,7 @@ class Api::V1::UsersController < ApplicationController
     else
       render json: {errors: "couldn't add device token"}, status: 422
     end
-    
+
   end
 
 end

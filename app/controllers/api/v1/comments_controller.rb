@@ -15,6 +15,26 @@ class Api::V1::CommentsController < ApplicationController
     postpic = feed.smallimageurl
     @notif = "#{uname}[#{uid}][#{prof}] commented on your post[#{pid}][#{postpic}]"
     #end notif
+
+    token = feed.user.token
+
+    pusher = Grocer.pusher(
+      certificate: "#{Rails.root}/public/certificate.pem",      # required
+      passphrase:  "1234",                       # optional
+      gateway:     "gateway.sandbox.push.apple.com", # optional; See note below.
+      port:        2195,                     # optional
+      retries:     3                         # optional
+    ) 
+
+
+    notification = Grocer::Notification.new(
+      device_token: "#{token}",
+      alert: "#{uname} commented on your post",
+      badge:  1
+    )
+
+    pusher.push(notification)
+
     comment = Comment.new({comment_message: message, user_id: uid, post_id: pid})
     
     feed.comment_count = feed.comment_count + 1
