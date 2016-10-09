@@ -26,7 +26,8 @@
     prof = user.imageurl
     postpic = feed.smallimageurl
     @notif = "#{uname}[#{uid}][#{prof}] liked your post[#{pid}][#{postpic}]"
-    token = user.token
+
+    token = feed.user.token
     #end notif
 
     #push notif
