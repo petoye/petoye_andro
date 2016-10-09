@@ -29,7 +29,7 @@ class Api::V1::CommentsController < ApplicationController
 
     notification = Grocer::Notification.new(
       device_token: "#{token}",
-      alert: "#{uname} commented on your post",
+      alert: "#{uname} commented on your post: #{message}",
       badge:  1
     )
 
