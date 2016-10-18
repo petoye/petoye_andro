@@ -45,7 +45,7 @@ class Api::V1::CommentsController < ApplicationController
     userx.notify << @notif
     #end notif
     if comment.save && feed.save && userx.save
-      render json: comment.as_json(only:[:id,:comment_message]), status: 201
+      render json: comment.as_json(only:[:comment_message],include:{ user: {only: [:username,:id,:imageurl]}}), status: 201
     else
       render json: {errors: "Could not comment"}, status: 422
     end
